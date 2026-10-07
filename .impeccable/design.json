@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T15:26:51-03:00",
-  "title": "Design System: Portfolio L — Etapas 1–3",
+  "generatedAt": "2026-10-07T19:59:56-03:00",
+  "title": "Design System: Portfolio L — Etapas 1–4",
   "extensions": {
     "colorMeta": {
       "ground": {
@@ -94,6 +94,76 @@
         "canonical": "#4D4D52",
         "tonalRamp": ["#141416", "#2B2B2E", "#4D4D52", "#66666B", "#818186", "#A1A1A6", "#CECED1", "#F2F2F3"]
       },
+      "process-sequence": {
+        "role": "neutral",
+        "displayName": "Process Sequence",
+        "canonical": "#626268"
+      },
+      "about-ground": {
+        "role": "neutral",
+        "displayName": "About Ground",
+        "canonical": "#0A0A0C"
+      },
+      "contact-ground": {
+        "role": "neutral",
+        "displayName": "Contact Ground",
+        "canonical": "#070709"
+      },
+      "about-copy": {
+        "role": "neutral",
+        "displayName": "About Copy",
+        "canonical": "#DEDEE0"
+      },
+      "fact-label": {
+        "role": "neutral",
+        "displayName": "Fact Label",
+        "canonical": "#78787E"
+      },
+      "fact-value": {
+        "role": "neutral",
+        "displayName": "Fact Value",
+        "canonical": "#D2D2D5"
+      },
+      "contact-primary": {
+        "role": "neutral",
+        "displayName": "Contact Primary",
+        "canonical": "#ECECED"
+      },
+      "contact-primary-text": {
+        "role": "neutral",
+        "displayName": "Contact Primary Text",
+        "canonical": "#111114"
+      },
+      "contact-secondary": {
+        "role": "neutral",
+        "displayName": "Contact Secondary",
+        "canonical": "#0D0D10"
+      },
+      "contact-secondary-border": {
+        "role": "neutral",
+        "displayName": "Contact Secondary Border",
+        "canonical": "#36363B"
+      },
+      "pending-primary": {
+        "role": "neutral",
+        "displayName": "Pending Primary",
+        "canonical": "#717177"
+      },
+      "pending-secondary": {
+        "role": "neutral",
+        "displayName": "Pending Secondary",
+        "canonical": "#818187"
+      },
+      "footer-border": {
+        "role": "neutral",
+        "displayName": "Footer Border",
+        "canonical": "#29292E"
+      },
+      "footer-copy": {
+        "role": "neutral",
+        "displayName": "Footer Copy",
+        "canonical": "#ADADB1"
+      },
       "accent": {
         "role": "primary",
         "displayName": "Cyan Signal",
@@ -161,6 +231,30 @@
       "project-status": {
         "displayName": "Project Status",
         "purpose": "Estado Próximamente visible junto al CTA pendiente."
+      },
+      "closing-display": {
+        "displayName": "Stage 4 Closing Display",
+        "purpose": "Títulos de Proceso, Sobre mí y Contacto entre 56 y 92px."
+      },
+      "process-number": {
+        "displayName": "Process Number",
+        "purpose": "Numeración tabular 01–04 de la secuencia conectada."
+      },
+      "process-step-title": {
+        "displayName": "Process Step Title",
+        "purpose": "Nombre editorial de cada fase del proceso."
+      },
+      "about-intro": {
+        "displayName": "About Introduction",
+        "purpose": "Presentación profesional de mayor presencia, con máximo de 34rem."
+      },
+      "fact-label": {
+        "displayName": "About Fact Label",
+        "purpose": "Rótulos uppercase de Perfil, Modalidad y Enfoque."
+      },
+      "contact-action": {
+        "displayName": "Contact Action",
+        "purpose": "Nombre de cada canal de contacto preparado pero todavía deshabilitado."
       },
       "navigation": {
         "displayName": "Navigation",
@@ -250,6 +344,21 @@
         "purpose": "Demora de la segunda card secundaria respecto de la primera."
       },
       {
+        "name": "process-step-reveal",
+        "value": "600ms opacity / 640ms transform cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Ascenso de 18px de número, título y descripción dentro del observer compartido."
+      },
+      {
+        "name": "process-step-stagger",
+        "value": "160–180ms",
+        "purpose": "Demora acumulativa de 120–600ms en desktop y 120–660ms en mobile."
+      },
+      {
+        "name": "process-axis-reveal",
+        "value": "8000ms linear infinite; paused outside the viewport",
+        "purpose": "Progreso cyan continuo izquierda→derecha en desktop y arriba→abajo en mobile; cada punto recibe un pulso sutil al paso de la barra."
+      },
+      {
         "name": "reduced-motion",
         "value": "0.01ms",
         "purpose": "Duración mínima para desactivar transiciones y animaciones sin ocultar contenido."
@@ -334,16 +443,51 @@
       "description": "Card editorial abierta con visual grande, stack inline y CTA Próximamente; se usa en grilla 2→1.",
       "html": "<article class=\"ds-project-card\"><figure class=\"ds-project-visual\" data-replace-target=\"project-screenshots\"><div class=\"ds-project-stage\" aria-hidden=\"true\"><div class=\"ds-project-window\"></div></div><figcaption>Espacio reservado para las capturas del proyecto</figcaption></figure><div class=\"ds-project-body\"><h4>E-Commerce Full Stack</h4><p>Una tienda online completa con catálogo, autenticación, proceso de compra y pagos integrados.</p><ul class=\"ds-project-tech\"><li>Vue</li><li>Node.js</li><li>PostgreSQL</li><li>Stripe</li></ul><span class=\"ds-project-cta\"><span>Ver proyecto</span><span aria-hidden=\"true\">→</span><span class=\"ds-project-status\">Próximamente</span></span></div></article>",
       "css": ".ds-project-card { min-width:0; padding-top:clamp(2.5rem,4vw,4rem); background:var(--color-bg, #050505); color:var(--color-text, #F5F5F2); font-family:var(--font-body, \"General Sans\", sans-serif); } .ds-project-visual { margin:0; } .ds-project-stage { position:relative; width:100%; aspect-ratio:16/10; overflow:hidden; border:1px solid var(--color-border, #242428); border-radius:1rem; background:var(--color-surface, #0D0D0F); transition:border-color 260ms ease, transform 320ms cubic-bezier(.22,1,.36,1); } .ds-project-window { position:absolute; inset:10% 9%; border:1px solid #343439; border-radius:.7rem; background:#09090B; } .ds-project-visual figcaption { margin-top:1rem; color:#A9A9AE; font-size:.78rem; letter-spacing:.04em; } .ds-project-body { padding-top:clamp(1.75rem,2.5vw,2.5rem); } .ds-project-body h4 { margin:0; font-family:var(--font-display, \"Clash Display\", sans-serif); font-size:clamp(2rem,2.8vw,3rem); font-weight:600; letter-spacing:-.03em; line-height:1; } .ds-project-body p { margin:1.25rem 0 0; color:#B8B8BC; font-size:1rem; line-height:1.65; } .ds-project-tech { display:flex; flex-wrap:wrap; margin:1.5rem 0 0; padding:0; color:#A9A9AE; font-size:.82rem; font-weight:500; list-style:none; } .ds-project-tech li:not(:last-child)::after { margin:0 .65rem; color:#4D4D52; content:\"/\"; } .ds-project-cta { display:inline-flex; align-items:center; gap:.55rem; margin-top:2rem; color:var(--color-accent, #69C6FF); font-size:.93rem; font-weight:600; cursor:default; } .ds-project-status { margin-left:.25rem; padding-left:.75rem; border-left:1px solid #38383D; color:#8F8F94; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; } @media (hover:hover) and (pointer:fine) { .ds-project-card:hover .ds-project-stage { transform:translateY(-.1875rem) scale(1.01); border-color:color-mix(in srgb, var(--color-accent, #69C6FF) 44%, var(--color-border, #242428)); } } @media (max-width:47.99rem) { .ds-project-stage { aspect-ratio:4/3; } .ds-project-body h4 { font-size:clamp(2.25rem,10vw,3rem); } .ds-project-body p { font-size:1.0625rem; } }"
+    },
+    {
+      "name": "Process Timeline",
+      "kind": "custom",
+      "refersTo": "process-step",
+      "description": "Secuencia compacta de cuatro fases con línea base y progreso cyan en loop de 8s; horizontal en desktop y vertical en mobile.",
+      "html": "<ol class=\"ds-process\"><li><span class=\"ds-process-number\">01</span><span class=\"ds-process-rail\"><i></i></span><h3>Entendemos la idea</h3><p>Analizamos qué necesitás, qué problema querés resolver y cuáles son los objetivos.</p></li><li><span class=\"ds-process-number\">02</span><span class=\"ds-process-rail\"><i></i></span><h3>Diseñamos la solución</h3><p>Definimos estructura, funcionalidades y experiencia antes de desarrollar.</p></li><li><span class=\"ds-process-number\">03</span><span class=\"ds-process-rail\"><i></i></span><h3>Desarrollo y pruebas</h3><p>Construyo la solución, la adapto y pruebo que todo funcione correctamente.</p></li><li><span class=\"ds-process-number\">04</span><span class=\"ds-process-rail\"><i></i></span><h3>Publicación y soporte</h3><p>Ponemos el proyecto online y queda preparado para mejoras y mantenimiento.</p></li></ol>",
+      "css": ".ds-process { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); margin:0; padding:clamp(3.25rem,5vw,4.5rem) 0 0; background:var(--color-bg,#050505); color:var(--color-text,#F5F5F2); font-family:var(--font-body,\"General Sans\",sans-serif); list-style:none; } .ds-process li { min-width:0; padding-right:clamp(1.5rem,2.6vw,2.75rem); } .ds-process-number { display:block; color:#76767C; font-family:var(--font-display,\"Clash Display\",sans-serif); font-size:clamp(2rem,2.6vw,2.5rem); font-variant-numeric:tabular-nums; font-weight:600; letter-spacing:-.025em; line-height:1; } .ds-process-rail { position:relative; display:block; height:.75rem; margin:1rem 0 1.5rem; } .ds-process-rail::before,.ds-process-rail::after { position:absolute; top:50%; right:-2.75rem; left:0; height:1px; content:\"\"; } .ds-process-rail::before { background:#343439; } .ds-process-rail::after { background:var(--color-accent,#69C6FF); } .ds-process li:last-child .ds-process-rail::before,.ds-process li:last-child .ds-process-rail::after { display:none; } .ds-process-rail i { position:absolute; z-index:1; top:50%; left:0; width:.625rem; height:.625rem; border:1px solid var(--color-accent,#69C6FF); border-radius:50%; background:var(--color-accent,#69C6FF); transform:translateY(-50%); } .ds-process h3 { max-width:12ch; margin:0; font-family:var(--font-display,\"Clash Display\",sans-serif); font-size:clamp(1.6rem,2vw,2rem); letter-spacing:-.025em; line-height:1.04; } .ds-process p { max-width:22rem; margin:.85rem 0 0; color:#ABABAF; font-size:clamp(.95rem,1.05vw,1rem); line-height:1.65; } @media (max-width:47.99rem) { .ds-process { display:block; padding-top:3rem; } .ds-process li { position:relative; display:grid; grid-template-columns:2rem minmax(0,1fr); gap:0 .75rem; padding:0 0 2.75rem; } .ds-process-number { grid-column:2; font-size:1.25rem; } .ds-process-rail { grid-column:1; grid-row:1 / span 3; width:2rem; height:100%; margin:0; } .ds-process-rail::before,.ds-process-rail::after { top:.65rem; right:auto; bottom:-.65rem; left:.296875rem; width:1px; height:auto; } .ds-process h3,.ds-process p { grid-column:2; } .ds-process h3 { margin:.6rem 0 0; font-size:clamp(1.75rem,8vw,2.25rem); } .ds-process p { margin-top:.75rem; } }"
+    },
+    {
+      "name": "About Section",
+      "kind": "custom",
+      "refersTo": "about-panel",
+      "description": "Pausa personal de dos columnas con introducción y tres hechos confirmados.",
+      "html": "<section class=\"ds-about\"><h2>Sobre mí</h2><div class=\"ds-about-content\"><p>Soy desarrollador Full Stack y trabajo en sitios web, sistemas a medida y soluciones digitales, buscando que cada proyecto sea claro, útil y fácil de usar.</p><dl><div><dt>Perfil</dt><dd>Full Stack</dd></div><div><dt>Modalidad</dt><dd>La Plata / Remoto</dd></div><div><dt>Enfoque</dt><dd>Webs · Sistemas · E-commerce</dd></div></dl></div></section>",
+      "css": ".ds-about { display:grid; grid-template-columns:minmax(15rem,.75fr) minmax(0,1.25fr); gap:clamp(4rem,9vw,10rem); padding:clamp(8rem,12vw,12rem) clamp(1.25rem,5vw,5.5rem); border-top:1px solid var(--color-border,#242428); background:#0A0A0C; color:var(--color-text,#F5F5F2); font-family:var(--font-body,\"General Sans\",sans-serif); } .ds-about h2 { margin:0; font-family:var(--font-display,\"Clash Display\",sans-serif); font-size:clamp(3.5rem,6vw,5.75rem); letter-spacing:-.04em; line-height:.94; } .ds-about-content>p { max-width:34rem; margin:0; color:#DEDEE0; font-size:clamp(1.3rem,2vw,1.75rem); letter-spacing:-.018em; line-height:1.48; } .ds-about dl { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); margin:clamp(3.5rem,6vw,6rem) 0 0; border-top:1px solid #333338; border-bottom:1px solid #333338; } .ds-about dl div { min-width:0; padding:1.5rem clamp(1rem,2vw,1.75rem) 1.65rem 0; } .ds-about dl div:not(:last-child) { margin-right:clamp(1rem,2vw,1.75rem); border-right:1px solid #333338; } .ds-about dt { color:#78787E; font-size:.68rem; font-weight:600; letter-spacing:.12em; text-transform:uppercase; } .ds-about dd { margin:.55rem 0 0; color:#D2D2D5; font-size:.95rem; line-height:1.45; } @media (max-width:64rem) { .ds-about dl { grid-template-columns:1fr; } .ds-about dl div:not(:last-child) { margin-right:0; border-right:0; border-bottom:1px solid #333338; } } @media (max-width:47.99rem) { .ds-about { grid-template-columns:1fr; gap:3.5rem; padding-top:7rem; padding-bottom:7rem; } .ds-about h2 { font-size:clamp(3rem,14vw,4.5rem); } }"
+    },
+    {
+      "name": "Pending Contact Actions",
+      "kind": "button",
+      "refersTo": "contact-action-primary",
+      "description": "Canales de WhatsApp y email preparados pero deshabilitados hasta contar con destinos reales.",
+      "html": "<div class=\"ds-contact-actions\"><button class=\"ds-contact-action ds-contact-action-primary\" type=\"button\" disabled><span><strong>Escribime por WhatsApp</strong><small>Destino pendiente de configurar</small></span></button><button class=\"ds-contact-action ds-contact-action-secondary\" type=\"button\" disabled><span><strong>Enviarme un email</strong><small>Destino pendiente de configurar</small></span></button></div>",
+      "css": ".ds-contact-actions { display:grid; gap:.9rem; width:min(100%,34rem); font-family:var(--font-body,\"General Sans\",sans-serif); } .ds-contact-action { display:flex; width:100%; min-height:5.75rem; align-items:center; padding:1.2rem 1.35rem; border:1px solid transparent; border-radius:.75rem; font:inherit; text-align:left; } .ds-contact-action:disabled { cursor:not-allowed; opacity:1; } .ds-contact-action-primary { background:#ECECED; color:#111114; } .ds-contact-action-secondary { border-color:#36363B; background:#0D0D10; color:var(--color-text,#F5F5F2); } .ds-contact-action span { display:grid; gap:.35rem; } .ds-contact-action strong { font-size:1rem; font-weight:600; line-height:1.2; } .ds-contact-action small { color:#717177; font-size:.7rem; font-weight:600; letter-spacing:.04em; line-height:1.35; text-transform:uppercase; } .ds-contact-action-secondary small { color:#818187; } @media (max-width:47.99rem) { .ds-contact-actions { gap:.75rem; } .ds-contact-action { min-height:5.5rem; padding:1.1rem 1.2rem; } }"
+    },
+    {
+      "name": "Pending Destinations Footer",
+      "kind": "nav",
+      "description": "Cierre mínimo con marca enlazada al inicio y tres destinos sociales todavía no navegables.",
+      "html": "<footer class=\"ds-footer\"><a href=\"#inicio\">L</a><ul><li><span>Email <small>Próximamente</small></span></li><li><span>LinkedIn <small>Próximamente</small></span></li><li><span>GitHub <small>Próximamente</small></span></li></ul></footer>",
+      "css": ".ds-footer { display:flex; min-height:6rem; align-items:center; justify-content:space-between; gap:2rem; padding:1.5rem clamp(1.25rem,5vw,5.5rem); border-top:1px solid #29292E; background:#070709; color:#ADADB1; font-family:var(--font-body,\"General Sans\",sans-serif); } .ds-footer>a { color:var(--color-text,#F5F5F2); font-family:var(--font-display,\"Clash Display\",sans-serif); font-size:1.35rem; font-weight:600; line-height:1; text-decoration:none; } .ds-footer>a:focus-visible { outline:.125rem solid var(--color-accent,#69C6FF); outline-offset:.25rem; } .ds-footer ul { display:flex; flex-wrap:wrap; gap:1.5rem; margin:0; padding:0; font-size:.8rem; list-style:none; } .ds-footer span { display:flex; align-items:center; gap:.5rem; } .ds-footer small { color:#626268; font-size:.58rem; font-weight:600; letter-spacing:.09em; text-transform:uppercase; } @media (max-width:47.99rem) { .ds-footer { align-items:flex-start; flex-direction:column; padding-top:2rem; padding-bottom:2rem; } .ds-footer ul { width:100%; align-items:flex-start; flex-direction:column; gap:.9rem; } .ds-footer li,.ds-footer span { width:100%; } .ds-footer span { justify-content:space-between; } }"
     }
   ],
   "narrative": {
     "northStar": "El umbral de una propuesta cinematográfica",
-    "overview": "La interfaz implementada comienza como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. Después del umbral negro, el mismo lenguaje continúa sin corte desde la declaración de gran escala hacia capítulos editoriales alternados que explican la oferta sin convertirla en una grilla de tarjetas. Proyectos prolonga ese recorrido como un portfolio cinematográfico: un caso principal con copy cercano a un tercio y visual cercano a dos tercios, seguido por dos casos secundarios en una grilla amplia.\n\nLa profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción y secuencia, no como superficie de marca. Las extensiones de Servicios y Proyectos conservan la sobriedad del Hero: separadores finos, neutrales cercanos y mockups abstractos claramente rotulados como espacios de reemplazo, nunca como prueba visual definitiva. Etapa 3 no redefine Hero ni Servicios: es una extensión local del contrato de dirección existente (seed `fb07d1ed`), no una identidad nueva.",
+    "overview": "La interfaz implementada comienza como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. Después del umbral negro, el mismo lenguaje continúa sin corte desde la declaración de gran escala hacia capítulos editoriales alternados que explican la oferta sin convertirla en una grilla de tarjetas. Proyectos prolonga ese recorrido como un portfolio cinematográfico: un caso principal con copy cercano a un tercio y visual cercano a dos tercios, seguido por dos casos secundarios en una grilla amplia. La Etapa 4 completa el relato con una línea de proceso conectada, una pausa personal más quieta, una invitación de contacto y un footer honesto sobre los destinos todavía pendientes.\n\nLa profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción y secuencia, no como superficie de marca. Servicios, Proyectos, Proceso, Sobre mí y Contacto conservan la sobriedad del Hero mediante separadores finos, neutrales cercanos, geometría lineal y grandes campos de aire. Etapas 3 y 4 son extensiones locales del contrato de dirección existente (seed `fb07d1ed`): no redefinen el Hero ni la identidad y no convierten el cierre en una plantilla de timeline, biografía o formulario.",
     "keyCharacteristics": [
       "Video full-bleed como materia visual principal.",
       "Declaración negra de escala póster como pausa entre promesa y oferta.",
       "Capítulos de servicio alternados con visuales cercanos a la mitad del viewport desktop, no cards equivalentes.",
       "Caso destacado de Proyectos con protagonismo visual y dos secundarios en grilla editorial.",
+      "Timeline conectado de cuatro pasos que refluye de horizontal a vertical.",
+      "Pausa Sobre mí con copy editorial y hechos tipográficos, sin card biográfica.",
+      "Cierre comercial con acciones de contacto deshabilitadas y destinos pendientes explícitos.",
+      "Footer mínimo con Email, LinkedIn y GitHub no navegables hasta su configuración.",
       "Jerarquía por escala, contraste y espacio negativo.",
       "Negro casi absoluto, blanco cálido y cyan usado con rareza.",
       "Controles compactos, bordes suaves y respuesta táctil contenida.",
@@ -382,6 +526,16 @@
         "section": "layout"
       },
       {
+        "name": "The One Connected Process Rule",
+        "body": "Proceso se dibuja como una sola secuencia horizontal de cuatro fases y se traduce a un único eje vertical en mobile; no se fragmenta en cards equivalentes.",
+        "section": "layout"
+      },
+      {
+        "name": "The Honest Close Rule",
+        "body": "Contacto y footer muestran los canales todavía pendientes como estados visibles y no navegables; ninguna apariencia de botón o enlace promete un destino inexistente.",
+        "section": "layout"
+      },
+      {
         "name": "The Depth Without Cards Rule",
         "body": "La atmósfera se construye con video, overlays, fade y blur contextual; no con contenedores elevados genéricos.",
         "section": "elevation"
@@ -397,7 +551,10 @@
       "Do preservar la jerarquía del portfolio: destacado con 67.8% visual medido y secundarios en grilla 2→1.",
       "Do presentar capacidades con divisores finos y stacks tecnológicos inline separados por slash.",
       "Do mantener Próximamente visible y Ver proyecto → sin interacción hasta contar con destinos reales.",
-      "Do rotular los seis visuales temporales como espacios de reemplazo hasta contar con activos definitivos."
+      "Do rotular los seis visuales temporales como espacios de reemplazo hasta contar con activos definitivos.",
+      "Do preservar Proceso como una única secuencia 4→1: horizontal en desktop y vertical en mobile.",
+      "Do mantener Sobre mí como una pausa tipográfica basada solo en información confirmada.",
+      "Do conservar WhatsApp, email y destinos del footer como estados pendientes no navegables hasta configurar datos reales."
     ],
     "donts": [
       "Don't extender el cyan a grandes superficies, títulos o gradientes decorativos.",
@@ -405,6 +562,9 @@
       "Don't convertir capacidades o stacks de proyecto en nubes de badges.",
       "Don't presentar los mockups abstractos como screenshots o prueba visual definitiva.",
       "Don't añadir hover, focus o enlace activo a un CTA de proyecto sin URL real.",
+      "Don't convertir el proceso en cuatro cards desconectadas ni cortar su eje en mobile.",
+      "Don't añadir fotografía, métricas, testimonios o datos biográficos no confirmados a Sobre mí.",
+      "Don't convertir las acciones deshabilitadas de Contacto o los destinos del footer en enlaces falsos.",
       "Don't implementar parallax, zoom por scroll, cursor tracking, WebGL, 3D ni animación pesada.",
       "Don't convertir la navegación mobile en un drawer pesado o una cápsula flotante."
     ]

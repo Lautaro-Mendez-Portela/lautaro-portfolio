@@ -90,7 +90,7 @@ if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
 
       const bounds = item.getBoundingClientRect();
 
-      if (bounds.top <= triggerLine && bounds.bottom >= 0) {
+      if (bounds.top <= triggerLine) {
         revealItem(item);
       }
     });
@@ -123,4 +123,36 @@ if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
 
   window.addEventListener('scroll', queueRevealCheck, { passive: true });
   window.addEventListener('resize', queueRevealCheck);
+}
+
+const processTimeline = document.querySelector('[data-reveal="timeline"]');
+
+if (processTimeline && !prefersReducedMotion.matches && 'IntersectionObserver' in window) {
+  const processLoopObserver = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting && !document.hidden) {
+        processTimeline.classList.add('is-looping');
+        processTimeline.classList.remove('is-loop-paused');
+        return;
+      }
+
+      if (processTimeline.classList.contains('is-looping')) {
+        processTimeline.classList.add('is-loop-paused');
+      }
+    },
+    { threshold: 0.08 },
+  );
+
+  processLoopObserver.observe(processTimeline);
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      processTimeline.classList.add('is-loop-paused');
+      return;
+    }
+
+    const bounds = processTimeline.getBoundingClientRect();
+    const isInViewport = bounds.bottom > 0 && bounds.top < window.innerHeight;
+    processTimeline.classList.toggle('is-loop-paused', !isInViewport);
+  });
 }

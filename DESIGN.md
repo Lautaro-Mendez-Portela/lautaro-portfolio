@@ -1,5 +1,5 @@
 ---
-name: "Portfolio L — Etapas 1–3"
+name: "Portfolio L — Etapas 1–4"
 description: "Un recorrido cinematográfico y editorial para presentar soluciones digitales a medida."
 colors:
   ground: "#050505"
@@ -17,6 +17,20 @@ colors:
   project-status: "#8F8F94"
   project-status-divider: "#38383D"
   project-tech-divider: "#4D4D52"
+  process-sequence: "#626268"
+  about-ground: "#0A0A0C"
+  contact-ground: "#070709"
+  about-copy: "#DEDEE0"
+  fact-label: "#78787E"
+  fact-value: "#D2D2D5"
+  contact-primary: "#ECECED"
+  contact-primary-text: "#111114"
+  contact-secondary: "#0D0D10"
+  contact-secondary-border: "#36363B"
+  pending-primary: "#717177"
+  pending-secondary: "#818187"
+  footer-border: "#29292E"
+  footer-copy: "#ADADB1"
   accent: "#69C6FF"
 typography:
   display-desktop:
@@ -103,6 +117,41 @@ typography:
     fontWeight: 600
     lineHeight: 1
     letterSpacing: "0.08em"
+  closing-display:
+    fontFamily: '"Clash Display", "Arial Black", "Helvetica Neue", sans-serif'
+    fontSize: "clamp(3.5rem, 6vw, 5.75rem)"
+    fontWeight: 600
+    lineHeight: 0.94
+    letterSpacing: "-0.04em"
+  process-number:
+    fontFamily: '"Clash Display", "Arial Black", "Helvetica Neue", sans-serif'
+    fontSize: "clamp(2rem, 2.6vw, 2.5rem)"
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: "-0.025em"
+  process-step-title:
+    fontFamily: '"Clash Display", "Arial Black", "Helvetica Neue", sans-serif'
+    fontSize: "clamp(1.75rem, 2.2vw, 2.25rem)"
+    fontWeight: 600
+    lineHeight: 1
+    letterSpacing: "-0.025em"
+  about-intro:
+    fontFamily: '"General Sans", "Helvetica Neue", Arial, sans-serif'
+    fontSize: "clamp(1.3rem, 2vw, 1.75rem)"
+    fontWeight: 400
+    lineHeight: 1.48
+    letterSpacing: "-0.018em"
+  fact-label:
+    fontFamily: '"General Sans", "Helvetica Neue", Arial, sans-serif'
+    fontSize: "0.68rem"
+    fontWeight: 600
+    lineHeight: 1.2
+    letterSpacing: "0.12em"
+  contact-action:
+    fontFamily: '"General Sans", "Helvetica Neue", Arial, sans-serif'
+    fontSize: "1rem"
+    fontWeight: 600
+    lineHeight: 1.2
   navigation:
     fontFamily: '"General Sans", "Helvetica Neue", Arial, sans-serif'
     fontSize: "0.9rem"
@@ -129,6 +178,11 @@ spacing:
   project-featured-gap: "clamp(3rem, 5.5vw, 6rem)"
   project-featured-block: "clamp(5.5rem, 8vw, 8rem)"
   project-grid-gap: "clamp(2rem, 4vw, 4.5rem)"
+  process-block-end: "clamp(5.5rem, 7vw, 7rem)"
+  process-timeline-start: "clamp(3.25rem, 5vw, 4.5rem)"
+  closing-block: "clamp(8rem, 12vw, 12rem)"
+  closing-gap: "clamp(4rem, 9vw, 10rem)"
+  contact-action-inset: "1.2rem 1.35rem"
 components:
   button-primary:
     backgroundColor: "{colors.text-primary}"
@@ -161,17 +215,39 @@ components:
     backgroundColor: "transparent"
     textColor: "{colors.accent}"
     typography: "{typography.project-cta}"
+  process-step:
+    backgroundColor: "{colors.ground}"
+    textColor: "{colors.text-primary}"
+    typography: "{typography.process-step-title}"
+  about-panel:
+    backgroundColor: "{colors.about-ground}"
+    textColor: "{colors.about-copy}"
+    typography: "{typography.about-intro}"
+  contact-action-primary:
+    backgroundColor: "{colors.contact-primary}"
+    textColor: "{colors.contact-primary-text}"
+    typography: "{typography.contact-action}"
+    rounded: "{rounded.control}"
+    padding: "{spacing.contact-action-inset}"
+    height: "5.75rem"
+  contact-action-secondary:
+    backgroundColor: "{colors.contact-secondary}"
+    textColor: "{colors.text-primary}"
+    typography: "{typography.contact-action}"
+    rounded: "{rounded.control}"
+    padding: "{spacing.contact-action-inset}"
+    height: "5.75rem"
 ---
 
-# Design System: Portfolio L — Etapas 1–3
+# Design System: Portfolio L — Etapas 1–4
 
 ## Overview
 
 **Creative North Star: "El umbral de una propuesta cinematográfica"**
 
-La interfaz implementada comienza como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. Después del umbral negro, el mismo lenguaje continúa sin corte desde la declaración de gran escala hacia capítulos editoriales alternados que explican la oferta sin convertirla en una grilla de tarjetas. Proyectos prolonga ese recorrido como un portfolio cinematográfico: un caso principal con copy cercano a un tercio y visual cercano a dos tercios, seguido por dos casos secundarios en una grilla amplia.
+La interfaz implementada comienza como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. Después del umbral negro, el mismo lenguaje continúa sin corte desde la declaración de gran escala hacia capítulos editoriales alternados que explican la oferta sin convertirla en una grilla de tarjetas. Proyectos prolonga ese recorrido como un portfolio cinematográfico: un caso principal con copy cercano a un tercio y visual cercano a dos tercios, seguido por dos casos secundarios en una grilla amplia. La Etapa 4 completa el relato con una línea de proceso conectada, una pausa personal más quieta, una invitación de contacto y un footer honesto sobre los destinos todavía pendientes.
 
-La profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción y secuencia, no como superficie de marca. Las extensiones de Servicios y Proyectos conservan la sobriedad del Hero: separadores finos, neutrales cercanos y mockups abstractos claramente rotulados como espacios de reemplazo, nunca como prueba visual definitiva. Etapa 3 no redefine Hero ni Servicios: es una extensión local del contrato de dirección existente (seed `fb07d1ed`), no una identidad nueva.
+La profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción y secuencia, no como superficie de marca. Servicios, Proyectos, Proceso, Sobre mí y Contacto conservan la sobriedad del Hero mediante separadores finos, neutrales cercanos, geometría lineal y grandes campos de aire. Etapas 3 y 4 son extensiones locales del contrato de dirección existente (seed `fb07d1ed`): no redefinen el Hero ni la identidad y no convierten el cierre en una plantilla de timeline, biografía o formulario.
 
 **Key Characteristics:**
 
@@ -179,6 +255,10 @@ La profundidad proviene de la imagen en movimiento, de veladuras funcionales y d
 - Declaración negra de escala póster como pausa entre promesa y oferta.
 - Capítulos de servicio alternados con visuales cercanos a la mitad del viewport desktop, no cards equivalentes.
 - Caso destacado de Proyectos con protagonismo visual y dos secundarios en grilla editorial.
+- Timeline conectado de cuatro pasos que transforma la metodología en una secuencia legible.
+- Pausa `Sobre mí` con copy editorial y hechos tipográficos, sin card biográfica.
+- Cierre comercial en dos columnas con acciones de contacto honestamente deshabilitadas.
+- Footer mínimo con destinos sociales explícitamente pendientes.
 - Jerarquía por escala, contraste y espacio negativo.
 - Negro casi absoluto, blanco cálido y cyan usado con rareza.
 - Controles compactos, bordes suaves y respuesta táctil contenida.
@@ -210,6 +290,16 @@ La paleta usa negros cercanos, neutrales ligeramente cálidos y un único acento
 - **Project Status** (`project-status`, #8F8F94): estado visible `Próximamente` junto a los CTA de proyecto sin destino.
 - **Project Status Divider** (`project-status-divider`, #38383D): divisor corto entre el CTA de proyecto y su estado pendiente.
 - **Project Tech Divider** (`project-tech-divider`, #4D4D52): slash que separa tecnologías sin convertirlas en badges.
+- **Process Sequence** (`process-sequence`, #626268): números 01–04 y estados de baja intensidad en la línea de proceso.
+- **About Ground** (`about-ground`, #0A0A0C): variación tonal que marca la pausa personal sin crear una superficie elevada.
+- **Contact Ground** (`contact-ground`, #070709): negro cercano usado por Contacto y footer para cerrar la página como un mismo campo.
+- **About Copy** (`about-copy`, #DEDEE0): texto introductorio de mayor presencia en Sobre mí.
+- **Fact Label** (`fact-label`, #78787E): rótulos uppercase de Perfil, Modalidad y Enfoque.
+- **Fact Value** (`fact-value`, #D2D2D5): valores confirmados del bloque de hechos personales.
+- **Contact Primary** (`contact-primary`, #ECECED) y **Contact Primary Text** (`contact-primary-text`, #111114): acción clara de WhatsApp, hoy deshabilitada y sin destino.
+- **Contact Secondary** (`contact-secondary`, #0D0D10) y **Contact Secondary Border** (`contact-secondary-border`, #36363B): acción oscura de email, también deshabilitada.
+- **Pending Primary** (`pending-primary`, #717177) y **Pending Secondary** (`pending-secondary`, #818187): copy explícito de destino pendiente en las dos acciones de contacto.
+- **Footer Border** (`footer-border`, #29292E) y **Footer Copy** (`footer-copy`, #ADADB1): separación y nombres de los destinos del cierre.
 
 ### Named Rules
 
@@ -241,6 +331,12 @@ La paleta usa negros cercanos, neutrales ligeramente cálidos y un único acento
 - **Project tech** (500, 13.12px, 1.4): stack inline separado por slash.
 - **Project CTA** (600, 14.88px, 1.2): etiqueta cyan `Ver proyecto →` sin microaffordance activa mientras no exista destino.
 - **Project status** (600, 10.88px, 0.08em): `Próximamente` en mayúsculas como estado explícito, no como badge promocional.
+- **Closing display** (600, 56–92px fluidos, 0.94, -0.04em): títulos de Proceso, Sobre mí y Contacto; en mobile baja a 45.6–72px según la sección.
+- **Process number** (600, 32–40px fluidos, 1): numeración tabular 01–04 subordinada al recorrido; en mobile se compacta a 20px junto al eje vertical.
+- **Process step title** (600, 25.6–32px fluidos, 1.04): nombre de cada fase, con un máximo de 12ch; en mobile usa 28–36px.
+- **About intro** (400, 20.8–28px fluidos, 1.48): presentación profesional de hasta 34rem, con una voz más amplia que el cuerpo explicativo.
+- **Fact label** (600, 10.88px, 0.12em): rótulos uppercase de los tres hechos confirmados.
+- **Contact action** (600, 16px, 1.2): nombre principal de cada canal; el estado pendiente usa 11.2px uppercase y tracking de 0.04em.
 - **Navigation** (500, 14.4px, 1): enlaces discretos del masthead; en el menú mobile suben a 15.2px.
 - **Button** (600, 15.2px, 1.1): CTA claros y firmes sin convertirse en etiquetas gritadas.
 
@@ -258,7 +354,11 @@ Proyectos continúa el negro editorial dentro del mismo gutter y abre con un enc
 
 Los proyectos secundarios se organizan en una grilla de dos columnas con gap de `clamp(2rem, 4vw, 4.5rem)`. Cada caso prioriza un visual grande, luego título, resumen, stack inline separado por slash y CTA pendiente. En mobile, tanto el caso destacado como la grilla refluyen a una sola columna copy-first; los tres escenarios visuales pasan a 4:3 y la separación entre casos secundarios queda en 4.5rem.
 
-Hasta 64rem, los capítulos conservan la asimetría con `0.82fr / 1.18fr` —`1.18fr / 0.82fr` al invertirse— y un gap de `clamp(2.5rem, 4vw, 3.5rem)`; el caso destacado de Proyectos ajusta sus columnas a `0.56fr / 1.24fr`. Debajo de 47.99rem, la declaración usa `clamp(27rem, 56svh, 31rem)` de altura mínima y `clamp(5.5rem, 18vw, 7rem)` de padding vertical; los encabezados de sección compactan su altura y padding. Servicios y el caso destacado pasan a una sola columna copy-first, mientras los secundarios pasan de dos columnas a una. Las secciones `#servicios` y `#proyectos` aplican un offset de anclaje igual a la altura del header más 24px para no quedar ocultas.
+Proceso mantiene el gutter global y usa un bloque vertical compacto: padding superior de `clamp(6.5rem, 9vw, 9rem)` e inferior de `clamp(5.5rem, 7vw, 7rem)`. Título y subtítulo forman un único grupo alineado a la izquierda sobre un divisor, con 16px entre ambos. La timeline comienza a `clamp(3.25rem, 5vw, 4.5rem)` y se organiza en cuatro columnas conectadas por una línea base gris y un progreso cyan. Cada paso reduce su anatomía a número, punto, título y explicación; no usa cards ni diagramas decorativos.
+
+Sobre mí cambia apenas el tono de fondo a `#0A0A0C` y usa columnas `0.75fr / 1.25fr` con gap de `clamp(4rem, 9vw, 10rem)`. La columna izquierda contiene el título y una marca lineal; la derecha presenta una introducción de hasta 34rem y tres hechos tipográficos con divisores. Contacto usa el mismo padding vertical de `clamp(8rem, 12vw, 12rem)` sobre `#070709`, columnas `1.12fr / 0.88fr` y dos acciones apiladas. El footer conserva ese mismo fondo, una altura mínima de 6rem, marca a la izquierda y destinos pendientes a la derecha.
+
+Hasta 64rem, los capítulos conservan la asimetría con `0.82fr / 1.18fr` —`1.18fr / 0.82fr` al invertirse— y un gap de `clamp(2.5rem, 4vw, 3.5rem)`; el caso destacado de Proyectos ajusta sus columnas a `0.56fr / 1.24fr`. En ese rango, los hechos de Sobre mí pasan de tres columnas a una lista dividida, mientras Proceso todavía conserva sus cuatro pasos horizontales. Debajo de 47.99rem, la declaración usa `clamp(27rem, 56svh, 31rem)` de altura mínima y `clamp(5.5rem, 18vw, 7rem)` de padding vertical; los encabezados de sección compactan su altura y padding. Servicios y el caso destacado pasan a una sola columna copy-first, los secundarios pasan de dos columnas a una, Proceso transforma el rail horizontal en un eje vertical continuo y Sobre mí/Contacto se apilan en una columna. El footer también se vuelve vertical y cada destino pendiente ocupa una fila completa. Las secciones `#servicios`, `#proyectos`, `#proceso`, `#sobre-mi` y `#contacto` aplican un offset de anclaje igual a la altura del header más 24px para no quedar ocultas.
 
 El header fijo resuelve a 64px en desktop y 60px en mobile. En desktop muestra la marca a la izquierda y cuatro enlaces a la derecha; debajo de 47.99rem cambia a un toggle de 40px y un menú compacto de ancho completo. Debajo de 25rem, los CTA se apilan y pasan a ocupar todo el ancho. Los breakpoints implementados son 64rem, 47.99rem y 25rem.
 
@@ -268,9 +368,13 @@ El header fijo resuelve a 64px en desktop y 60px en mobile. En desktop muestra l
 
 **The Portfolio Hierarchy Rule.** Proyectos distingue un caso dominante y dos secundarios; no iguala los tres casos ni los reduce a una colección de badges.
 
+**The One Connected Process Rule.** Proceso se dibuja como una sola secuencia horizontal de cuatro fases y se traduce a un único eje vertical en mobile; no se fragmenta en cards equivalentes.
+
+**The Honest Close Rule.** Contacto y footer muestran los canales todavía pendientes como estados visibles y no navegables; ninguna apariencia de botón o enlace debe prometer un destino inexistente.
+
 ## Elevation & Depth
 
-El sistema es plano por defecto y construye profundidad con capas tonales. Un overlay izquierdo mejora la lectura sin apagar el video; un segundo gradiente vertical suaviza la imagen; el fade inferior ocupa 38% del Hero en desktop y 44% en mobile hasta alcanzar el negro base. El header gana fondo negro al 78%, blur de 14px y borde tenue solo al hacer scroll o abrir el menú. La única sombra de reposo de la interfaz pertenece al CTA principal; los mockups abstractos pueden usar sombra interna para separar pantallas superpuestas. Servicios permanece plano. En Proyectos, el destacado solo cambia el borde del visual y los secundarios elevan su escenario 3px, escalan a 1.01 y reciben un borde cyan sutil, exclusivamente en punteros finos con hover.
+El sistema es plano por defecto y construye profundidad con capas tonales. Un overlay izquierdo mejora la lectura sin apagar el video; un segundo gradiente vertical suaviza la imagen; el fade inferior ocupa 38% del Hero en desktop y 44% en mobile hasta alcanzar el negro base. El header gana fondo negro al 78%, blur de 14px y borde tenue solo al hacer scroll o abrir el menú. La única sombra de reposo de la interfaz pertenece al CTA principal; los mockups abstractos pueden usar sombra interna para separar pantallas superpuestas. Servicios permanece plano. En Proyectos, el destacado solo cambia el borde del visual y los secundarios elevan su escenario 3px, escalan a 1.01 y reciben un borde cyan sutil, exclusivamente en punteros finos con hover. Proceso, Sobre mí, Contacto y footer no añaden sombras: separan sus capítulos con cambios tonales cercanos, reglas de 1px, aire y escala tipográfica.
 
 ### Shadow Vocabulary
 
@@ -283,7 +387,7 @@ El sistema es plano por defecto y construye profundidad con capas tonales. Un ov
 
 ## Shapes
 
-Los CTA usan esquinas suavemente redondeadas de 12px: accesibles y contemporáneas, pero lejos de una píldora exagerada. Los slots visuales de Servicios y Proyectos usan un marco exterior de 16px; sus mockups abstractos internos conservan radios pequeños y específicos —entre 4.8px y 12px— que sugieren interfaz sin parecer cards promocionales. El toggle mobile se compone de dos líneas de 1px que rotan en cruz. Bordes de 1px separan elementos solo cuando el estado o la estructura lo necesitan. El scrollbar es la única forma completamente redondeada.
+Los CTA usan esquinas suavemente redondeadas de 12px: accesibles y contemporáneas, pero lejos de una píldora exagerada. Los slots visuales de Servicios y Proyectos usan un marco exterior de 16px; sus mockups abstractos internos conservan radios pequeños y específicos —entre 4.8px y 12px— que sugieren interfaz sin parecer cards promocionales. Proceso se reduce a un rail de 1px y puntos de 10px: la estructura y el movimiento de progreso reemplazan cualquier gráfico decorativo. La marca de Sobre mí usa la misma gramática de línea y tres puntos. Las acciones de Contacto reutilizan el radio de control de 12px, pero su estado deshabilitado evita cualquier respuesta interactiva falsa. El toggle mobile se compone de dos líneas de 1px que rotan en cruz. Bordes de 1px separan elementos solo cuando el estado o la estructura lo necesitan. El scrollbar es la única forma completamente redondeada.
 
 ## Components
 
@@ -336,9 +440,27 @@ Los tres casos conservan `Ver proyecto →` como etiqueta editorial, seguida por
 
 Los tres visuales de Proyectos son `figure` con escenario, `figcaption` y `data-replace-target`. Se construyen solo con HTML/CSS y neutrales existentes; no incorporan assets raster. Deben seguir identificándose como espacios reservados hasta que capturas reales reemplacen de forma explícita cada slot.
 
+### Process Timeline
+
+Una lista ordenada de cuatro pasos conectados por un mismo rail. En desktop se distribuye en cuatro columnas; cada fase combina número gris compacto, punto, título y explicación. La línea base está siempre presente y una segunda línea cyan expresa el avance. En mobile, el rail se construye verticalmente en una columna de 2rem y el contenido ocupa la columna flexible; el espacio entre pasos baja a 2.75rem. El eje es estructura semántica y visual, sin cards ni ilustraciones auxiliares.
+
+### About Section
+
+Bloque editorial de dos columnas sobre `about-ground`. El título y la marca lineal ocupan la columna corta; la presentación confirmada y los hechos `Perfil`, `Modalidad` y `Enfoque` ocupan la columna larga. El listado usa `dl`, bordes finos y valores tipográficos sin iconos, badges, avatar, métricas ni una card elevada. Debajo de 64rem, los hechos pasan a filas; debajo de 47.99rem, todo el bloque se apila.
+
+### Contact Actions
+
+Dos botones de ancho completo y 5.75rem de altura: WhatsApp claro como acción primaria y email oscuro como secundaria. Ambos están deshabilitados, mantienen opacidad completa y muestran `Destino pendiente de configurar`; usan cursor `not-allowed` y no tienen hover, foco navegable ni URL. Su función actual es hacer visible el canal previsto sin inventar datos de contacto.
+
+### Footer
+
+Cierre mínimo sobre el mismo `contact-ground`: la marca `L` vuelve al inicio y Email, LinkedIn y GitHub aparecen como texto con el estado `Próximamente`. Esos tres destinos no son enlaces mientras no existan URLs reales. En mobile, la marca y la lista se apilan, y cada destino distribuye nombre y estado a extremos opuestos de una fila.
+
 ### Orchestrated Scroll Reveal
 
-Un único `IntersectionObserver` revela cada elemento una vez al alcanzar 5% de visibilidad, con `rootMargin` inferior de -5%, y luego deja de observarlo. Un chequeo liviano por scroll y resize replica la activación por posición como respaldo. El estado oculto es opt-in mediante `reveal-enabled`: si el script falla, queda desactualizado o el observer no se inicializa, el contenido permanece visible por defecto. La declaración combina 28px de ascenso con 960ms de opacidad/transform y un recorte de 1000ms. En Servicios y en el proyecto destacado, el copy hereda la entrada escalonada existente y los visuales ascienden 24px, reducen desde 0.985 y disipan 5.6px de blur durante 920ms. Las cards secundarias ascienden 24px durante 860ms y la segunda comienza 140ms después. Toda la secuencia usa `cubic-bezier(0.22, 1, 0.36, 1)`. Si el usuario prefiere movimiento reducido o el observer no está disponible, todos los elementos se muestran inmediatamente.
+Un único `IntersectionObserver` revela cada elemento una vez al alcanzar 5% de visibilidad, con `rootMargin` inferior de -5%, y luego deja de observarlo. Un chequeo liviano por scroll y resize replica la activación por posición como respaldo. El estado oculto es opt-in mediante `reveal-enabled`: si el script falla, queda desactualizado o el observer no se inicializa, el contenido permanece visible por defecto. La declaración combina 28px de ascenso con 960ms de opacidad/transform y un recorte de 1000ms. En Servicios y en el proyecto destacado, el copy hereda la entrada escalonada existente y los visuales ascienden 24px, reducen desde 0.985 y disipan 5.6px de blur durante 920ms. Las cards secundarias ascienden 24px durante 860ms y la segunda comienza 140ms después.
+
+La línea de Proceso conserva el revelado inicial de números, títulos y descripciones: aparecen una sola vez en 600–640ms con 18px de ascenso y el stagger existente. Después, solo el eje y sus puntos permanecen animados. El progreso cyan recorre el rail en un loop lineal de 8s: izquierda→derecha en desktop y arriba→abajo en mobile. Los puntos 01–04 reciben un pulso breve de color y halo al paso del progreso, sincronizados a 0, 2347, 4693 y 7040ms. El final mantiene la línea completa hasta 94% del ciclo y la desvanece antes del reinicio para evitar un corte fuerte. Un `IntersectionObserver` independiente pausa el loop fuera del viewport y al ocultarse la pestaña, sin reanimar el contenido textual. Si el usuario prefiere movimiento reducido, JavaScript falla o el observer no está disponible, la línea completa y los cuatro puntos cyan se muestran de forma estática.
 
 ### Global Interaction States
 
@@ -360,6 +482,9 @@ Bajo `prefers-reduced-motion: reduce`, smooth scroll se desactiva y transiciones
 - **Do** presentar capacidades con divisores finos y stacks tecnológicos inline separados por slash.
 - **Do** mantener `Próximamente` visible y `Ver proyecto →` sin interacción hasta contar con destinos reales.
 - **Do** rotular los seis visuales temporales como espacios de reemplazo hasta contar con activos definitivos.
+- **Do** preservar Proceso como una única secuencia 4→1: horizontal en desktop y vertical en mobile.
+- **Do** mantener Sobre mí como una pausa tipográfica basada solo en información confirmada.
+- **Do** conservar WhatsApp, email y destinos del footer como estados pendientes no navegables hasta configurar datos reales.
 
 ### Don't:
 
@@ -368,5 +493,8 @@ Bajo `prefers-reduced-motion: reduce`, smooth scroll se desactiva y transiciones
 - **Don't** convertir capacidades o stacks de proyecto en nubes de badges.
 - **Don't** presentar los mockups abstractos como screenshots o prueba visual definitiva.
 - **Don't** añadir hover, focus o enlace activo a un CTA de proyecto sin URL real.
+- **Don't** convertir el proceso en cuatro cards desconectadas ni cortar su eje en mobile.
+- **Don't** añadir fotografía, métricas, testimonios o datos biográficos no confirmados a Sobre mí.
+- **Don't** convertir las acciones deshabilitadas de Contacto o los destinos del footer en enlaces falsos.
 - **Don't** implementar parallax, zoom por scroll, cursor tracking, WebGL, 3D ni animación pesada.
 - **Don't** convertir la navegación mobile en un drawer pesado o una cápsula flotante.
