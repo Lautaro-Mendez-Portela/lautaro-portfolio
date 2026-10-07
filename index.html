@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Desarrollo de sitios web, sistemas de gestión y soluciones digitales a medida para negocios."
+    />
+    <meta name="theme-color" content="#050505" />
+    <link rel="preconnect" href="https://api.fontshare.com" />
+    <link
+      href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      document.documentElement.classList.add('js');
+    </script>
+    <script src="script.js" defer></script>
+    <title>L — Desarrollo web y sistemas a medida</title>
+  </head>
+  <body>
+    <header class="site-header" data-header>
+      <a class="brand" href="#inicio" aria-label="Ir al inicio">L</a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Abrir navegación"
+        data-nav-toggle
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" id="primary-navigation" aria-label="Navegación principal" data-nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <video
+          class="hero__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          disablepictureinpicture
+          disableremoteplayback
+          aria-hidden="true"
+          tabindex="-1"
+        >
+          <source src="1080p.mp4" type="video/mp4" />
+        </video>
+
+        <div class="hero__overlay" aria-hidden="true"></div>
+        <div class="hero__fade" aria-hidden="true"></div>
+
+        <div class="hero__layout">
+          <div class="hero__content" data-hero-content>
+            <h1 class="hero__title" id="hero-title">
+              Desarrollá el sistema<span class="desktop-break"><br /></span> que tu negocio necesita.
+            </h1>
+            <p class="hero__subtitle">
+              Sitios web, sistemas de gestión y soluciones digitales diseñadas a medida para simplificar procesos y hacer crecer tu negocio.
+            </p>
+            <div class="hero__actions" aria-label="Acciones principales">
+              <a class="button button--primary" href="#contacto">
+                <span>Hablemos de tu proyecto</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M4 10h11M11 6l4 4-4 4" />
+                </svg>
+              </a>
+              <a class="button button--secondary" href="#proyectos">
+                <span>Ver proyectos</span>
+                <svg viewBox="0 0 20 20" aria-hidden="true">
+                  <path d="M4 10h11M11 6l4 4-4 4" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="post-hero-continuation" aria-hidden="true"></div>
+    </main>
+  </body>
+</html>
