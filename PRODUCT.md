@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Delegated/inferred for the current build: plain semantic HTML, CSS, and minimal vanilla JavaScript. The workspace contains no application scaffold or package manifest, and Stages 1–2 require no framework or third-party dependency.
+Delegated/inferred for the current build: plain semantic HTML, CSS, and minimal vanilla JavaScript. The workspace contains no application scaffold or package manifest, and Stages 1–3 require no framework or third-party dependency.
 
 ## Users
 
@@ -28,10 +28,13 @@ Visitors evaluate the portfolio on desktop, notebook, tablet, and mobile, often 
 
 ## Capabilities and Constraints
 
-- Stages 1–2 only: global visual base, Hero, transition statement, Services, navigation, CTAs, restrained reveal motion, responsive behavior, accessibility, reduced-motion support, and basic scrolled navbar state.
-- Future Projects, Process, About, and Contact sections must not be implemented in this stage.
+- Stages 1–3: global visual base, Hero, transition statement, Services, Projects, navigation, CTAs, restrained reveal motion, responsive behavior, accessibility, reduced-motion support, and basic scrolled navbar state.
+- Stage 4 remains out of scope: Process, About, and Contact sections must not be implemented in this stage.
+- Stage 3 is a local extension of the existing surface direction contract (`fb07d1ed`); it does not redefine the Hero, Services, or the established identity.
 - Services contains three alternating editorial chapters with clearly labeled temporary visual slots; these are replacement scaffolds, not project proof.
-- Primary CTA targets `#contacto`; secondary CTA targets `#proyectos`, even though those destination sections are intentionally deferred.
+- Projects contains one featured case and two secondary project summaries. Its three abstract visuals are clearly labeled replacement scaffolds; no final raster imagery was added.
+- Primary CTA continues to target the future `#contacto` section. The secondary Hero CTA and the navigation link target the implemented `#proyectos` section.
+- Project CTAs preserve the label `Ver proyecto →` but have no destination yet; they expose the visible state `Próximamente` and must not imply active navigation until real URLs exist.
 - No WebGL, 3D, parallax, scroll zoom, heavy animation library, or costly scroll listener.
 - No invented project claims, clients, links, or final imagery.
 
@@ -47,7 +50,7 @@ Visitors evaluate the portfolio on desktop, notebook, tablet, and mobile, often 
 ## Evidence on Hand
 
 - Definitive Hero asset: `1080p.mp4` at the repository root.
-- No final imagery for Services or later sections is available; the current service visuals are dependency-free HTML/CSS placeholders intended to be replaced.
+- No final imagery for Services or Projects is available; the current six visual slots are dependency-free HTML/CSS placeholders intended to be replaced (three service slots and three project slots).
 - Real contact URLs and social links are not yet available and must not be invented.
 
 ## Product Principles

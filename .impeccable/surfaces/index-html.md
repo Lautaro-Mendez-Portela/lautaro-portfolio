@@ -7,26 +7,26 @@ related_targets: []
 
 ## Scope and mode
 
-Stages 1 and 2 only for the root portfolio surface. Visitor mode: Persuade, with the work presented cinematically rather than as a technical CV.
+Stages 1 through 3 only for the root portfolio surface. Visitor mode: Persuade, with the offer and real project categories presented cinematically rather than as a technical CV.
 
 ## Audience, job, action, proof, constraints
 
-Non-technical business clients must understand the tailored-systems offer, reach `#servicios` from the navbar, and choose either `#contacto` or `#proyectos`; recruiters are secondary. The supplied `1080p.mp4` is the only final visual asset. Services use clearly temporary HTML/CSS mockup slots until real assets exist. No Projects, process, About, Contact section, invented claim, extra image, heavy dependency, parallax, scroll zoom, WebGL, or 3D is allowed.
+Non-technical business clients must understand the tailored-systems offer, reach `#servicios` and `#proyectos` from navigation, and see credible evidence of complete-product capability; recruiters are secondary. The supplied `1080p.mp4` remains the only final visual asset. Services and Projects use clearly temporary HTML/CSS replacement slots until real captures exist. No process, About, Contact section, invented client or result, external project URL, extra image, heavy dependency, parallax, scroll zoom, WebGL, or 3D is allowed.
 
 ## Direction contract
 
-THESIS: A cinematic client-proposal opener where one decisive promise and two actions sit inside a living full-bleed frame; it refuses the generic developer dashboard and card-grid hero.
+THESIS: A cinematic client proposal becomes editorial proof: one decisive promise leads through services into a large, legible product case study; it refuses the generic portfolio gallery and the wall of equal cards.
 
-OWN-WORLD: Near-black fields, off-white type, a restrained cyan signal, compact controls, and generous negative space. Scale supplies hierarchy; the fade to black is structural, not decoration.
+OWN-WORLD: Near-black fields, off-white type, a restrained cyan signal, hairline dividers, compact controls, and generous negative space. Project visuals use deep neutral frames and explicit replacement captions; scale supplies hierarchy without decorative chrome.
 
-STORY: The visitor sees the offer, crosses the Hero's fade into a quiet black statement, and then reads three large alternating service chapters before deciding whether to start a conversation or inspect future projects.
+STORY: The visitor sees the offer, crosses the Hero's fade, reads three service chapters, and arrives at proof: a reservation system explained as a short case study followed by two product-focused secondary projects. Detail CTAs remain visibly prepared but do not invent destinations.
 
-FIRST VIEWPORT: Full-viewport fixed-composition video, subtle left-biased overlay, small transparent masthead, and a 40–45% lower-left editorial text block with the approved desktop three-line headline composition and paired CTAs. Stage 2 begins only after this viewport.
+FIRST VIEWPORT: The approved Hero remains untouched. Within `#proyectos`, a simple oversized heading gives way immediately to a featured two-column composition: concise copy at roughly one third and a large modular replacement visual at roughly two thirds, followed by a quiet capabilities list and prepared CTA.
 
-FORM: Grounded direction 4, cinematic client-proposal title card, seed `fb07d1ed`. Raises kept: poster-scale conviction, ikebana-like negative-space discipline, and threshold continuity at the lower fade.
+FORM: Local extension of grounded direction 4, cinematic client-proposal title card, seed `fb07d1ed`. The project proof inherits its poster-scale conviction, negative-space discipline, fine rules, and continuous-black pacing rather than opening a new visual direction.
 
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
 ## Unresolved decisions
 
-Real contact destinations, later sections, and the definitive service mockups remain intentionally unresolved. Service placeholders are structural replacement slots, not portfolio proof. The static HTML/CSS/JS stack remains sufficient and dependency-free.
+Real contact destinations, project detail destinations, later sections, and definitive service/project captures remain intentionally unresolved. All placeholders are structural replacement slots, not final screenshots or commercial proof. The static HTML/CSS/JS stack remains sufficient and dependency-free.

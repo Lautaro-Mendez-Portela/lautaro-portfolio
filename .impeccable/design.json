@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T01:41:47-03:00",
-  "title": "Design System: Portfolio L — Etapas 1–2",
+  "generatedAt": "2026-10-07T15:26:51-03:00",
+  "title": "Design System: Portfolio L — Etapas 1–3",
   "extensions": {
     "colorMeta": {
       "ground": {
@@ -76,6 +76,24 @@
         "canonical": "#424248",
         "tonalRamp": ["#131315", "#29292C", "#424248", "#5D5D63", "#7B7B81", "#9D9DA2", "#CBCBCE", "#F1F1F3"]
       },
+      "project-status": {
+        "role": "neutral",
+        "displayName": "Project Status",
+        "canonical": "#8F8F94",
+        "tonalRamp": ["#171719", "#2D2D30", "#46464A", "#606064", "#79797E", "#8F8F94", "#C9C9CC", "#F2F2F3"]
+      },
+      "project-status-divider": {
+        "role": "neutral",
+        "displayName": "Project Status Divider",
+        "canonical": "#38383D",
+        "tonalRamp": ["#111113", "#262629", "#38383D", "#545459", "#737378", "#96969B", "#C7C7CA", "#F1F1F2"]
+      },
+      "project-tech-divider": {
+        "role": "neutral",
+        "displayName": "Project Tech Divider",
+        "canonical": "#4D4D52",
+        "tonalRamp": ["#141416", "#2B2B2E", "#4D4D52", "#66666B", "#818186", "#A1A1A6", "#CECED1", "#F2F2F3"]
+      },
       "accent": {
         "role": "primary",
         "displayName": "Cyan Signal",
@@ -119,6 +137,30 @@
       "service-caption": {
         "displayName": "Replacement Slot Caption",
         "purpose": "Rótulo uppercase que identifica el activo definitivo pendiente."
+      },
+      "project-title": {
+        "displayName": "Featured Project Title",
+        "purpose": "Nombre editorial del caso destacado, entre 48 y 72px."
+      },
+      "project-card-title": {
+        "displayName": "Project Card Title",
+        "purpose": "Nombre de cada proyecto secundario, entre 32 y 48px."
+      },
+      "project-card-body": {
+        "displayName": "Project Card Body",
+        "purpose": "Resumen legible de cada caso secundario."
+      },
+      "project-tech": {
+        "displayName": "Project Tech",
+        "purpose": "Stack inline separado por slash, sin badges."
+      },
+      "project-cta": {
+        "displayName": "Project CTA",
+        "purpose": "Etiqueta cyan Ver proyecto con destino todavía pendiente."
+      },
+      "project-status": {
+        "displayName": "Project Status",
+        "purpose": "Estado Próximamente visible junto al CTA pendiente."
       },
       "navigation": {
         "displayName": "Navigation",
@@ -190,7 +232,22 @@
       {
         "name": "service-visual-reveal",
         "value": "920ms cubic-bezier(0.22, 1, 0.36, 1)",
-        "purpose": "Entrada de visuales temporales con 24px de ascenso, escala 0.985 y blur acotado."
+        "purpose": "Entrada de visuales temporales de Servicios y del proyecto destacado con 24px de ascenso, escala 0.985 y blur acotado."
+      },
+      {
+        "name": "project-card-hover",
+        "value": "320ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Elevación de 3px y escala 1.01 del visual secundario en punteros finos; el borde cambia en 260ms ease."
+      },
+      {
+        "name": "project-card-reveal",
+        "value": "860ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Ascenso de 24px de cada card secundaria mediante el revelado robusto compartido."
+      },
+      {
+        "name": "project-card-stagger",
+        "value": "140ms",
+        "purpose": "Demora de la segunda card secundaria respecto de la primera."
       },
       {
         "name": "reduced-motion",
@@ -263,19 +320,35 @@
       "description": "Slot reutilizable y claramente rotulado para un mockup de servicio pendiente de reemplazo.",
       "html": "<figure class=\"ds-service-slot\" data-replace-target=\"mockup-servicio\"><div class=\"ds-service-slot-stage\" aria-hidden=\"true\"><div class=\"ds-service-slot-mockup\"><span></span><span></span><span></span></div></div><figcaption>Espacio reservado para el mockup final</figcaption></figure>",
       "css": ".ds-service-slot { min-width:0; margin:0; font-family:var(--font-body, \"General Sans\", sans-serif); } .ds-service-slot-stage { display:grid; width:100%; aspect-ratio:16/10; overflow:hidden; place-items:center; border:1px solid var(--color-border, #242428); border-radius:1rem; background:var(--color-surface, #0D0D0F); } .ds-service-slot-mockup { display:grid; width:78%; aspect-ratio:16/9.4; gap:10%; align-content:center; padding:8%; border:1px solid #343439; border-radius:.65rem; background:#09090B; } .ds-service-slot-mockup span { height:.35rem; background:#424248; } .ds-service-slot-mockup span:first-child { width:44%; background:var(--color-accent, #69C6FF); } .ds-service-slot figcaption { margin-top:1rem; color:#A9A9AE; font-size:.78rem; font-weight:500; letter-spacing:.04em; text-transform:uppercase; } @media (max-width:47.99rem) { .ds-service-slot-stage { aspect-ratio:4/3; } }"
+    },
+    {
+      "name": "Featured Project",
+      "kind": "custom",
+      "description": "Caso principal de Proyectos con copy cercano a un tercio, visual medido en 67.8% y reflujo copy-first.",
+      "html": "<article class=\"ds-featured-project\"><div class=\"ds-featured-copy\"><h3>Sistema de reservas para canchas</h3><p>Una plataforma pensada para centralizar reservas, disponibilidad, clientes y pagos en un único sistema de gestión.</p><ul><li>Reservas online</li><li>Disponibilidad de canchas</li><li>Gestión de clientes</li></ul><span class=\"ds-project-cta\"><span>Ver proyecto</span><span aria-hidden=\"true\">→</span><span class=\"ds-project-status\">Próximamente</span></span></div><figure class=\"ds-featured-visual\" data-replace-target=\"project-reservations-screenshots\"><div class=\"ds-featured-stage\" aria-hidden=\"true\"><div class=\"ds-reservation-main\"></div><div class=\"ds-reservation-panel ds-reservation-panel-a\"></div><div class=\"ds-reservation-panel ds-reservation-panel-b\"></div></div><figcaption>Espacio reservado para las capturas del sistema de reservas</figcaption></figure></article>",
+      "css": ".ds-featured-project { display:grid; grid-template-columns:minmax(17rem,.5fr) minmax(0,1.3fr); gap:clamp(3rem,5.5vw,6rem); align-items:center; padding:clamp(5.5rem,8vw,8rem) 0; border-bottom:1px solid var(--color-border, #242428); background:var(--color-bg, #050505); color:var(--color-text, #F5F5F2); font-family:var(--font-body, \"General Sans\", sans-serif); } .ds-featured-copy { max-width:31rem; } .ds-featured-copy h3 { max-width:11ch; margin:0; font-family:var(--font-display, \"Clash Display\", sans-serif); font-size:clamp(3rem,4.25vw,4.5rem); font-weight:600; letter-spacing:-.035em; line-height:.97; } .ds-featured-copy p { margin:clamp(1.5rem,2.25vw,2.25rem) 0 0; color:#B8B8BC; font-size:clamp(1rem,1.1vw,1.0625rem); line-height:1.7; } .ds-featured-copy ul { margin:clamp(2rem,3vw,3rem) 0 0; padding:0; border-top:1px solid var(--color-border, #242428); list-style:none; } .ds-featured-copy li { padding:.75rem 0; border-bottom:1px solid var(--color-border, #242428); color:#B8B8BC; font-size:.94rem; } .ds-project-cta { display:inline-flex; align-items:center; gap:.55rem; margin-top:2rem; color:var(--color-accent, #69C6FF); font-size:.93rem; font-weight:600; cursor:default; } .ds-project-status { margin-left:.25rem; padding-left:.75rem; border-left:1px solid #38383D; color:#8F8F94; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; } .ds-featured-visual { min-width:0; margin:0; } .ds-featured-stage { position:relative; width:100%; aspect-ratio:16/10; overflow:hidden; border:1px solid var(--color-border, #242428); border-radius:1rem; background:var(--color-surface, #0D0D0F); transition:border-color 260ms ease; } .ds-reservation-main, .ds-reservation-panel { position:absolute; border:1px solid #343439; background:#09090B; box-shadow:0 1.5rem 3.5rem rgb(0 0 0 / 32%); } .ds-reservation-main { inset:10% 13% 10% 7%; border-radius:.75rem; } .ds-reservation-panel { width:28%; height:34%; border-radius:.65rem; } .ds-reservation-panel-a { right:5%; bottom:8%; } .ds-reservation-panel-b { right:8%; top:12%; width:19%; border-radius:.55rem; } .ds-featured-visual figcaption { margin-top:1rem; color:#A9A9AE; font-size:.78rem; letter-spacing:.04em; } @media (hover:hover) and (pointer:fine) { .ds-featured-visual:hover .ds-featured-stage { border-color:color-mix(in srgb, var(--color-accent, #69C6FF) 44%, var(--color-border, #242428)); } } @media (max-width:47.99rem) { .ds-featured-project { grid-template-columns:minmax(0,1fr); gap:2.75rem; padding:5rem 0; } .ds-featured-stage { aspect-ratio:4/3; } }"
+    },
+    {
+      "name": "Secondary Project Card",
+      "kind": "card",
+      "description": "Card editorial abierta con visual grande, stack inline y CTA Próximamente; se usa en grilla 2→1.",
+      "html": "<article class=\"ds-project-card\"><figure class=\"ds-project-visual\" data-replace-target=\"project-screenshots\"><div class=\"ds-project-stage\" aria-hidden=\"true\"><div class=\"ds-project-window\"></div></div><figcaption>Espacio reservado para las capturas del proyecto</figcaption></figure><div class=\"ds-project-body\"><h4>E-Commerce Full Stack</h4><p>Una tienda online completa con catálogo, autenticación, proceso de compra y pagos integrados.</p><ul class=\"ds-project-tech\"><li>Vue</li><li>Node.js</li><li>PostgreSQL</li><li>Stripe</li></ul><span class=\"ds-project-cta\"><span>Ver proyecto</span><span aria-hidden=\"true\">→</span><span class=\"ds-project-status\">Próximamente</span></span></div></article>",
+      "css": ".ds-project-card { min-width:0; padding-top:clamp(2.5rem,4vw,4rem); background:var(--color-bg, #050505); color:var(--color-text, #F5F5F2); font-family:var(--font-body, \"General Sans\", sans-serif); } .ds-project-visual { margin:0; } .ds-project-stage { position:relative; width:100%; aspect-ratio:16/10; overflow:hidden; border:1px solid var(--color-border, #242428); border-radius:1rem; background:var(--color-surface, #0D0D0F); transition:border-color 260ms ease, transform 320ms cubic-bezier(.22,1,.36,1); } .ds-project-window { position:absolute; inset:10% 9%; border:1px solid #343439; border-radius:.7rem; background:#09090B; } .ds-project-visual figcaption { margin-top:1rem; color:#A9A9AE; font-size:.78rem; letter-spacing:.04em; } .ds-project-body { padding-top:clamp(1.75rem,2.5vw,2.5rem); } .ds-project-body h4 { margin:0; font-family:var(--font-display, \"Clash Display\", sans-serif); font-size:clamp(2rem,2.8vw,3rem); font-weight:600; letter-spacing:-.03em; line-height:1; } .ds-project-body p { margin:1.25rem 0 0; color:#B8B8BC; font-size:1rem; line-height:1.65; } .ds-project-tech { display:flex; flex-wrap:wrap; margin:1.5rem 0 0; padding:0; color:#A9A9AE; font-size:.82rem; font-weight:500; list-style:none; } .ds-project-tech li:not(:last-child)::after { margin:0 .65rem; color:#4D4D52; content:\"/\"; } .ds-project-cta { display:inline-flex; align-items:center; gap:.55rem; margin-top:2rem; color:var(--color-accent, #69C6FF); font-size:.93rem; font-weight:600; cursor:default; } .ds-project-status { margin-left:.25rem; padding-left:.75rem; border-left:1px solid #38383D; color:#8F8F94; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; } @media (hover:hover) and (pointer:fine) { .ds-project-card:hover .ds-project-stage { transform:translateY(-.1875rem) scale(1.01); border-color:color-mix(in srgb, var(--color-accent, #69C6FF) 44%, var(--color-border, #242428)); } } @media (max-width:47.99rem) { .ds-project-stage { aspect-ratio:4/3; } .ds-project-body h4 { font-size:clamp(2.25rem,10vw,3rem); } .ds-project-body p { font-size:1.0625rem; } }"
     }
   ],
   "narrative": {
     "northStar": "El umbral de una propuesta cinematográfica",
-    "overview": "La interfaz implementada comienza como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. Después del umbral negro, el mismo lenguaje continúa sin corte desde la declaración de gran escala hacia capítulos editoriales alternados que explican la oferta sin convertirla en una grilla de tarjetas. Sus visuales ocupan alrededor de la mitad del viewport desktop para sostener presencia sin perder aire editorial.\n\nLa profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción y secuencia, no como superficie de marca. La extensión conserva la sobriedad del Hero: separadores finos, neutrales cercanos y mockups abstractos claramente rotulados como espacios de reemplazo, nunca como prueba de proyectos reales.",
+    "overview": "La interfaz implementada comienza como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. Después del umbral negro, el mismo lenguaje continúa sin corte desde la declaración de gran escala hacia capítulos editoriales alternados que explican la oferta sin convertirla en una grilla de tarjetas. Proyectos prolonga ese recorrido como un portfolio cinematográfico: un caso principal con copy cercano a un tercio y visual cercano a dos tercios, seguido por dos casos secundarios en una grilla amplia.\n\nLa profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción y secuencia, no como superficie de marca. Las extensiones de Servicios y Proyectos conservan la sobriedad del Hero: separadores finos, neutrales cercanos y mockups abstractos claramente rotulados como espacios de reemplazo, nunca como prueba visual definitiva. Etapa 3 no redefine Hero ni Servicios: es una extensión local del contrato de dirección existente (seed `fb07d1ed`), no una identidad nueva.",
     "keyCharacteristics": [
       "Video full-bleed como materia visual principal.",
       "Declaración negra de escala póster como pausa entre promesa y oferta.",
       "Capítulos de servicio alternados con visuales cercanos a la mitad del viewport desktop, no cards equivalentes.",
+      "Caso destacado de Proyectos con protagonismo visual y dos secundarios en grilla editorial.",
       "Jerarquía por escala, contraste y espacio negativo.",
       "Negro casi absoluto, blanco cálido y cyan usado con rareza.",
       "Controles compactos, bordes suaves y respuesta táctil contenida.",
-      "Movimiento de entrada breve, orquestado y prescindible."
+      "Movimiento de entrada breve, orquestado y prescindible.",
+      "Seis slots reemplazables sin assets raster nuevos: tres de Servicios y tres de Proyectos."
     ],
     "rules": [
       {
@@ -304,6 +377,11 @@
         "section": "layout"
       },
       {
+        "name": "The Portfolio Hierarchy Rule",
+        "body": "Proyectos distingue un caso dominante y dos secundarios; no iguala los tres casos ni los reduce a una colección de badges.",
+        "section": "layout"
+      },
+      {
         "name": "The Depth Without Cards Rule",
         "body": "La atmósfera se construye con video, overlays, fade y blur contextual; no con contenedores elevados genéricos.",
         "section": "elevation"
@@ -316,12 +394,17 @@
       "Do conservar foco visible, navegación por teclado, estados sin hover y reducción de movimiento.",
       "Do mantener el CTA principal visualmente dominante y el secundario transparente.",
       "Do mantener 01/02/03 como orden significativo de los servicios y conservar el reflujo copy-first en mobile.",
-      "Do rotular los visuales temporales como espacios de reemplazo hasta contar con activos definitivos."
+      "Do preservar la jerarquía del portfolio: destacado con 67.8% visual medido y secundarios en grilla 2→1.",
+      "Do presentar capacidades con divisores finos y stacks tecnológicos inline separados por slash.",
+      "Do mantener Próximamente visible y Ver proyecto → sin interacción hasta contar con destinos reales.",
+      "Do rotular los seis visuales temporales como espacios de reemplazo hasta contar con activos definitivos."
     ],
     "donts": [
       "Don't extender el cyan a grandes superficies, títulos o gradientes decorativos.",
       "Don't convertir los capítulos de servicio en una grilla de cards equivalentes.",
-      "Don't presentar los mockups abstractos como proyectos, screenshots o prueba de trabajo real.",
+      "Don't convertir capacidades o stacks de proyecto en nubes de badges.",
+      "Don't presentar los mockups abstractos como screenshots o prueba visual definitiva.",
+      "Don't añadir hover, focus o enlace activo a un CTA de proyecto sin URL real.",
       "Don't implementar parallax, zoom por scroll, cursor tracking, WebGL, 3D ni animación pesada.",
       "Don't convertir la navegación mobile en un drawer pesado o una cápsula flotante."
     ]

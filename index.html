@@ -199,6 +199,181 @@
           </figure>
         </article>
       </section>
+
+      <section class="projects" id="proyectos" aria-labelledby="projects-title">
+        <header class="projects__header" data-reveal="copy">
+          <h2 id="projects-title">Proyectos</h2>
+        </header>
+
+        <article class="featured-project" id="proyecto-reservas" aria-labelledby="reservations-title">
+          <div class="featured-project__copy" data-reveal="copy">
+            <h3 id="reservations-title">Sistema de reservas para canchas</h3>
+            <p class="featured-project__description">
+              Una plataforma pensada para centralizar reservas, disponibilidad, clientes y pagos en un único sistema de gestión.
+            </p>
+
+            <ul class="project-capabilities" aria-label="Capacidades principales">
+              <li>Reservas online</li>
+              <li>Disponibilidad de canchas</li>
+              <li>Gestión de clientes</li>
+              <li>Pagos y comprobantes</li>
+              <li>Distintos roles de usuario</li>
+            </ul>
+
+            <span class="project-cta project-cta--pending" title="Detalle del proyecto disponible próximamente">
+              <span>Ver proyecto</span>
+              <span aria-hidden="true">→</span>
+              <span class="project-cta__status">Próximamente</span>
+            </span>
+          </div>
+
+          <figure
+            class="featured-project__visual project-placeholder project-placeholder--reservations"
+            data-reveal="visual"
+            data-replace-target="project-reservations-screenshots"
+            aria-labelledby="reservations-placeholder-caption"
+          >
+            <div class="featured-project__stage" aria-hidden="true">
+              <div class="reservation-screen reservation-screen--main">
+                <div class="reservation-screen__rail">
+                  <span class="reservation-screen__mark"></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+                <div class="reservation-screen__workspace">
+                  <div class="reservation-screen__topline">
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="reservation-screen__metrics">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                  <div class="reservation-screen__schedule">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="reservation-screen reservation-screen--secondary">
+                <div class="reservation-panel__heading"></div>
+                <div class="reservation-panel__rows">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </div>
+
+              <div class="reservation-screen reservation-screen--compact">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <figcaption id="reservations-placeholder-caption">
+              Espacio reservado para las capturas del sistema de reservas
+            </figcaption>
+          </figure>
+        </article>
+
+        <div class="secondary-projects" aria-labelledby="secondary-projects-title">
+          <header class="secondary-projects__header" data-reveal="copy">
+            <h3 id="secondary-projects-title">Otros proyectos</h3>
+          </header>
+
+          <div class="secondary-projects__grid">
+            <article class="project-card" data-reveal="project" aria-labelledby="ecommerce-title">
+              <figure
+                class="project-card__visual project-placeholder project-placeholder--ecommerce"
+                data-replace-target="project-ecommerce-screenshots"
+                aria-labelledby="ecommerce-placeholder-caption"
+              >
+                <div class="project-card__stage" aria-hidden="true">
+                  <div class="storefront-placeholder">
+                    <div class="storefront-placeholder__nav">
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div class="storefront-placeholder__feature"></div>
+                    <div class="storefront-placeholder__products">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <figcaption id="ecommerce-placeholder-caption">Espacio reservado para las capturas del e-commerce</figcaption>
+              </figure>
+
+              <div class="project-card__body">
+                <h4 id="ecommerce-title">E-Commerce Full Stack</h4>
+                <p>Una tienda online completa con catálogo, autenticación, proceso de compra y pagos integrados.</p>
+                <ul class="project-tech" aria-label="Tecnologías principales">
+                  <li>Vue</li>
+                  <li>Node.js</li>
+                  <li>PostgreSQL</li>
+                  <li>Stripe</li>
+                </ul>
+                <span class="project-cta project-cta--pending" title="Detalle del proyecto disponible próximamente">
+                  <span>Ver proyecto</span>
+                  <span aria-hidden="true">→</span>
+                  <span class="project-cta__status">Próximamente</span>
+                </span>
+              </div>
+            </article>
+
+            <article class="project-card" data-reveal="project" aria-labelledby="pdf-chat-title">
+              <figure
+                class="project-card__visual project-placeholder project-placeholder--pdf-chat"
+                data-replace-target="project-ai-pdf-chat-screenshots"
+                aria-labelledby="pdf-chat-placeholder-caption"
+              >
+                <div class="project-card__stage" aria-hidden="true">
+                  <div class="pdf-placeholder">
+                    <div class="pdf-placeholder__document">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                    <div class="pdf-placeholder__conversation">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <figcaption id="pdf-chat-placeholder-caption">Espacio reservado para las capturas de AI PDF Chat</figcaption>
+              </figure>
+
+              <div class="project-card__body">
+                <h4 id="pdf-chat-title">AI PDF Chat</h4>
+                <p>Aplicación para consultar documentos PDF mediante una experiencia de chat y recuperación contextual de información.</p>
+                <ul class="project-tech" aria-label="Tecnologías principales">
+                  <li>NestJS</li>
+                  <li>PostgreSQL</li>
+                  <li>pgvector</li>
+                  <li>Ollama</li>
+                </ul>
+                <span class="project-cta project-cta--pending" title="Detalle del proyecto disponible próximamente">
+                  <span>Ver proyecto</span>
+                  <span aria-hidden="true">→</span>
+                  <span class="project-cta__status">Próximamente</span>
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
