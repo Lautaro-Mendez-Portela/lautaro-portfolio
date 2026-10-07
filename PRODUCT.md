@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Delegated/inferred for this greenfield stage: plain semantic HTML, CSS, and minimal vanilla JavaScript. The workspace contains no application scaffold or package manifest, and Stage 1 does not require a framework or third-party dependency.
+Delegated/inferred for the current build: plain semantic HTML, CSS, and minimal vanilla JavaScript. The workspace contains no application scaffold or package manifest, and Stages 1–2 require no framework or third-party dependency.
 
 ## Users
 
@@ -28,8 +28,9 @@ Visitors evaluate the portfolio on desktop, notebook, tablet, and mobile, often 
 
 ## Capabilities and Constraints
 
-- Stage 1 only: global visual base, Hero, navigation, CTAs, entrance motion, responsive behavior, accessibility, reduced-motion support, and basic scrolled navbar state.
-- Future Services, Projects, Process, About, and Contact sections must not be implemented in this stage.
+- Stages 1–2 only: global visual base, Hero, transition statement, Services, navigation, CTAs, restrained reveal motion, responsive behavior, accessibility, reduced-motion support, and basic scrolled navbar state.
+- Future Projects, Process, About, and Contact sections must not be implemented in this stage.
+- Services contains three alternating editorial chapters with clearly labeled temporary visual slots; these are replacement scaffolds, not project proof.
 - Primary CTA targets `#contacto`; secondary CTA targets `#proyectos`, even though those destination sections are intentionally deferred.
 - No WebGL, 3D, parallax, scroll zoom, heavy animation library, or costly scroll listener.
 - No invented project claims, clients, links, or final imagery.
@@ -46,7 +47,7 @@ Visitors evaluate the portfolio on desktop, notebook, tablet, and mobile, often 
 ## Evidence on Hand
 
 - Definitive Hero asset: `1080p.mp4` at the repository root.
-- No final imagery for later sections is available.
+- No final imagery for Services or later sections is available; the current service visuals are dependency-free HTML/CSS placeholders intended to be replaced.
 - Real contact URLs and social links are not yet available and must not be invented.
 
 ## Product Principles

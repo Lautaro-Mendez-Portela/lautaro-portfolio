@@ -59,3 +59,68 @@ window.addEventListener('resize', () => {
     closeNavigation();
   }
 });
+
+const revealItems = [...document.querySelectorAll('[data-reveal]')];
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+const revealAll = () => {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+};
+
+if (prefersReducedMotion.matches || !('IntersectionObserver' in window)) {
+  revealAll();
+} else {
+  root.classList.add('reveal-enabled');
+
+  let revealFrame = null;
+  let revealObserver = null;
+
+  const revealItem = (item) => {
+    if (item.classList.contains('is-visible')) return;
+
+    item.classList.add('is-visible');
+    revealObserver?.unobserve(item);
+  };
+
+  const revealVisibleItems = () => {
+    const triggerLine = window.innerHeight * 0.92;
+
+    revealItems.forEach((item) => {
+      if (item.classList.contains('is-visible')) return;
+
+      const bounds = item.getBoundingClientRect();
+
+      if (bounds.top <= triggerLine && bounds.bottom >= 0) {
+        revealItem(item);
+      }
+    });
+
+    revealFrame = null;
+  };
+
+  const queueRevealCheck = () => {
+    if (revealFrame === null) {
+      revealFrame = requestAnimationFrame(revealVisibleItems);
+    }
+  };
+
+  revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        revealItem(entry.target);
+      });
+    },
+    {
+      rootMargin: '0px 0px -5% 0px',
+      threshold: 0.05,
+    },
+  );
+
+  revealItems.forEach((item) => revealObserver.observe(item));
+  requestAnimationFrame(revealVisibleItems);
+
+  window.addEventListener('scroll', queueRevealCheck, { passive: true });
+  window.addEventListener('resize', queueRevealCheck);
+}

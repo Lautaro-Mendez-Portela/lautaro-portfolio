@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-07T00:39:01-03:00",
-  "title": "Design System: Portfolio L — Etapa 1",
+  "generatedAt": "2026-10-07T01:41:47-03:00",
+  "title": "Design System: Portfolio L — Etapas 1–2",
   "extensions": {
     "colorMeta": {
       "ground": {
@@ -40,6 +40,42 @@
         "canonical": "#C6C6C8",
         "tonalRamp": ["#1C1C1D", "#343435", "#4E4E50", "#69696B", "#878789", "#A6A6A8", "#C6C6C8", "#F2F2F3"]
       },
+      "service-copy": {
+        "role": "neutral",
+        "displayName": "Service Copy",
+        "canonical": "#B8B8BC",
+        "tonalRamp": ["#1A1A1B", "#323234", "#4B4B4E", "#656568", "#828285", "#9E9EA2", "#B8B8BC", "#F2F2F3"]
+      },
+      "service-caption": {
+        "role": "neutral",
+        "displayName": "Service Caption",
+        "canonical": "#A9A9AE",
+        "tonalRamp": ["#19191A", "#303032", "#49494C", "#626265", "#7E7E82", "#96969B", "#A9A9AE", "#F2F2F3"]
+      },
+      "mockup-ground": {
+        "role": "neutral",
+        "displayName": "Mockup Ground",
+        "canonical": "#09090B",
+        "tonalRamp": ["#09090B", "#1B1B1E", "#343438", "#505055", "#717176", "#949499", "#C5C5C8", "#F0F0F2"]
+      },
+      "mockup-surface": {
+        "role": "neutral",
+        "displayName": "Mockup Surface",
+        "canonical": "#111114",
+        "tonalRamp": ["#0A0A0C", "#1E1E21", "#37373B", "#535358", "#747479", "#97979C", "#C7C7CA", "#F1F1F2"]
+      },
+      "mockup-border": {
+        "role": "neutral",
+        "displayName": "Mockup Border",
+        "canonical": "#343439",
+        "tonalRamp": ["#111113", "#242427", "#343439", "#515156", "#717176", "#949499", "#C5C5C8", "#F0F0F2"]
+      },
+      "mockup-muted": {
+        "role": "neutral",
+        "displayName": "Mockup Muted",
+        "canonical": "#424248",
+        "tonalRamp": ["#131315", "#29292C", "#424248", "#5D5D63", "#7B7B81", "#9D9DA2", "#CBCBCE", "#F1F1F3"]
+      },
       "accent": {
         "role": "primary",
         "displayName": "Cyan Signal",
@@ -59,6 +95,30 @@
       "body": {
         "displayName": "Hero Body",
         "purpose": "Subtítulo explicativo sobre el video."
+      },
+      "statement-display": {
+        "displayName": "Transition Statement",
+        "purpose": "Declaración de escala póster que articula el paso del Hero a Servicios."
+      },
+      "section-display": {
+        "displayName": "Services Section Display",
+        "purpose": "Encabezado de apertura de la sección Servicios."
+      },
+      "service-title": {
+        "displayName": "Service Title",
+        "purpose": "Nombre editorial de cada capítulo de servicio."
+      },
+      "service-body": {
+        "displayName": "Service Body",
+        "purpose": "Explicación comercial de cada servicio."
+      },
+      "service-sequence": {
+        "displayName": "Service Sequence",
+        "purpose": "Orden significativo 01/02/03 de la oferta."
+      },
+      "service-caption": {
+        "displayName": "Replacement Slot Caption",
+        "purpose": "Rótulo uppercase que identifica el activo definitivo pendiente."
       },
       "navigation": {
         "displayName": "Navigation",
@@ -106,6 +166,21 @@
         "name": "hero-reveal",
         "value": "680ms cubic-bezier(0.22, 1, 0.36, 1)",
         "purpose": "Revelado escalonado de título, subtítulo y acciones; se elimina con reduced motion."
+      },
+      {
+        "name": "service-reveal",
+        "value": "760ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Base compartida por statement, copy y visual; el observer tiene respaldo por scroll y el ocultamiento es opt-in para conservar contenido visible ante fallos."
+      },
+      {
+        "name": "statement-clip",
+        "value": "900ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Apertura vertical de la declaración negra."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "Duración mínima para desactivar transiciones y animaciones sin ocultar contenido."
       }
     ],
     "breakpoints": [
@@ -151,17 +226,41 @@
       "description": "La promesa editorial del primer viewport con subtítulo y jerarquía sobre material cinematográfico.",
       "html": "<section class=\"ds-hero-card\"><h1>Desarrollá el sistema<br />que tu negocio necesita.</h1><p>Sitios web, sistemas de gestión y soluciones digitales diseñadas a medida para simplificar procesos y hacer crecer tu negocio.</p></section>",
       "css": ".ds-hero-card { width:min(46vw,46rem); color:var(--color-text, #F5F5F2); } .ds-hero-card h1 { width:min(64vw,55rem); margin:0; font-family:var(--font-display, \"Clash Display\", sans-serif); font-size:clamp(4.25rem,5.25vw,5.25rem); font-weight:600; letter-spacing:-.035em; line-height:.96; } .ds-hero-card p { max-width:38rem; margin:clamp(1.5rem,2.3vw,2rem) 0 0; color:#C6C6C8; font-family:var(--font-body, \"General Sans\", sans-serif); font-size:clamp(1rem,1.25vw,1.18rem); font-weight:400; line-height:1.58; }"
+    },
+    {
+      "name": "Transition Statement",
+      "kind": "custom",
+      "description": "Pausa negra de escala póster que articula el paso desde el Hero hacia la oferta.",
+      "html": "<section class=\"ds-transition-statement\"><h2>Soluciones digitales pensadas para resolver problemas reales.</h2></section>",
+      "css": ".ds-transition-statement { display:flex; min-height:clamp(32rem,62vh,40rem); align-items:center; padding:clamp(6rem,10vw,9rem) clamp(1.25rem,5vw,5.5rem); background:var(--color-bg, #050505); color:var(--color-text, #F5F5F2); } .ds-transition-statement h2 { width:min(100%,15ch); margin:0; font-family:var(--font-display, \"Clash Display\", sans-serif); font-size:clamp(3.5rem,6.2vw,6rem); font-weight:600; letter-spacing:-.035em; line-height:.96; text-wrap:balance; } @media (max-width:47.99rem) { .ds-transition-statement { min-height:clamp(27rem,56svh,31rem); padding-top:clamp(5.5rem,18vw,7rem); padding-bottom:clamp(5.5rem,18vw,7rem); } .ds-transition-statement h2 { width:min(100%,13ch); font-size:clamp(2.8rem,12vw,4.25rem); line-height:.98; } }"
+    },
+    {
+      "name": "Service Chapter",
+      "kind": "custom",
+      "description": "Capítulo editorial de Servicios con un visual cercano a la mitad del viewport; preserva 01/02/03 y refluye copy-first en mobile.",
+      "html": "<article class=\"ds-service-chapter\"><div class=\"ds-service-copy\"><p class=\"ds-service-number\">01</p><h3>Sitios web profesionales</h3><p class=\"ds-service-description\">Diseños modernos, rápidos y adaptados a todos los dispositivos para una presencia online clara y confiable.</p></div><div class=\"ds-service-preview\" aria-label=\"Visual reemplazable del servicio\"></div></article>",
+      "css": ".ds-service-chapter { display:grid; grid-template-columns:minmax(0,.78fr) minmax(0,1.12fr); gap:clamp(2.75rem,5.5vw,6rem); align-items:center; padding:clamp(4.75rem,8vw,8rem) 0; border-bottom:1px solid var(--color-border, #242428); background:var(--color-bg, #050505); color:var(--color-text, #F5F5F2); font-family:var(--font-body, \"General Sans\", sans-serif); } .ds-service-chapter--reverse { grid-template-columns:minmax(0,1.12fr) minmax(0,.78fr); } .ds-service-chapter--reverse .ds-service-copy { grid-column:2; grid-row:1; } .ds-service-chapter--reverse .ds-service-preview { grid-column:1; grid-row:1; } .ds-service-number { margin:0 0 clamp(1.5rem,2.5vw,2.5rem); color:var(--color-accent, #69C6FF); font-size:.78rem; font-variant-numeric:tabular-nums; font-weight:600; letter-spacing:.12em; line-height:1; } .ds-service-copy h3 { max-width:12ch; margin:0; font-family:var(--font-display, \"Clash Display\", sans-serif); font-size:clamp(3rem,4.6vw,4.75rem); font-weight:600; letter-spacing:-.035em; line-height:.96; text-wrap:balance; } .ds-service-description { max-width:34rem; margin:clamp(1.25rem,2vw,2rem) 0 0; color:#B8B8BC; font-size:clamp(1rem,1.1vw,1.0625rem); line-height:1.7; } .ds-service-preview { width:100%; aspect-ratio:16/10; border:1px solid var(--color-border, #242428); border-radius:1rem; background:var(--color-surface, #0D0D0F); } @media (max-width:64rem) { .ds-service-chapter { grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr); gap:clamp(2.5rem,4vw,3.5rem); } .ds-service-chapter--reverse { grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr); } } @media (max-width:47.99rem) { .ds-service-chapter, .ds-service-chapter--reverse { grid-template-columns:minmax(0,1fr); gap:2.5rem; padding:5rem 0; } .ds-service-chapter--reverse .ds-service-copy, .ds-service-copy { grid-column:1; grid-row:1; } .ds-service-chapter--reverse .ds-service-preview, .ds-service-preview { grid-column:1; grid-row:2; aspect-ratio:4/3; } .ds-service-number { margin-bottom:1.5rem; } .ds-service-copy h3 { max-width:11ch; font-size:clamp(2.75rem,12vw,3.75rem); line-height:.98; } .ds-service-description { margin-top:1.25rem; font-size:1.0625rem; line-height:1.68; } }"
+    },
+    {
+      "name": "Service Visual Replacement Slot",
+      "kind": "custom",
+      "refersTo": "service-visual-slot",
+      "description": "Slot reutilizable y claramente rotulado para un mockup de servicio pendiente de reemplazo.",
+      "html": "<figure class=\"ds-service-slot\" data-replace-target=\"mockup-servicio\"><div class=\"ds-service-slot-stage\" aria-hidden=\"true\"><div class=\"ds-service-slot-mockup\"><span></span><span></span><span></span></div></div><figcaption>Espacio reservado para el mockup final</figcaption></figure>",
+      "css": ".ds-service-slot { min-width:0; margin:0; font-family:var(--font-body, \"General Sans\", sans-serif); } .ds-service-slot-stage { display:grid; width:100%; aspect-ratio:16/10; overflow:hidden; place-items:center; border:1px solid var(--color-border, #242428); border-radius:1rem; background:var(--color-surface, #0D0D0F); } .ds-service-slot-mockup { display:grid; width:78%; aspect-ratio:16/9.4; gap:10%; align-content:center; padding:8%; border:1px solid #343439; border-radius:.65rem; background:#09090B; } .ds-service-slot-mockup span { height:.35rem; background:#424248; } .ds-service-slot-mockup span:first-child { width:44%; background:var(--color-accent, #69C6FF); } .ds-service-slot figcaption { margin-top:1rem; color:#A9A9AE; font-size:.78rem; font-weight:500; letter-spacing:.04em; text-transform:uppercase; } @media (max-width:47.99rem) { .ds-service-slot-stage { aspect-ratio:4/3; } }"
     }
   ],
   "narrative": {
     "northStar": "El umbral de una propuesta cinematográfica",
-    "overview": "La interfaz implementada funciona como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. La identidad es oscura, editorial, premium y tecnológica sin adoptar códigos gamer, terminales, neón dominante ni glassmorphism ornamental.\n\nLa profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción, no como superficie de marca. Esta documentación cubre exclusivamente la Etapa 1 ya construida: Hero, navegación, CTA, movimiento de entrada y estados globales; no define ni anticipa componentes para secciones futuras.",
+    "overview": "La interfaz implementada comienza como una placa de apertura: el video ocupa todo el primer viewport, la promesa comercial domina la composición y la UI se mantiene deliberadamente silenciosa. Después del umbral negro, el mismo lenguaje continúa sin corte desde la declaración de gran escala hacia capítulos editoriales alternados que explican la oferta sin convertirla en una grilla de tarjetas. Sus visuales ocupan alrededor de la mitad del viewport desktop para sostener presencia sin perder aire editorial.\n\nLa profundidad proviene de la imagen en movimiento, de veladuras funcionales y de una transición estructural hacia negro. El cyan aparece como señal de interacción y secuencia, no como superficie de marca. La extensión conserva la sobriedad del Hero: separadores finos, neutrales cercanos y mockups abstractos claramente rotulados como espacios de reemplazo, nunca como prueba de proyectos reales.",
     "keyCharacteristics": [
       "Video full-bleed como materia visual principal.",
+      "Declaración negra de escala póster como pausa entre promesa y oferta.",
+      "Capítulos de servicio alternados con visuales cercanos a la mitad del viewport desktop, no cards equivalentes.",
       "Jerarquía por escala, contraste y espacio negativo.",
       "Negro casi absoluto, blanco cálido y cyan usado con rareza.",
       "Controles compactos, bordes suaves y respuesta táctil contenida.",
-      "Movimiento de entrada breve, escalonado y prescindible."
+      "Movimiento de entrada breve, orquestado y prescindible."
     ],
     "rules": [
       {
@@ -176,12 +275,17 @@
       },
       {
         "name": "The One Editorial Voice Rule",
-        "body": "Clash Display se reserva para el titular y la marca; General Sans gobierna todo el texto funcional y explicativo.",
+        "body": "Clash Display se reserva para promesas, encabezados editoriales y la marca; General Sans gobierna todo el texto funcional, secuencial y explicativo.",
         "section": "typography"
       },
       {
         "name": "The First-Viewport Rule",
-        "body": "La composición inicial contiene únicamente video, navegación, promesa, subtítulo y dos acciones. La franja negra posterior es continuidad espacial, no una sección nueva.",
+        "body": "La composición inicial contiene únicamente video, navegación, promesa, subtítulo y dos acciones. La franja negra posterior continúa el mismo mundo y prepara la declaración editorial sin producir un corte visual.",
+        "section": "layout"
+      },
+      {
+        "name": "The Chapters, Not Cards Rule",
+        "body": "Servicios se presenta como tres capítulos grandes y secuenciales; no se comprime en una grilla de cards iguales.",
         "section": "layout"
       },
       {
@@ -192,17 +296,19 @@
     ],
     "dos": [
       "Do preservar el video full-bleed como protagonista del primer viewport.",
-      "Do mantener el fade estructural hasta negro continuo antes de cualquier contenido futuro.",
+      "Do mantener el fade estructural hasta negro continuo antes de la declaración de transición.",
       "Do usar Clash Display solo para jerarquía editorial y General Sans para la UI.",
       "Do conservar foco visible, navegación por teclado, estados sin hover y reducción de movimiento.",
-      "Do mantener el CTA principal visualmente dominante y el secundario transparente."
+      "Do mantener el CTA principal visualmente dominante y el secundario transparente.",
+      "Do mantener 01/02/03 como orden significativo de los servicios y conservar el reflujo copy-first en mobile.",
+      "Do rotular los visuales temporales como espacios de reemplazo hasta contar con activos definitivos."
     ],
     "donts": [
       "Don't extender el cyan a grandes superficies, títulos o gradientes decorativos.",
-      "Don't agregar cards, formularios, claims, imágenes o patrones de secciones que todavía no existen.",
+      "Don't convertir los capítulos de servicio en una grilla de cards equivalentes.",
+      "Don't presentar los mockups abstractos como proyectos, screenshots o prueba de trabajo real.",
       "Don't implementar parallax, zoom por scroll, cursor tracking, WebGL, 3D ni animación pesada.",
-      "Don't convertir la navegación mobile en un drawer pesado o una cápsula flotante.",
-      "Don't avanzar la Etapa 2 desde este sistema documentado."
+      "Don't convertir la navegación mobile en un drawer pesado o una cápsula flotante."
     ]
   }
 }
