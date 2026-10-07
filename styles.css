@@ -697,10 +697,10 @@ button:focus-visible {
 
   .js.reveal-enabled [data-reveal] {
     transition:
-      opacity 760ms cubic-bezier(0.16, 1, 0.3, 1),
-      transform 760ms cubic-bezier(0.16, 1, 0.3, 1),
-      clip-path 900ms cubic-bezier(0.16, 1, 0.3, 1),
-      filter 760ms cubic-bezier(0.16, 1, 0.3, 1);
+      opacity 840ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 840ms cubic-bezier(0.22, 1, 0.36, 1),
+      clip-path 960ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 840ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   .js.reveal-enabled [data-reveal]:not(.is-visible) {
@@ -712,13 +712,53 @@ button:focus-visible {
     transform: translateY(1.75rem);
   }
 
+  .js.reveal-enabled [data-reveal="statement"] {
+    transition-duration: 960ms, 960ms, 1000ms, 960ms;
+  }
+
   .js.reveal-enabled [data-reveal="copy"]:not(.is-visible) {
-    transform: translateY(1.25rem);
+    opacity: 1;
+  }
+
+  .js.reveal-enabled [data-reveal="copy"] > * {
+    transition:
+      opacity 780ms cubic-bezier(0.22, 1, 0.36, 1),
+      transform 840ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .js.reveal-enabled [data-reveal="copy"]:not(.is-visible) > * {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+
+  .js.reveal-enabled [data-reveal="copy"].is-visible > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .js.reveal-enabled [data-reveal="copy"] > .service__number {
+    transition-duration: 680ms;
+  }
+
+  .js.reveal-enabled [data-reveal="copy"] > .service__description {
+    transition-duration: 720ms, 760ms;
+  }
+
+  .js.reveal-enabled [data-reveal="copy"] > :nth-child(2) {
+    transition-delay: 140ms;
+  }
+
+  .js.reveal-enabled [data-reveal="copy"] > :nth-child(3) {
+    transition-delay: 280ms;
   }
 
   .js.reveal-enabled [data-reveal="visual"]:not(.is-visible) {
     filter: blur(0.35rem);
-    transform: translateY(2rem) scale(0.985);
+    transform: translateY(1.5rem) scale(0.985);
+  }
+
+  .js.reveal-enabled [data-reveal="visual"] {
+    transition-duration: 920ms;
   }
 
   .js.reveal-enabled [data-reveal].is-visible {

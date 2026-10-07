@@ -169,13 +169,28 @@
       },
       {
         "name": "service-reveal",
-        "value": "760ms cubic-bezier(0.16, 1, 0.3, 1)",
-        "purpose": "Base compartida por statement, copy y visual; el observer tiene respaldo por scroll y el ocultamiento es opt-in para conservar contenido visible ante fallos."
+        "value": "840ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Base de entrada para títulos de servicio; el observer tiene respaldo por scroll y el ocultamiento es opt-in ante fallos."
       },
       {
         "name": "statement-clip",
-        "value": "900ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "value": "1000ms cubic-bezier(0.22, 1, 0.36, 1)",
         "purpose": "Apertura vertical de la declaración negra."
+      },
+      {
+        "name": "service-copy-stagger",
+        "value": "140ms",
+        "purpose": "Separación temporal entre número, título y párrafo dentro de cada capítulo."
+      },
+      {
+        "name": "service-paragraph-reveal",
+        "value": "720ms opacity / 760ms transform",
+        "purpose": "Entrada contenida de los párrafos de servicio después del título."
+      },
+      {
+        "name": "service-visual-reveal",
+        "value": "920ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Entrada de visuales temporales con 24px de ascenso, escala 0.985 y blur acotado."
       },
       {
         "name": "reduced-motion",
