@@ -2,6 +2,64 @@ const root = document.documentElement;
 const header = document.querySelector('[data-header]');
 const nav = document.querySelector('[data-nav]');
 const navToggle = document.querySelector('[data-nav-toggle]');
+const heroVideo = document.querySelector('.hero__video');
+const heroMobileQuery = window.matchMedia('(max-width: 47.99rem)');
+const heroReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const dataConnection = navigator.connection;
+
+if (heroVideo) {
+  let mediaVersion = 0;
+
+  const showPoster = () => heroVideo.classList.remove('is-playing');
+
+  const updateHeroVideo = () => {
+    const shouldPlay = !heroReducedMotionQuery.matches && !dataConnection?.saveData;
+    const source = shouldPlay
+      ? `assets/hero/hero-${heroMobileQuery.matches ? 'mobile' : 'desktop'}.mp4`
+      : '';
+
+    if (heroVideo.getAttribute('src') === source) return;
+
+    const version = ++mediaVersion;
+    showPoster();
+    heroVideo.pause();
+    heroVideo.removeAttribute('src');
+
+    if (!source) {
+      heroVideo.load();
+      return;
+    }
+
+    heroVideo.src = source;
+
+    if ('requestVideoFrameCallback' in heroVideo) {
+      heroVideo.requestVideoFrameCallback(() => {
+        if (version === mediaVersion && !heroVideo.paused && heroVideo.readyState >= 2) {
+          heroVideo.classList.add('is-playing');
+        }
+      });
+    } else {
+      heroVideo.addEventListener('playing', () => {
+        requestAnimationFrame(() => {
+          if (version === mediaVersion && !heroVideo.paused && heroVideo.readyState >= 2) {
+            heroVideo.classList.add('is-playing');
+          }
+        });
+      }, { once: true });
+    }
+
+    const playRequest = heroVideo.play();
+    playRequest?.catch(() => {
+      if (version === mediaVersion) showPoster();
+    });
+  };
+
+  heroVideo.addEventListener('error', showPoster);
+  heroMobileQuery.addEventListener('change', updateHeroVideo);
+  heroReducedMotionQuery.addEventListener('change', updateHeroVideo);
+  dataConnection?.addEventListener?.('change', updateHeroVideo);
+  updateHeroVideo();
+}
 
 requestAnimationFrame(() => {
   root.classList.add('is-ready');

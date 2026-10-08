@@ -2,32 +2,25 @@
 
 ## Estado actual
 
-Portfolio profesional de una página, implementado con HTML, CSS y JavaScript vanilla. El repositorio no tiene `package.json` ni scripts de build, lint o tests. La identidad actual es oscura, cinematográfica y editorial. El Hero usa `1080p.mp4` y debe conservarse sin cambios.
+Portfolio profesional de una página en HTML, CSS y JavaScript vanilla. No hay `package.json` ni scripts de build o test. La identidad actual es oscura y cinematográfica; el repositorio aún no implementa un tema claro.
 
-## Última tarea: escala visual debajo del Hero
+## Último trabajo: carga progresiva del Hero
 
-**Estado:** implementada, verificada e integrada en `main` desde `style/compact` mediante el merge `0350731` (sin conflictos). La rama de estilos se conserva.
+La rama `style/compact` incorporó la carga progresiva del Hero sobre la compactación visual ya integrada en `main`. Los tres recursos de `assets/hero/` están incluidos en el commit `9dfb4f7` y no fueron recomprimidos durante la integración.
 
-- `styles.css`: se redujeron de forma individual la escala de títulos y los espacios de la declaración de transición, Servicios, Proyectos, Proceso, Sobre mí, Contacto y footer. Se retiraron alturas mínimas excesivas de la transición y se compactaron encabezados, capítulos, tarjetas secundarias, pasos y controles de contacto.
-- `index.html`: se cambió solo el parámetro de versión del stylesheet a `v=5-visual-density` para evitar una vista cacheada.
-- Se conservaron los textos, colores, Hero, proporciones 16:10 y 4:3 de los visuales, proyecto destacado, hover, reveals, timeline de GSAP, reduced motion y destinos pendientes.
+- `index.html`: muestra `hero-poster.avif` con prioridad alta. El video comienza sin fuente ni `autoplay` HTML; `script.js` carga antes del CDN de GSAP. Las URLs de CSS y JS tienen versión nueva.
+- `script.js`: selecciona `hero-mobile.mp4` hasta 47.99rem y `hero-desktop.mp4` por encima. Muestra el video después del primer fotograma; ante error o rechazo de reproducción conserva el poster. Con movimiento reducido o `Save-Data` no asigna fuente.
+- `styles.css`: poster y video comparten encuadre y tamaño; el video aparece mediante una transición de opacidad de 400 ms. Se conservan overlays, fade, layout y animaciones.
+- La compactación previa de títulos y espacios debajo del Hero permanece en `styles.css`. Servicios, Proyectos, Proceso, Sobre mí y Contacto conservaron contenido y estructura.
 
 ## Verificación
 
-- Navegador local: desktop 1440×900, tablet 900×900, mobile 390×844 y extremos 768×900 y 320×700.
-- Altura total desktop: 8433 → 7137px; mobile: 9668 → 8267px. La altura y el tamaño del título del Hero permanecieron iguales.
-- Sin overflow horizontal ni elementos de texto recortados en esos tamaños. Visuales y contenido revisados en Servicios, Proyectos, Proceso, Sobre mí y Contacto.
-- La línea del Proceso se pausó fuera de vista y avanzó al regresar; no se modificó `animations.js`.
-- Consola del navegador sin errores ni advertencias. `node --check script.js`, `node --check animations.js` y `git diff --check` completados.
-- Después del merge se repitieron los chequeos de sintaxis y diff, y la vista local en desktop 1440×900 y mobile 390×844: sin overflow, texto recortado ni errores de consola.
-- No existe un flujo de build o test definido en este repositorio.
+- El commit de la rama pasó `git diff --check`; `node --check script.js` y `node --check animations.js` pasaron antes del merge.
+- La verificación HTTP anterior recibió 200 para HTML y poster y 206 para las dos variantes MP4, con MIME correcto.
+- El navegador integrado pudo abrir el servidor local durante este merge. En 1440×900 cargaron poster y video desktop; en 390×844 cargaron poster y video mobile. En ambos tamaños se verificaron selección de fuente, reproducción, ausencia de overflow horizontal y de texto recortado, y consola sin errores.
+- No se verificaron todavía `Save-Data`, movimiento reducido, métricas de red/Core Web Vitals ni el despliegue en Vercel.
+- No se modificó manualmente el código durante la resolución del conflicto de merge; solo se consolidó este handoff.
 
-## Decisiones y pendientes
+## Pendientes y siguiente acción
 
-- Servicios sigue siendo una secuencia de capítulos editoriales, no una grilla nueva de cards.
-- El sistema de reservas continúa destacado; E-Commerce Full Stack y AI PDF Chat siguen como proyectos secundarios.
-- Los slots de Servicios y Proyectos son visuales temporales con rótulos de reemplazo, no capturas finales.
-- WhatsApp, email, LinkedIn, GitHub y detalles de proyectos siguen pendientes y no navegables hasta recibir destinos reales.
-- GSAP 3.15.0 depende del CDN fijado en `index.html`; si no carga, Proceso queda legible en estado estático.
-- La implementación inspeccionada declara `color-scheme: dark` y no contiene reglas de tema claro. No se agregó un tema en esta tarea porque está fuera de alcance.
-- Siguiente acción: revisión visual del usuario.
+Revisar la transición poster/video con movimiento reducido y `Save-Data` y comprobar red y rendimiento en el preview desplegado. Los visuales de Servicios y Proyectos son temporales. Destinos de contacto y detalles de proyectos siguen pendientes. GSAP 3.15.0 se carga desde el CDN fijado en `index.html`; Proceso conserva un estado estático si no carga.
