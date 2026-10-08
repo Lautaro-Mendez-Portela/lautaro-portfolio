@@ -2,25 +2,20 @@
 
 ## Estado actual
 
-Portfolio profesional de una página en HTML, CSS y JavaScript vanilla. No hay `package.json` ni scripts de build o test. La identidad actual es oscura y cinematográfica; el repositorio aún no implementa un tema claro.
+Portfolio de una página en HTML, CSS y JavaScript vanilla, sin `package.json` ni scripts de build o test. `main` contiene la compactación visual y la carga progresiva del Hero. La tarea actual corrige la activación visual del video del Hero; los cambios están en el árbol de trabajo y no se han commiteado ni publicado.
 
-## Último trabajo: carga progresiva del Hero
+## Corrección del video del Hero
 
-La rama `style/compact` incorporó la carga progresiva del Hero sobre la compactación visual ya integrada en `main`. Los tres recursos de `assets/hero/` están incluidos en el commit `9dfb4f7` y no fueron recomprimidos durante la integración.
-
-- `index.html`: muestra `hero-poster.avif` con prioridad alta. El video comienza sin fuente ni `autoplay` HTML; `script.js` carga antes del CDN de GSAP. Las URLs de CSS y JS tienen versión nueva.
-- `script.js`: selecciona `hero-mobile.mp4` hasta 47.99rem y `hero-desktop.mp4` por encima. Muestra el video después del primer fotograma; ante error o rechazo de reproducción conserva el poster. Con movimiento reducido o `Save-Data` no asigna fuente.
-- `styles.css`: poster y video comparten encuadre y tamaño; el video aparece mediante una transición de opacidad de 400 ms. Se conservan overlays, fade, layout y animaciones.
-- La compactación previa de títulos y espacios debajo del Hero permanece en `styles.css`. Servicios, Proyectos, Proceso, Sobre mí y Contacto conservaron contenido y estructura.
+- `script.js`: la aparición del video ya no depende de una única llamada a `requestVideoFrameCallback`. Una comprobación idempotente exige fuente vigente, reproducción iniciada, fotograma disponible, `readyState >= HAVE_CURRENT_DATA`, ausencia de error y video no pausado. Se invoca desde `loadeddata`, `playing`, `timeupdate`, la resolución de `play()` y el callback de fotograma. El cambio de fuente cancela el callback y los listeners previos; `mediaVersion` descarta resultados obsoletos. Ante error o rechazo de `play()` queda el poster y se informa por consola.
+- `index.html`: se actualizó la versión de la URL de `script.js` para evitar servir una copia anterior desde caché.
+- El diseño, CSS, transición de opacidad de 400 ms, video y poster originales, breakpoints, GSAP, textos y protecciones de movimiento reducido y `Save-Data` permanecen intactos.
 
 ## Verificación
 
-- El commit de la rama pasó `git diff --check`; `node --check script.js` y `node --check animations.js` pasaron antes del merge.
-- La verificación HTTP anterior recibió 200 para HTML y poster y 206 para las dos variantes MP4, con MIME correcto.
-- El navegador integrado pudo abrir el servidor local durante este merge. En 1440×900 cargaron poster y video desktop; en 390×844 cargaron poster y video mobile. En ambos tamaños se verificaron selección de fuente, reproducción, ausencia de overflow horizontal y de texto recortado, y consola sin errores.
-- No se verificaron todavía `Save-Data`, movimiento reducido, métricas de red/Core Web Vitals ni el despliegue en Vercel.
-- No se modificó manualmente el código durante la resolución del conflicto de merge; solo se consolidó este handoff.
+- `node --check script.js`, `node --check animations.js` y `git diff --check` pasaron. Una prueba temporal de estados simulados cubrió callback temprano o ausente, reproducción lenta, rechazo de `play()`, error, cambios de fuente, movimiento reducido y `Save-Data`; el archivo temporal se retiró.
+- Navegador integrado local: carga inicial desktop a 1440×900 y mobile a 390×844 reprodujeron la fuente correcta y revelaron el video. Desktop 1440→1200 no reinició la fuente; desktop→mobile→desktop seleccionó cada variante. Con el callback de fotograma deliberadamente suprimido en una página temporal, `loadeddata`/`playing` revelaron el video y la opacidad llegó a 1. Sin errores de consola observados. Los archivos HTML temporales se retiraron.
+- El problema específico en Chrome Desktop maximizado no pudo reproducirse aquí. Quedan pendientes las pruebas manuales en ese navegador con caché vacía y existente, sin DevTools ni resize, además de red lenta/fallo real, movimiento reducido y `Save-Data` reales. No se verificó el despliegue en Vercel.
 
-## Pendientes y siguiente acción
+## Siguiente acción
 
-Revisar la transición poster/video con movimiento reducido y `Save-Data` y comprobar red y rendimiento en el preview desplegado. Los visuales de Servicios y Proyectos son temporales. Destinos de contacto y detalles de proyectos siguen pendientes. GSAP 3.15.0 se carga desde el CDN fijado en `index.html`; Proceso conserva un estado estático si no carga.
+Probar la versión local en Chrome Desktop maximizado y luego desplegar cuando el cambio sea aprobado. Los visuales de Servicios y Proyectos, destinos de contacto y detalles de proyectos siguen pendientes como contenido del portfolio.

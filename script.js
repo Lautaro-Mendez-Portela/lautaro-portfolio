@@ -9,6 +9,8 @@ const dataConnection = navigator.connection;
 
 if (heroVideo) {
   let mediaVersion = 0;
+  let mediaEvents = null;
+  let frameCallbackId = null;
 
   const showPoster = () => heroVideo.classList.remove('is-playing');
 
@@ -21,6 +23,11 @@ if (heroVideo) {
     if (heroVideo.getAttribute('src') === source) return;
 
     const version = ++mediaVersion;
+    mediaEvents?.abort();
+    if (frameCallbackId !== null) {
+      heroVideo.cancelVideoFrameCallback?.(frameCallbackId);
+      frameCallbackId = null;
+    }
     showPoster();
     heroVideo.pause();
     heroVideo.removeAttribute('src');
@@ -30,31 +37,74 @@ if (heroVideo) {
       return;
     }
 
+    let hasFrame = false;
+    let hasStartedPlayback = false;
+    let failureReported = false;
+    const showPosterOnFailure = (error) => {
+      if (version !== mediaVersion) return;
+      showPoster();
+      if (!failureReported) {
+        console.warn('Hero video unavailable; showing poster.', error);
+        failureReported = true;
+      }
+    };
+    const revealVideoIfReady = () => {
+      if (
+        version !== mediaVersion ||
+        heroVideo.getAttribute('src') !== source ||
+        heroVideo.classList.contains('is-playing') ||
+        heroVideo.error ||
+        heroVideo.paused ||
+        heroVideo.readyState < HTMLMediaElement.HAVE_CURRENT_DATA ||
+        !hasFrame ||
+        !hasStartedPlayback
+      ) return;
+
+      heroVideo.classList.add('is-playing');
+    };
+
+    mediaEvents = new AbortController();
+    const { signal } = mediaEvents;
+    heroVideo.addEventListener('loadeddata', () => {
+      hasFrame = true;
+      revealVideoIfReady();
+    }, { signal });
+    heroVideo.addEventListener('playing', () => {
+      hasStartedPlayback = true;
+      revealVideoIfReady();
+    }, { signal });
+    heroVideo.addEventListener('timeupdate', () => {
+      if (heroVideo.currentTime > 0) {
+        hasFrame = true;
+        hasStartedPlayback = true;
+      }
+      revealVideoIfReady();
+    }, { signal });
+    heroVideo.addEventListener('error', () => {
+      showPosterOnFailure(heroVideo.error);
+    }, { signal });
+
+    heroVideo.muted = true;
     heroVideo.src = source;
 
     if ('requestVideoFrameCallback' in heroVideo) {
-      heroVideo.requestVideoFrameCallback(() => {
-        if (version === mediaVersion && !heroVideo.paused && heroVideo.readyState >= 2) {
-          heroVideo.classList.add('is-playing');
-        }
+      frameCallbackId = heroVideo.requestVideoFrameCallback(() => {
+        if (version !== mediaVersion) return;
+        frameCallbackId = null;
+        hasFrame = true;
+        revealVideoIfReady();
       });
-    } else {
-      heroVideo.addEventListener('playing', () => {
-        requestAnimationFrame(() => {
-          if (version === mediaVersion && !heroVideo.paused && heroVideo.readyState >= 2) {
-            heroVideo.classList.add('is-playing');
-          }
-        });
-      }, { once: true });
     }
 
     const playRequest = heroVideo.play();
-    playRequest?.catch(() => {
-      if (version === mediaVersion) showPoster();
+    playRequest?.then(() => {
+      hasStartedPlayback = true;
+      revealVideoIfReady();
+    }).catch((error) => {
+      showPosterOnFailure(error);
     });
   };
 
-  heroVideo.addEventListener('error', showPoster);
   heroMobileQuery.addEventListener('change', updateHeroVideo);
   heroReducedMotionQuery.addEventListener('change', updateHeroVideo);
   dataConnection?.addEventListener?.('change', updateHeroVideo);
