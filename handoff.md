@@ -6,7 +6,7 @@ Portfolio profesional de una página, implementado con HTML, CSS y JavaScript va
 
 ## Última tarea: escala visual debajo del Hero
 
-**Estado:** implementada y verificada, pendiente de revisión del usuario. No se hizo commit ni push.
+**Estado:** implementada, verificada e integrada en `main` desde `style/compact` mediante el merge `0350731` (sin conflictos). La rama de estilos se conserva.
 
 - `styles.css`: se redujeron de forma individual la escala de títulos y los espacios de la declaración de transición, Servicios, Proyectos, Proceso, Sobre mí, Contacto y footer. Se retiraron alturas mínimas excesivas de la transición y se compactaron encabezados, capítulos, tarjetas secundarias, pasos y controles de contacto.
 - `index.html`: se cambió solo el parámetro de versión del stylesheet a `v=5-visual-density` para evitar una vista cacheada.
@@ -19,6 +19,7 @@ Portfolio profesional de una página, implementado con HTML, CSS y JavaScript va
 - Sin overflow horizontal ni elementos de texto recortados en esos tamaños. Visuales y contenido revisados en Servicios, Proyectos, Proceso, Sobre mí y Contacto.
 - La línea del Proceso se pausó fuera de vista y avanzó al regresar; no se modificó `animations.js`.
 - Consola del navegador sin errores ni advertencias. `node --check script.js`, `node --check animations.js` y `git diff --check` completados.
+- Después del merge se repitieron los chequeos de sintaxis y diff, y la vista local en desktop 1440×900 y mobile 390×844: sin overflow, texto recortado ni errores de consola.
 - No existe un flujo de build o test definido en este repositorio.
 
 ## Decisiones y pendientes
@@ -29,4 +30,4 @@ Portfolio profesional de una página, implementado con HTML, CSS y JavaScript va
 - WhatsApp, email, LinkedIn, GitHub y detalles de proyectos siguen pendientes y no navegables hasta recibir destinos reales.
 - GSAP 3.15.0 depende del CDN fijado en `index.html`; si no carga, Proceso queda legible en estado estático.
 - La implementación inspeccionada declara `color-scheme: dark` y no contiene reglas de tema claro. No se agregó un tema en esta tarea porque está fuera de alcance.
-- Siguiente acción: revisión visual del usuario; commit y push solo si los solicita.
+- Siguiente acción: revisión visual del usuario.
