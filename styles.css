@@ -29,7 +29,7 @@ html {
 
 body {
   margin: 0;
-  min-width: 20rem;
+  min-width: 0;
   background: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
@@ -64,6 +64,10 @@ a:focus-visible,
 button:focus-visible {
   outline: 0.125rem solid var(--color-accent);
   outline-offset: 0.25rem;
+}
+
+section[tabindex="-1"]:focus {
+  outline: none;
 }
 
 .site-header {
@@ -1554,7 +1558,7 @@ button:focus-visible {
 }
 
 .site-footer__destinations small {
-  color: #626268;
+  color: #89898f;
   font-size: 0.58rem;
   font-weight: 600;
   letter-spacing: 0.09em;
@@ -1790,7 +1794,7 @@ button:focus-visible {
     padding-left: max(1.25rem, env(safe-area-inset-left));
   }
 
-  .nav-toggle {
+  .js .nav-toggle {
     display: block;
   }
 
@@ -1804,6 +1808,10 @@ button:focus-visible {
     padding: 0.25rem max(1.25rem, env(safe-area-inset-right)) 1rem max(1.25rem, env(safe-area-inset-left));
     border-bottom: 1px solid var(--color-border);
     background: rgb(5 5 5 / 94%);
+  }
+
+  .js .site-nav {
+    visibility: hidden;
     opacity: 0;
     pointer-events: none;
     transform: translateY(-0.5rem);
@@ -1812,7 +1820,8 @@ button:focus-visible {
       transform 180ms ease;
   }
 
-  .site-nav.is-open {
+  .js .site-nav.is-open {
+    visibility: visible;
     opacity: 1;
     pointer-events: auto;
     transform: translateY(0);

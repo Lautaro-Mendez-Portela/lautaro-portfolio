@@ -2,20 +2,22 @@
 
 ## Estado actual
 
-Portfolio de una página en HTML, CSS y JavaScript vanilla, sin `package.json` ni scripts de build o test. `main` contiene la compactación visual y la carga progresiva del Hero. La tarea actual corrige la activación visual del video del Hero; los cambios están en el árbol de trabajo y no se han commiteado ni publicado.
+Etapa 5 (QA global, accesibilidad y performance) completada en el árbol de trabajo. El portfolio sigue siendo HTML, CSS y JavaScript vanilla, sin build ni tests configurados. No se hizo commit, push ni despliegue.
 
-## Corrección del video del Hero
+## Cambios
 
-- `script.js`: la aparición del video ya no depende de una única llamada a `requestVideoFrameCallback`. Una comprobación idempotente exige fuente vigente, reproducción iniciada, fotograma disponible, `readyState >= HAVE_CURRENT_DATA`, ausencia de error y video no pausado. Se invoca desde `loadeddata`, `playing`, `timeupdate`, la resolución de `play()` y el callback de fotograma. El cambio de fuente cancela el callback y los listeners previos; `mediaVersion` descarta resultados obsoletos. Ante error o rechazo de `play()` queda el poster y se informa por consola.
-- `index.html`: se actualizó la versión de la URL de `script.js` para evitar servir una copia anterior desde caché.
-- El diseño, CSS, transición de opacidad de 400 ms, video y poster originales, breakpoints, GSAP, textos y protecciones de movimiento reducido y `Save-Data` permanecen intactos.
+- `styles.css`: se eliminó el overflow de 10 px a 320 px; el menú mobile cerrado ahora queda fuera del foco y del árbol accesible, mientras que sin JavaScript la navegación permanece visible; se mejoró el contraste de “Próximamente” en el footer y se evitó el borde de foco nativo alrededor de secciones enteras.
+- `index.html`: las secciones con anclas pueden recibir foco programático después de navegar; se evitó la solicitud 404 de `favicon.ico` con un icono vacío provisional y se actualizó la versión de la URL de CSS.
+- `.vercelignore`: permite publicar solo `index.html`, CSS, JS y `assets/`, dejando fuera el video original `1080p.mp4`, documentación y PNG de referencia sin eliminarlos del repositorio.
 
-## Verificación
+## Validación
 
-- `node --check script.js`, `node --check animations.js` y `git diff --check` pasaron. Una prueba temporal de estados simulados cubrió callback temprano o ausente, reproducción lenta, rechazo de `play()`, error, cambios de fuente, movimiento reducido y `Save-Data`; el archivo temporal se retiró.
-- Navegador integrado local: carga inicial desktop a 1440×900 y mobile a 390×844 reprodujeron la fuente correcta y revelaron el video. Desktop 1440→1200 no reinició la fuente; desktop→mobile→desktop seleccionó cada variante. Con el callback de fotograma deliberadamente suprimido en una página temporal, `loadeddata`/`playing` revelaron el video y la opacidad llegó a 1. Sin errores de consola observados. Los archivos HTML temporales se retiraron.
-- El problema específico en Chrome Desktop maximizado no pudo reproducirse aquí. Quedan pendientes las pruebas manuales en ese navegador con caché vacía y existente, sin DevTools ni resize, además de red lenta/fallo real, movimiento reducido y `Save-Data` reales. No se verificó el despliegue en Vercel.
+- Lighthouse 13.5.0 local final: mobile 93 Performance / 100 Accessibility / 100 Best Practices / 100 SEO; LCP 2.7 s, CLS 0, TBT 0 ms. Desktop 99 / 100 / 100 / 100; LCP 0.7 s, CLS 0.005, TBT 0 ms. Antes de corregir favicon y contraste: 93 / 96 / 96 / 100 mobile y 99 / 96 / 96 / 100 desktop. Reportes JSON y capturas en `.impeccable/qa-stage5/` (ignorado por Git).
+- Navegador local: 1440×900, 1366×768, 768×1024, 390×844 y 320×568 sin overflow horizontal; navegación, CTA, menú mobile, Escape, foco de anclas y header fijo verificados. Capturas finales desktop/mobile inspeccionadas. Consola final sin errores ni warnings.
+- Fallbacks comprobados mediante páginas temporales retiradas: sin JavaScript, contenido y navegación visibles; sin GSAP, timeline legible; simulación de movimiento reducido, poster visible, reveals y timeline estáticos. El timeline GSAP se pausó fuera del viewport y reanudó al volver. `node --check` para ambos JS, referencias locales y `git diff --check` pasaron.
 
-## Siguiente acción
+## Pendientes y siguiente acción
 
-Probar la versión local en Chrome Desktop maximizado y luego desplegar cuando el cambio sea aprobado. Los visuales de Servicios y Proyectos, destinos de contacto y detalles de proyectos siguen pendientes como contenido del portfolio.
+- Siguen pendientes los screenshots reales de Servicios y Proyectos y los destinos definitivos de WhatsApp, email, LinkedIn y GitHub. No inventar datos ni sustituir placeholders.
+- El video original pesa 18.3 MB y las variantes servidas pesan 5.0 MB desktop / 2.9 MB mobile. Si se busca mejorar LCP mobile, evaluar compresión o formatos nuevos con decisión explícita; no modificar el original automáticamente. Fontshare y CSS son recursos bloqueantes identificados por Lighthouse; `display=swap` ya está activo. La advertencia de caché en Lighthouse corresponde al servidor local sin headers; verificar el despliegue real antes de configurar caché.
+- No se probó un despliegue en Vercel. La estructura y rutas estáticas están preparadas; comprobar en preview que `.vercelignore` excluya lo previsto y que carguen video, fuentes y GSAP. Luego, y solo cuando el usuario lo pida, continuar con Etapa 6.
