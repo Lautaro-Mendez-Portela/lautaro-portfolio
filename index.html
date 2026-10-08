@@ -13,12 +13,12 @@
       href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=5-visual-density" />
+    <link rel="stylesheet" href="styles.css?v=6-hero-media" />
     <script>
       document.documentElement.classList.add('js');
     </script>
+    <script src="script.js?v=6-hero-media" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
-    <script src="script.js?v=5" defer></script>
     <script src="animations.js?v=1" defer></script>
     <title>L — Desarrollo web y sistemas a medida</title>
   </head>
@@ -48,20 +48,24 @@
 
     <main>
       <section class="hero" id="inicio" aria-labelledby="hero-title">
+        <img
+          class="hero__poster"
+          src="assets/hero/hero-poster.avif"
+          alt=""
+          fetchpriority="high"
+          aria-hidden="true"
+        />
         <video
           class="hero__video"
-          autoplay
           muted
           loop
           playsinline
-          preload="auto"
+          preload="none"
           disablepictureinpicture
           disableremoteplayback
           aria-hidden="true"
           tabindex="-1"
-        >
-          <source src="1080p.mp4" type="video/mp4" />
-        </video>
+        ></video>
 
         <div class="hero__overlay" aria-hidden="true"></div>
         <div class="hero__fade" aria-hidden="true"></div>

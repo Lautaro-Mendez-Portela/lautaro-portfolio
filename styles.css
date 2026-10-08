@@ -181,6 +181,7 @@ button:focus-visible {
   background: var(--color-bg);
 }
 
+.hero__poster,
 .hero__video,
 .hero__overlay,
 .hero__fade {
@@ -190,10 +191,24 @@ button:focus-visible {
   height: 100%;
 }
 
+.hero__poster,
 .hero__video {
-  z-index: -3;
   object-fit: cover;
   object-position: center center;
+}
+
+.hero__poster {
+  z-index: -4;
+}
+
+.hero__video {
+  z-index: -3;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.hero__video.is-playing {
+  opacity: 1;
 }
 
 .hero__overlay {
@@ -1821,6 +1836,7 @@ button:focus-visible {
     min-height: 100svh;
   }
 
+  .hero__poster,
   .hero__video {
     object-position: 58% center;
   }
