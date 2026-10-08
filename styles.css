@@ -1185,6 +1185,7 @@ button:focus-visible {
   margin: 0;
   padding: var(--process-timeline-start) 0 0;
   list-style: none;
+  overflow: visible;
 }
 
 .process-timeline::before,
@@ -1203,13 +1204,13 @@ button:focus-visible {
 
 .process-timeline::after {
   background: var(--color-accent);
-  transform: scaleX(1);
+  opacity: var(--process-progress-opacity, 1);
+  transform: scaleX(var(--process-progress-x, 1));
   transform-origin: left center;
 }
 
 .process-step {
   --process-step-delay: 120ms;
-  --process-dot-delay: 0ms;
 
   position: relative;
   display: grid;
@@ -1219,17 +1220,14 @@ button:focus-visible {
 
 .process-step:nth-child(2) {
   --process-step-delay: 280ms;
-  --process-dot-delay: 2347ms;
 }
 
 .process-step:nth-child(3) {
   --process-step-delay: 440ms;
-  --process-dot-delay: 4693ms;
 }
 
 .process-step:nth-child(4) {
   --process-step-delay: 600ms;
-  --process-dot-delay: 7040ms;
 }
 
 .process-step__axis {
@@ -1670,20 +1668,7 @@ button:focus-visible {
 
   .js.reveal-enabled [data-reveal="timeline"] {
     opacity: 1;
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"]:not(.is-visible)::after {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible::after {
-    opacity: 1;
-    transform: scaleX(1);
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping::after {
-    animation: process-progress-horizontal 8s linear infinite;
+    overflow: visible;
   }
 
   .js.reveal-enabled [data-reveal="timeline"] .process-step__number,
@@ -1699,24 +1684,11 @@ button:focus-visible {
     transition-delay: calc(var(--process-step-delay) + 100ms);
   }
 
-  .js.reveal-enabled [data-reveal="timeline"] .process-step__dot {
-    transition:
-      border-color 180ms ease,
-      background-color 180ms ease,
-      box-shadow 220ms ease;
-  }
-
   .js.reveal-enabled [data-reveal="timeline"]:not(.is-visible) .process-step__number,
   .js.reveal-enabled [data-reveal="timeline"]:not(.is-visible) .process-step h3,
   .js.reveal-enabled [data-reveal="timeline"]:not(.is-visible) .process-step p {
     opacity: 0;
     transform: translateY(1.125rem);
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"]:not(.is-visible) .process-step__dot {
-    border-color: #85858b;
-    background: var(--color-bg);
-    box-shadow: none;
   }
 
   .js.reveal-enabled [data-reveal="timeline"].is-visible .process-step__number,
@@ -1726,39 +1698,6 @@ button:focus-visible {
     transform: translateY(0);
   }
 
-  .js.reveal-enabled [data-reveal="timeline"].is-visible .process-step__dot {
-    border-color: #85858b;
-    background: var(--color-bg);
-    box-shadow: none;
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step__dot {
-    animation: process-dot-pulse 8s linear infinite;
-    animation-delay: var(--process-dot-delay);
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(1) .process-step__number {
-    animation: process-number-n1 8s linear infinite;
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(2) .process-step__number {
-    animation: process-number-n2 8s linear infinite;
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(3) .process-step__number {
-    animation: process-number-n3 8s linear infinite;
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(4) .process-step__number {
-    animation: process-number-n4 8s linear infinite;
-  }
-
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused::after,
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused .process-step__dot,
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused .process-step__number {
-    animation-play-state: paused;
-  }
-
   .js.reveal-enabled [data-reveal].is-visible {
     opacity: 1;
     clip-path: inset(0);
@@ -1766,129 +1705,10 @@ button:focus-visible {
     transform: translateY(0) scale(1);
   }
 
-  @keyframes process-progress-horizontal {
-    0% {
-      opacity: 0;
-      transform: scaleX(0);
-    }
-
-    1% {
-      opacity: 1;
-      transform: scaleX(0);
-    }
-
-    88%,
-    94% {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    98%,
-    100% {
-      opacity: 0;
-      transform: scaleX(1);
-    }
+  .js.reveal-enabled [data-reveal="timeline"].is-visible {
+    clip-path: none;
   }
 
-  @keyframes process-dot-pulse {
-    0%,
-    12%,
-    100% {
-      border-color: #85858b;
-      background: var(--color-bg);
-      box-shadow: none;
-    }
-
-    2%,
-    7% {
-      border-color: var(--color-accent);
-      background: var(--color-accent);
-      box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-accent) 12%, transparent);
-    }
-  }
-
-  /* Step 01 — activates at ~0% of the global 8s cycle */
-  @keyframes process-number-n1 {
-    0% {
-      color: #76767c;
-      text-shadow: none;
-    }
-
-    1.5%,
-    94% {
-      color: #f5f5f2;
-      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
-    }
-
-    97%,
-    100% {
-      color: #76767c;
-      text-shadow: none;
-    }
-  }
-
-  /* Step 02 — activates at ~29.34% (2347ms / 8000ms) */
-  @keyframes process-number-n2 {
-    0%,
-    28% {
-      color: #76767c;
-      text-shadow: none;
-    }
-
-    29.3%,
-    94% {
-      color: #f5f5f2;
-      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
-    }
-
-    97%,
-    100% {
-      color: #76767c;
-      text-shadow: none;
-    }
-  }
-
-  /* Step 03 — activates at ~58.66% (4693ms / 8000ms) */
-  @keyframes process-number-n3 {
-    0%,
-    57.3% {
-      color: #76767c;
-      text-shadow: none;
-    }
-
-    58.7%,
-    94% {
-      color: #f5f5f2;
-      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
-    }
-
-    97%,
-    100% {
-      color: #76767c;
-      text-shadow: none;
-    }
-  }
-
-  /* Step 04 — activates at ~88% (7040ms / 8000ms) */
-  @keyframes process-number-n4 {
-    0%,
-    86.7% {
-      color: #76767c;
-      text-shadow: none;
-    }
-
-    88%,
-    94% {
-      color: #f5f5f2;
-      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
-    }
-
-    97%,
-    100% {
-      color: #76767c;
-      text-shadow: none;
-    }
-  }
 }
 
 @media (max-width: 64rem) {
@@ -2220,6 +2040,7 @@ button:focus-visible {
 
     display: block;
     padding-top: var(--process-timeline-start);
+    overflow: visible;
   }
 
   .process-timeline::before,
@@ -2265,7 +2086,8 @@ button:focus-visible {
 
   .process-step::after {
     background: var(--color-accent);
-    transform: scaleY(1);
+    opacity: var(--process-segment-opacity, 1);
+    transform: scaleY(var(--process-segment-progress, 1));
     transform-origin: center top;
   }
 
@@ -2393,107 +2215,6 @@ button:focus-visible {
     justify-content: space-between;
   }
 
-  @media (prefers-reduced-motion: no-preference) {
-    .js.reveal-enabled [data-reveal="timeline"]:not(.is-visible) .process-step::after {
-      opacity: 0;
-      transform: scaleY(0);
-    }
-
-    .js.reveal-enabled [data-reveal="timeline"].is-visible .process-step::after {
-      opacity: 1;
-      transform: scaleY(1);
-    }
-
-    .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(1)::after {
-      animation: process-progress-mobile-first 8s linear infinite;
-    }
-
-    .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(2)::after {
-      animation: process-progress-mobile-second 8s linear infinite;
-    }
-
-    .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(3)::after {
-      animation: process-progress-mobile-third 8s linear infinite;
-    }
-
-    .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused .process-step::after {
-      animation-play-state: paused;
-    }
-
-    @keyframes process-progress-mobile-first {
-      0% {
-        opacity: 0;
-        transform: scaleY(0);
-      }
-
-      1% {
-        opacity: 1;
-        transform: scaleY(0);
-      }
-
-      29.33%,
-      94% {
-        opacity: 1;
-        transform: scaleY(1);
-      }
-
-      98%,
-      100% {
-        opacity: 0;
-        transform: scaleY(1);
-      }
-    }
-
-    @keyframes process-progress-mobile-second {
-      0% {
-        opacity: 0;
-        transform: scaleY(0);
-      }
-
-      1%,
-      29.33% {
-        opacity: 1;
-        transform: scaleY(0);
-      }
-
-      58.67%,
-      94% {
-        opacity: 1;
-        transform: scaleY(1);
-      }
-
-      98%,
-      100% {
-        opacity: 0;
-        transform: scaleY(1);
-      }
-    }
-
-    @keyframes process-progress-mobile-third {
-      0% {
-        opacity: 0;
-        transform: scaleY(0);
-      }
-
-      1%,
-      58.67% {
-        opacity: 1;
-        transform: scaleY(0);
-      }
-
-      88%,
-      94% {
-        opacity: 1;
-        transform: scaleY(1);
-      }
-
-      98%,
-      100% {
-        opacity: 0;
-        transform: scaleY(1);
-      }
-    }
-  }
 }
 
 @media (max-width: 25rem) {

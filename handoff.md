@@ -171,7 +171,7 @@ The following decisions are currently active:
 
 # Current implementation milestone
 
-Stages 1–4 are implemented. Stage 4 adds the closing sequence without redesigning the approved Hero, Services, or Projects sections.
+Stages 1–4 are implemented. Stage 4.5 establishes GSAP as the animation system for complex sequences and migrates only the approved `#proceso` timeline. Hero, Services, Projects, About, Contact, navbar, and footer have not been migrated or redesigned.
 
 Known completed Stage 4 work includes:
 
@@ -183,6 +183,10 @@ Known completed Stage 4 work includes:
 - navbar navigation to `#sobre-mi` and `#contacto`
 - reveal motion, stagger, no-JavaScript fallback, and `prefers-reduced-motion` support
 - six Stage 4 review captures in `.impeccable/review/`
+- GSAP `3.15.0` loaded from a pinned jsDelivr URL before the local page and animation scripts
+- `animations.js` as the isolated owner of the Process sequence and shared motion-preference state
+- one synchronized 8-second GSAP timeline for Process, with cumulative step activation and responsive horizontal/vertical progress
+- viewport pause/resume without duplicate timeline instances and a fully static reduced-motion state
 
 No Stage 5 work has been started.
 
@@ -220,23 +224,18 @@ Do not trust this file for the current branch, commit hash, or uncommitted chang
 
 Current task:
 
-Stage 4 follow-up — Synchronized step numbers in the process timeline loop (unified 8s global cycle).
+Stage 4.5 — Integrate GSAP and migrate the `#proceso` animation.
 
 Current status:
 
-- implementation complete and rigorously verified in real browser across two full consecutive cycles
-- four step numbers (01, 02, 03, 04) share the exact same 8s global cycle without individual animation delays
-- per-step keyframes (`process-number-n1`, `process-number-n2`, `process-number-n3`, `process-number-n4`) encode the activation window:
-  - 01 lights up at ~0% (1.5%)
-  - 02 lights up at ~29.3% (2347ms)
-  - 03 lights up at ~58.7% (4693ms)
-  - 04 lights up at ~88% (7040ms)
-- all reached numbers stay illuminated through 94% of the cycle, creating a premium accumulated progress stepper effect
-- between 97% and 100%, all numbers reset together to gray (#76767c) simultaneously with the progress line and dots
-- cycle 2 starts with all numbers cleanly reset; zero lingering illumination from earlier cycles
-- works on both desktop horizontal and mobile vertical layouts
-- `prefers-reduced-motion: reduce` displays numbers statically in light readable tone (#e8e8e6)
-- screenshots generated: `proceso-loop-desktop.png` and `proceso-loop-mobile.png`
+- GSAP `3.15.0` is integrated through a version-pinned CDN script
+- the previous Process CSS keyframes and Process-specific JavaScript class toggling were removed
+- `animations.js` creates exactly one repeating 8-second GSAP timeline
+- the sequence activates 01, advances to 02, then 03 and 04 cumulatively, holds briefly, resets, and repeats
+- progress is horizontal on desktop and vertical through the three connecting segments on mobile
+- the timeline pauses while `#proceso` is outside the viewport or the page is hidden, then resumes without creating another instance
+- `prefers-reduced-motion` prevents timeline creation and shows the complete progress line with all four steps in a readable static state
+- two complete cycles, reset, pause/resume, reduced motion, console, clipping, and horizontal overflow were validated at 1440x900 and 390x844
 - awaiting user review and an explicit future commit request
 
 ---
@@ -264,50 +263,46 @@ Agents should not work simultaneously on conflicting changes in the same branch.
 
 Task:
 
-Process timeline number illumination — shared 8s global cycle synchronization across all steps.
+Stage 4.5 — Integrate GSAP as the primary system for complex animations and migrate only `#proceso`.
 
 Result:
 
-Replaced the offset `animation-delay` implementation with 4 dedicated keyframes (`process-number-n1`, `process-number-n2`, `process-number-n3`, `process-number-n4`), all running on the exact same 8s linear infinite loop without individual delays. Step 01 illuminates at ~0%, Step 02 at ~29.3%, Step 03 at ~58.7%, and Step 04 at ~88%. All numbers remain illuminated until 94% of the shared cycle, then smoothly transition back to baseline gray (#76767c) together between 97% and 100%. At the start of cycle 2, all numbers are verified dark and Step 01 starts the sequence afresh. Validated across two consecutive cycles on desktop (1440x900) and mobile (390x844) via automated browser inspection. Layout, copy, typography, Hero, Services, Projects, About, Contact, navbar, and footer remain completely untouched.
+Added a pinned GSAP runtime and isolated the complex Process animation in `animations.js`. A single responsive GSAP timeline now owns line progression, cumulative point/number activation, the completion hold, reset, and loop. It pauses outside the viewport and respects a centralized reduced-motion preference. The previously approved layout, typography, colors, timing, number glow fix, content, and all other sections remain untouched.
 
 Files changed:
 
-- `styles.css` — added `process-number-n1` through `n4` keyframes, connected via `:nth-child(1..4)`, unified reset timing (97%-100%), pause support on `is-loop-paused`, reduced-motion fallback; removed obsolete mobile delayed rule
-- `index.html` — stylesheet cache buster updated to `?v=4-process-numsync`
-- `proceso-loop-desktop.png` — capture showing active timeline on desktop (1440x900)
-- `proceso-loop-mobile.png` — capture showing active timeline on mobile (390x844)
+- `animations.js` — new isolated motion module; creates and manages the Process GSAP timeline
+- `index.html` — loads pinned GSAP `3.15.0`, then the existing script and `animations.js`; stylesheet cache buster updated
+- `script.js` — removed only the obsolete Process loop observer/class toggling
+- `styles.css` — exposes GSAP-controlled progress variables and removes the obsolete Process loop keyframes/selectors while retaining layout and static fallbacks
+- `proceso-loop-desktop.png` — updated desktop validation capture at the fully completed timeline state
+- `proceso-loop-mobile.png` — updated mobile validation capture at the fully completed timeline state
+- `handoff.md` — documents the Stage 4.5 implementation and verification
 
 Validation completed:
 
-- Real Chrome (Chrome 156 headless via CDP) tested across two full consecutive cycles (16s total)
-- Cycle 1 Web Animations API measurement:
-  - t=500ms (6.3%): 01:LIT | 02:dark | 03:dark | 04:dark
-  - t=2366ms (29.6%): 01:LIT | 02:LIT | 03:dark | 04:dark
-  - t=4866ms (60.8%): 01:LIT | 02:LIT | 03:LIT | 04:dark
-  - t=7149ms (89.4%): 01:LIT | 02:LIT | 03:LIT | 04:LIT (all 4 illuminated)
-  - t=7883ms (98.5%): 01:dark | 02:dark | 03:dark | 04:dark (clean reset)
-- Cycle 2 Web Animations API measurement:
-  - t=300ms (3.8%): 01:LIT | 02:dark | 03:dark | 04:dark (clean restart)
-  - t=2366ms (29.6%): 01:LIT | 02:LIT | 03:dark | 04:dark
-  - t=4866ms (60.8%): 01:LIT | 02:LIT | 03:LIT | 04:dark
-  - t=7149ms (89.4%): 01:LIT | 02:LIT | 03:LIT | 04:LIT (all 4 illuminated)
-  - t=7783ms (97.3%): 01:dark | 02:dark | 03:dark | 04:dark (clean reset)
-- CSS brace balance: 407 opens = 407 closes
-- Desktop viewport (1440x900) & Mobile viewport (390x844) verified
-- Reduced-motion mode preserves full readability with static styling
+- desktop `1440×900` and mobile `390×844`
+- GSAP runtime `3.15.0`; Process timeline duration `8s`; repeat `-1`; exactly one named instance
+- sampled both full cycles at 0.4s, 2.6s, 4.9s, 7.25s, and 7.9s: cumulative activation and reset matched in both cycles
+- desktop horizontal and mobile vertical progress values matched the active step at every sample
+- offscreen pause produced zero timeline drift; returning to the section resumed progression
+- reduced motion created no timeline and rendered full progress with four visible steps
+- horizontal overflow: `0px` in both viewports; timeline reveal mask remains disabled so the glow is not clipped
+- no GSAP load failures, JavaScript exceptions, or browser console errors
 
 ---
 # Known issues
 
 - WhatsApp, email, LinkedIn, and GitHub destinations are still intentionally pending. Do not make their controls navigable until the user supplies real data.
 - Fontshare is an external dependency; sandboxed headless validation blocked that request and used the defined fallbacks, while the integrated browser rendered without console errors.
+- GSAP is currently an external runtime dependency served from the pinned jsDelivr URL. If it cannot load, the CSS defaults leave the Process line and steps fully visible and readable, but the loop is unavailable.
 - No confirmed Stage 4 blocking issue remains.
 
 ---
 
 # Next recommended action
 
-Have the user review Stage 4 and, only when explicitly requested, commit it. Do not start Stage 5 automatically. A future contact-data pass should replace the pending controls with real destinations supplied by the user.
+Have the user review Stage 4.5 and, only when explicitly requested, commit it. Keep simple entrance effects in CSS; reserve `animations.js` and GSAP timelines for future sequences that genuinely need orchestration. Do not start Stage 5 automatically. A future contact-data pass should replace the pending controls with real destinations supplied by the user.
 
 ---
 
