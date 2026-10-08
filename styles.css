@@ -1737,8 +1737,25 @@ button:focus-visible {
     animation-delay: var(--process-dot-delay);
   }
 
+  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(1) .process-step__number {
+    animation: process-number-n1 8s linear infinite;
+  }
+
+  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(2) .process-step__number {
+    animation: process-number-n2 8s linear infinite;
+  }
+
+  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(3) .process-step__number {
+    animation: process-number-n3 8s linear infinite;
+  }
+
+  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping .process-step:nth-child(4) .process-step__number {
+    animation: process-number-n4 8s linear infinite;
+  }
+
   .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused::after,
-  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused .process-step__dot {
+  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused .process-step__dot,
+  .js.reveal-enabled [data-reveal="timeline"].is-visible.is-looping.is-loop-paused .process-step__number {
     animation-play-state: paused;
   }
 
@@ -1787,6 +1804,89 @@ button:focus-visible {
       border-color: var(--color-accent);
       background: var(--color-accent);
       box-shadow: 0 0 0 0.1875rem color-mix(in srgb, var(--color-accent) 12%, transparent);
+    }
+  }
+
+  /* Step 01 — activates at ~0% of the global 8s cycle */
+  @keyframes process-number-n1 {
+    0% {
+      color: #76767c;
+      text-shadow: none;
+    }
+
+    1.5%,
+    94% {
+      color: #f5f5f2;
+      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
+    }
+
+    97%,
+    100% {
+      color: #76767c;
+      text-shadow: none;
+    }
+  }
+
+  /* Step 02 — activates at ~29.34% (2347ms / 8000ms) */
+  @keyframes process-number-n2 {
+    0%,
+    28% {
+      color: #76767c;
+      text-shadow: none;
+    }
+
+    29.3%,
+    94% {
+      color: #f5f5f2;
+      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
+    }
+
+    97%,
+    100% {
+      color: #76767c;
+      text-shadow: none;
+    }
+  }
+
+  /* Step 03 — activates at ~58.66% (4693ms / 8000ms) */
+  @keyframes process-number-n3 {
+    0%,
+    57.3% {
+      color: #76767c;
+      text-shadow: none;
+    }
+
+    58.7%,
+    94% {
+      color: #f5f5f2;
+      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
+    }
+
+    97%,
+    100% {
+      color: #76767c;
+      text-shadow: none;
+    }
+  }
+
+  /* Step 04 — activates at ~88% (7040ms / 8000ms) */
+  @keyframes process-number-n4 {
+    0%,
+    86.7% {
+      color: #76767c;
+      text-shadow: none;
+    }
+
+    88%,
+    94% {
+      color: #f5f5f2;
+      text-shadow: 0 0 16px color-mix(in srgb, var(--color-accent) 38%, transparent);
+    }
+
+    97%,
+    100% {
+      color: #76767c;
+      text-shadow: none;
     }
   }
 }
@@ -2429,5 +2529,9 @@ button:focus-visible {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .process-step__number {
+    color: #e8e8e6;
   }
 }

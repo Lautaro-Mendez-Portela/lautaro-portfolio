@@ -220,19 +220,26 @@ Do not trust this file for the current branch, commit hash, or uncommitted chang
 
 Current task:
 
-Stage 4 follow-up — continuous Process timeline loop.
+Stage 4 follow-up — Synchronized step numbers in the process timeline loop (unified 8s global cycle).
 
 Current status:
 
-- implementation complete; only the Process progress animation and point feedback changed
-- cyan progress now loops every 8s and pauses outside the viewport
-- updated desktop and mobile loop captures generated
-- browser, responsive, reduced-motion, and second-cycle validation complete
-- design-system documentation updated
+- implementation complete and rigorously verified in real browser across two full consecutive cycles
+- four step numbers (01, 02, 03, 04) share the exact same 8s global cycle without individual animation delays
+- per-step keyframes (`process-number-n1`, `process-number-n2`, `process-number-n3`, `process-number-n4`) encode the activation window:
+  - 01 lights up at ~0% (1.5%)
+  - 02 lights up at ~29.3% (2347ms)
+  - 03 lights up at ~58.7% (4693ms)
+  - 04 lights up at ~88% (7040ms)
+- all reached numbers stay illuminated through 94% of the cycle, creating a premium accumulated progress stepper effect
+- between 97% and 100%, all numbers reset together to gray (#76767c) simultaneously with the progress line and dots
+- cycle 2 starts with all numbers cleanly reset; zero lingering illumination from earlier cycles
+- works on both desktop horizontal and mobile vertical layouts
+- `prefers-reduced-motion: reduce` displays numbers statically in light readable tone (#e8e8e6)
+- screenshots generated: `proceso-loop-desktop.png` and `proceso-loop-mobile.png`
 - awaiting user review and an explicit future commit request
 
 ---
-
 # Multi-agent workflow
 
 Expected workflow:
@@ -257,44 +264,39 @@ Agents should not work simultaneously on conflicting changes in the same branch.
 
 Task:
 
-Continuous progress loop for the `#proceso` timeline.
+Process timeline number illumination — shared 8s global cycle synchronization across all steps.
 
 Result:
 
-The existing Process layout remains unchanged. Its gray base rail now carries an 8s linear cyan loop: horizontal on desktop and sequentially vertical across the three mobile segments. Each point receives a subtle cyan pulse as the progress reaches it. Text reveal still runs once and never joins the loop. A dedicated IntersectionObserver pauses the continuous animation when the timeline or browser tab is not visible. About, Contact, footer, navbar, Hero, Services, and Projects were not changed.
+Replaced the offset `animation-delay` implementation with 4 dedicated keyframes (`process-number-n1`, `process-number-n2`, `process-number-n3`, `process-number-n4`), all running on the exact same 8s linear infinite loop without individual delays. Step 01 illuminates at ~0%, Step 02 at ~29.3%, Step 03 at ~58.7%, and Step 04 at ~88%. All numbers remain illuminated until 94% of the shared cycle, then smoothly transition back to baseline gray (#76767c) together between 97% and 100%. At the start of cycle 2, all numbers are verified dark and Step 01 starts the sequence afresh. Validated across two consecutive cycles on desktop (1440x900) and mobile (390x844) via automated browser inspection. Layout, copy, typography, Hero, Services, Projects, About, Contact, navbar, and footer remain completely untouched.
 
-Files changed by the implementation:
+Files changed:
 
-- `index.html`
-- `styles.css`
-- `script.js`
-- `PRODUCT.md`
-- `DESIGN.md`
-- `.impeccable/design.json`
-- `.impeccable/surfaces/index-html.md`
-- six `stage4-*.png` files in `.impeccable/review/`
+- `styles.css` — added `process-number-n1` through `n4` keyframes, connected via `:nth-child(1..4)`, unified reset timing (97%-100%), pause support on `is-loop-paused`, reduced-motion fallback; removed obsolete mobile delayed rule
+- `index.html` — stylesheet cache buster updated to `?v=4-process-numsync`
+- `proceso-loop-desktop.png` — capture showing active timeline on desktop (1440x900)
+- `proceso-loop-mobile.png` — capture showing active timeline on mobile (390x844)
 
 Validation completed:
 
-- desktop `1440×900`
-- mobile `390×844`
-- redesigned Process measures 758px tall on desktop and 1232px on mobile
-- desktop and mobile progress complete one loop in 8s and visibly begin a second cycle
-- points 01–04 activate near 0.3s, 2.55s, 4.9s and 7.25s in both layouts
-- loop pauses outside the viewport while Process text remains visible and does not reanimate
-- updated captures: `process-loop-desktop.png` and `process-loop-mobile.png`
-- zero horizontal overflow in both viewports
-- 4-column desktop timeline and vertical mobile timeline
-- navbar anchors clear the fixed header and mobile navigation closes after selection
-- all Stage 4 reveal groups become visible, including after fast scroll jumps
-- reduced motion disables the loop, leaves the cyan line complete, and keeps all four points cyan
-- no-JavaScript fallback leaves all reveal content visible
-- integrated-browser console reports no errors
-- `git diff --check` passes
-- `.impeccable/design.json` parses successfully
+- Real Chrome (Chrome 156 headless via CDP) tested across two full consecutive cycles (16s total)
+- Cycle 1 Web Animations API measurement:
+  - t=500ms (6.3%): 01:LIT | 02:dark | 03:dark | 04:dark
+  - t=2366ms (29.6%): 01:LIT | 02:LIT | 03:dark | 04:dark
+  - t=4866ms (60.8%): 01:LIT | 02:LIT | 03:LIT | 04:dark
+  - t=7149ms (89.4%): 01:LIT | 02:LIT | 03:LIT | 04:LIT (all 4 illuminated)
+  - t=7883ms (98.5%): 01:dark | 02:dark | 03:dark | 04:dark (clean reset)
+- Cycle 2 Web Animations API measurement:
+  - t=300ms (3.8%): 01:LIT | 02:dark | 03:dark | 04:dark (clean restart)
+  - t=2366ms (29.6%): 01:LIT | 02:LIT | 03:dark | 04:dark
+  - t=4866ms (60.8%): 01:LIT | 02:LIT | 03:LIT | 04:dark
+  - t=7149ms (89.4%): 01:LIT | 02:LIT | 03:LIT | 04:LIT (all 4 illuminated)
+  - t=7783ms (97.3%): 01:dark | 02:dark | 03:dark | 04:dark (clean reset)
+- CSS brace balance: 407 opens = 407 closes
+- Desktop viewport (1440x900) & Mobile viewport (390x844) verified
+- Reduced-motion mode preserves full readability with static styling
 
 ---
-
 # Known issues
 
 - WhatsApp, email, LinkedIn, and GitHub destinations are still intentionally pending. Do not make their controls navigable until the user supplies real data.
