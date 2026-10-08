@@ -324,9 +324,8 @@ button:focus-visible {
 
 .transition-statement__inner {
   display: flex;
-  min-height: clamp(32rem, 62vh, 40rem);
   align-items: center;
-  padding: clamp(6rem, 10vw, 9rem) var(--page-padding);
+  padding: clamp(5rem, 7vw, 7rem) var(--page-padding);
 }
 
 .transition-statement__title {
@@ -334,7 +333,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 6.2vw, 6rem);
+  font-size: clamp(2.875rem, 4.8vw, 4.625rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 0.96;
@@ -342,16 +341,16 @@ button:focus-visible {
 }
 
 .services {
-  padding: 0 var(--page-padding) clamp(6rem, 9vw, 9rem);
+  padding: 0 var(--page-padding) clamp(4.5rem, 6.5vw, 6.5rem);
   background: var(--color-bg);
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
 .services__header {
   display: flex;
-  min-height: clamp(8rem, 13vw, 11rem);
+  min-height: clamp(6.5rem, 9vw, 8rem);
   align-items: flex-end;
-  padding-bottom: clamp(1.75rem, 3vw, 2.75rem);
+  padding-bottom: clamp(1.5rem, 2.25vw, 2rem);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -359,7 +358,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 6vw, 5.75rem);
+  font-size: clamp(2.75rem, 4.5vw, 4.375rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 0.94;
@@ -368,9 +367,9 @@ button:focus-visible {
 .service {
   display: grid;
   grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.12fr);
-  gap: clamp(2.75rem, 5.5vw, 6rem);
+  gap: clamp(2.25rem, 4.5vw, 4.5rem);
   align-items: center;
-  padding: clamp(4.75rem, 8vw, 8rem) 0;
+  padding: clamp(3.5rem, 5.75vw, 5.75rem) 0;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -398,7 +397,7 @@ button:focus-visible {
 }
 
 .service__number {
-  margin: 0 0 clamp(1.5rem, 2.5vw, 2.5rem);
+  margin: 0 0 clamp(1.125rem, 1.75vw, 1.75rem);
   color: var(--color-accent);
   font-size: 0.78rem;
   font-variant-numeric: tabular-nums;
@@ -412,7 +411,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3rem, 4.6vw, 4.75rem);
+  font-size: clamp(2.5rem, 3.65vw, 3.75rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 0.96;
@@ -421,7 +420,7 @@ button:focus-visible {
 
 .service__description {
   max-width: 34rem;
-  margin: clamp(1.25rem, 2vw, 2rem) 0 0;
+  margin: clamp(1rem, 1.5vw, 1.5rem) 0 0;
   color: #b8b8bc;
   font-size: clamp(1rem, 1.1vw, 1.0625rem);
   line-height: 1.7;
@@ -445,7 +444,7 @@ button:focus-visible {
 }
 
 .service-visual figcaption {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   color: #a9a9ae;
   font-size: 0.78rem;
   font-weight: 500;
@@ -667,16 +666,16 @@ button:focus-visible {
 }
 
 .projects {
-  padding: 0 var(--page-padding) clamp(7rem, 11vw, 11rem);
+  padding: 0 var(--page-padding) clamp(5rem, 7.5vw, 7.5rem);
   background: var(--color-bg);
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
 .projects__header {
   display: flex;
-  min-height: clamp(10rem, 16vw, 14rem);
+  min-height: clamp(7rem, 10vw, 9rem);
   align-items: flex-end;
-  padding-bottom: clamp(1.75rem, 3vw, 2.75rem);
+  padding-bottom: clamp(1.5rem, 2.25vw, 2rem);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -684,7 +683,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 6vw, 5.75rem);
+  font-size: clamp(2.75rem, 4.5vw, 4.375rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 0.94;
@@ -693,9 +692,9 @@ button:focus-visible {
 .featured-project {
   display: grid;
   grid-template-columns: minmax(17rem, 0.5fr) minmax(0, 1.3fr);
-  gap: clamp(3rem, 5.5vw, 6rem);
+  gap: clamp(2.5rem, 4.5vw, 4.5rem);
   align-items: center;
-  padding: clamp(5.5rem, 8vw, 8rem) 0;
+  padding: clamp(4rem, 6vw, 6rem) 0;
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -708,7 +707,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3rem, 4.25vw, 4.5rem);
+  font-size: clamp(2.625rem, 3.45vw, 3.625rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 0.97;
@@ -717,7 +716,7 @@ button:focus-visible {
 
 .featured-project__description {
   max-width: 30rem;
-  margin: clamp(1.5rem, 2.25vw, 2.25rem) 0 0;
+  margin: clamp(1.125rem, 1.75vw, 1.75rem) 0 0;
   color: #b8b8bc;
   font-size: clamp(1rem, 1.1vw, 1.0625rem);
   line-height: 1.7;
@@ -725,7 +724,7 @@ button:focus-visible {
 
 .project-capabilities {
   max-width: 28rem;
-  margin: clamp(2rem, 3vw, 3rem) 0 0;
+  margin: clamp(1.5rem, 2.25vw, 2.25rem) 0 0;
   padding: 0;
   border-top: 1px solid var(--color-border);
   list-style: none;
@@ -743,7 +742,7 @@ button:focus-visible {
   display: inline-flex;
   align-items: center;
   gap: 0.55rem;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
   color: var(--color-accent);
   font-size: 0.93rem;
   font-weight: 600;
@@ -791,7 +790,7 @@ button:focus-visible {
 
 .featured-project__visual figcaption,
 .project-card__visual figcaption {
-  margin-top: 1rem;
+  margin-top: 0.75rem;
   color: #a9a9ae;
   font-size: 0.78rem;
   font-weight: 500;
@@ -946,13 +945,13 @@ button:focus-visible {
 }
 
 .secondary-projects {
-  padding-top: clamp(7rem, 10vw, 10rem);
+  padding-top: clamp(4.5rem, 7vw, 7rem);
 }
 
 .secondary-projects__header {
   display: flex;
   align-items: flex-end;
-  padding-bottom: clamp(1.5rem, 2.5vw, 2.25rem);
+  padding-bottom: clamp(1.25rem, 2vw, 1.75rem);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -960,7 +959,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(2.75rem, 4vw, 4rem);
+  font-size: clamp(2.25rem, 3.2vw, 3.125rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 0.98;
@@ -969,12 +968,12 @@ button:focus-visible {
 .secondary-projects__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(2rem, 4vw, 4.5rem);
+  gap: clamp(1.75rem, 3vw, 3.25rem);
 }
 
 .project-card {
   min-width: 0;
-  padding-top: clamp(2.5rem, 4vw, 4rem);
+  padding-top: clamp(2rem, 3vw, 3rem);
 }
 
 .project-card__stage {
@@ -1097,14 +1096,14 @@ button:focus-visible {
 }
 
 .project-card__body {
-  padding-top: clamp(1.75rem, 2.5vw, 2.5rem);
+  padding-top: clamp(1.25rem, 1.75vw, 1.75rem);
 }
 
 .project-card__body h4 {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 2.8vw, 3rem);
+  font-size: clamp(1.875rem, 2.35vw, 2.5rem);
   font-weight: 600;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -1113,7 +1112,7 @@ button:focus-visible {
 
 .project-card__body p {
   max-width: 38rem;
-  margin: 1.25rem 0 0;
+  margin: 1rem 0 0;
   color: #b8b8bc;
   font-size: 1rem;
   line-height: 1.65;
@@ -1123,7 +1122,7 @@ button:focus-visible {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 0;
-  margin: 1.5rem 0 0;
+  margin: 1.125rem 0 0;
   padding: 0;
   color: #a9a9ae;
   font-size: 0.82rem;
@@ -1145,13 +1144,13 @@ button:focus-visible {
 }
 
 .process {
-  padding: clamp(6.5rem, 9vw, 9rem) var(--page-padding) clamp(5.5rem, 7vw, 7rem);
+  padding: clamp(4.75rem, 6.5vw, 6.5rem) var(--page-padding) clamp(4.25rem, 5.5vw, 5.5rem);
   background: var(--color-bg);
 }
 
 .process__header {
   max-width: 52rem;
-  padding-bottom: clamp(2rem, 3vw, 2.5rem);
+  padding-bottom: clamp(1.5rem, 2.25vw, 2rem);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -1160,7 +1159,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3rem, 4.8vw, 4.75rem);
+  font-size: clamp(2.625rem, 3.8vw, 3.75rem);
   font-weight: 600;
   letter-spacing: -0.035em;
   line-height: 0.96;
@@ -1177,7 +1176,7 @@ button:focus-visible {
 
 .process-timeline {
   --process-axis-offset: 3.75rem;
-  --process-timeline-start: clamp(3.25rem, 5vw, 4.5rem);
+  --process-timeline-start: clamp(2.5rem, 3.75vw, 3.5rem);
 
   position: relative;
   display: grid;
@@ -1269,7 +1268,7 @@ button:focus-visible {
 }
 
 .process-step__body {
-  margin-top: 1.5rem;
+  margin-top: 1.125rem;
   padding-right: clamp(1.5rem, 2.6vw, 2.75rem);
 }
 
@@ -1287,14 +1286,14 @@ button:focus-visible {
 
 .process-step p {
   max-width: 22rem;
-  margin: 0.85rem 0 0;
+  margin: 0.7rem 0 0;
   color: #ababaf;
   font-size: clamp(0.95rem, 1.05vw, 1rem);
   line-height: 1.65;
 }
 
 .about {
-  padding: clamp(8rem, 12vw, 12rem) var(--page-padding);
+  padding: clamp(5.75rem, 8.5vw, 8.5rem) var(--page-padding);
   border-top: 1px solid var(--color-border);
   background: #0a0a0c;
 }
@@ -1302,14 +1301,14 @@ button:focus-visible {
 .about__layout {
   display: grid;
   grid-template-columns: minmax(15rem, 0.75fr) minmax(0, 1.25fr);
-  gap: clamp(4rem, 9vw, 10rem);
+  gap: clamp(3rem, 6.5vw, 6.5rem);
 }
 
 .about__heading h2 {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 6vw, 5.75rem);
+  font-size: clamp(2.75rem, 4.5vw, 4.375rem);
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 0.94;
@@ -1318,8 +1317,8 @@ button:focus-visible {
 .about__mark {
   position: relative;
   width: min(100%, 13rem);
-  height: 5rem;
-  margin-top: clamp(3rem, 5vw, 5rem);
+  height: 4rem;
+  margin-top: clamp(2rem, 3.5vw, 3.5rem);
 }
 
 .about__mark::before {
@@ -1370,14 +1369,14 @@ button:focus-visible {
 .about__facts {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin: clamp(3.5rem, 6vw, 6rem) 0 0;
+  margin: clamp(2.5rem, 4vw, 4rem) 0 0;
   border-top: 1px solid #333338;
   border-bottom: 1px solid #333338;
 }
 
 .about__facts > div {
   min-width: 0;
-  padding: 1.5rem clamp(1rem, 2vw, 1.75rem) 1.65rem 0;
+  padding: 1.125rem clamp(1rem, 2vw, 1.75rem) 1.25rem 0;
 }
 
 .about__facts > div:not(:last-child) {
@@ -1402,14 +1401,14 @@ button:focus-visible {
 }
 
 .contact {
-  padding: clamp(8rem, 12vw, 12rem) var(--page-padding);
+  padding: clamp(5.75rem, 8.5vw, 8.5rem) var(--page-padding);
   background: #070709;
 }
 
 .contact__layout {
   display: grid;
   grid-template-columns: minmax(0, 1.12fr) minmax(20rem, 0.88fr);
-  gap: clamp(4rem, 9vw, 10rem);
+  gap: clamp(3rem, 6.5vw, 6.5rem);
   align-items: end;
 }
 
@@ -1418,7 +1417,7 @@ button:focus-visible {
   margin: 0;
   color: var(--color-text);
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 6vw, 5.75rem);
+  font-size: clamp(2.75rem, 4.5vw, 4.375rem);
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 0.94;
@@ -1427,7 +1426,7 @@ button:focus-visible {
 
 .contact__copy p {
   max-width: 34rem;
-  margin: clamp(1.75rem, 3vw, 2.75rem) 0 0;
+  margin: clamp(1.25rem, 2vw, 2rem) 0 0;
   color: #b8b8bc;
   font-size: clamp(1rem, 1.2vw, 1.125rem);
   line-height: 1.65;
@@ -1441,10 +1440,10 @@ button:focus-visible {
 .contact-action {
   display: flex;
   width: 100%;
-  min-height: 5.75rem;
+  min-height: 4.75rem;
   align-items: center;
   gap: 1.15rem;
-  padding: 1.2rem 1.35rem;
+  padding: 0.9rem 1.2rem;
   border: 1px solid transparent;
   border-radius: 0.75rem;
   font: inherit;
@@ -1504,11 +1503,11 @@ button:focus-visible {
 
 .site-footer {
   display: flex;
-  min-height: 6rem;
+  min-height: 5rem;
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  padding: 1.5rem var(--page-padding);
+  padding: 1.25rem var(--page-padding);
   border-top: 1px solid #29292e;
   background: #070709;
 }
@@ -1730,7 +1729,7 @@ button:focus-visible {
   }
 
   .service h3 {
-    font-size: clamp(2.75rem, 4.6vw, 3.75rem);
+    font-size: clamp(2.25rem, 4.1vw, 3.25rem);
   }
 
   .featured-project {
@@ -1739,7 +1738,7 @@ button:focus-visible {
   }
 
   .featured-project h3 {
-    font-size: clamp(2.75rem, 4.5vw, 3.75rem);
+    font-size: clamp(2.25rem, 4.1vw, 3.25rem);
   }
 
   .process-step__body {
@@ -1748,7 +1747,7 @@ button:focus-visible {
 
   .about__layout,
   .contact__layout {
-    gap: clamp(3rem, 6vw, 5rem);
+    gap: clamp(2.5rem, 5vw, 4rem);
   }
 
   .about__facts {
@@ -1756,7 +1755,7 @@ button:focus-visible {
   }
 
   .about__facts > div {
-    padding: 1.25rem 0;
+    padding: 1rem 0;
   }
 
   .about__facts > div:not(:last-child) {
@@ -1877,35 +1876,34 @@ button:focus-visible {
   }
 
   .transition-statement__inner {
-    min-height: clamp(27rem, 56svh, 31rem);
-    padding-top: clamp(5.5rem, 18vw, 7rem);
-    padding-bottom: clamp(5.5rem, 18vw, 7rem);
+    padding-top: clamp(4rem, 13vw, 5rem);
+    padding-bottom: clamp(4rem, 13vw, 5rem);
   }
 
   .transition-statement__title {
     width: min(100%, 13ch);
-    font-size: clamp(2.8rem, 12vw, 4.25rem);
+    font-size: clamp(2.5rem, 10vw, 3.4rem);
     line-height: 0.98;
   }
 
   .services {
-    padding-bottom: 6rem;
+    padding-bottom: 4.5rem;
   }
 
   .services__header {
-    min-height: 8rem;
-    padding-bottom: 1.5rem;
+    min-height: 6.5rem;
+    padding-bottom: 1.25rem;
   }
 
   .services__header h2 {
-    font-size: clamp(3rem, 14vw, 4.5rem);
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
   }
 
   .service,
   .service--reverse {
     grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
-    padding: 5rem 0;
+    gap: 1.75rem;
+    padding: 3.5rem 0;
   }
 
   .service--reverse .service__copy,
@@ -1919,17 +1917,17 @@ button:focus-visible {
   }
 
   .service__number {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.125rem;
   }
 
   .service h3 {
     max-width: 11ch;
-    font-size: clamp(2.75rem, 12vw, 3.75rem);
+    font-size: clamp(2.3rem, 10vw, 3.1rem);
     line-height: 0.98;
   }
 
   .service__description {
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     font-size: 1.0625rem;
     line-height: 1.68;
   }
@@ -1939,22 +1937,22 @@ button:focus-visible {
   }
 
   .projects {
-    padding-bottom: 7rem;
+    padding-bottom: 5rem;
   }
 
   .projects__header {
-    min-height: 9rem;
-    padding-bottom: 1.5rem;
+    min-height: 7rem;
+    padding-bottom: 1.25rem;
   }
 
   .projects__header h2 {
-    font-size: clamp(3rem, 14vw, 4.5rem);
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
   }
 
   .featured-project {
     grid-template-columns: minmax(0, 1fr);
-    gap: 2.75rem;
-    padding: 5rem 0;
+    gap: 2rem;
+    padding: 3.75rem 0;
   }
 
   .featured-project__copy {
@@ -1963,18 +1961,18 @@ button:focus-visible {
 
   .featured-project h3 {
     max-width: 12ch;
-    font-size: clamp(2.75rem, 12vw, 3.75rem);
+    font-size: clamp(2.35rem, 10vw, 3.2rem);
     line-height: 0.98;
   }
 
   .featured-project__description {
-    margin-top: 1.25rem;
+    margin-top: 1rem;
     font-size: 1.0625rem;
     line-height: 1.68;
   }
 
   .project-capabilities {
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   .project-capabilities li {
@@ -1987,28 +1985,28 @@ button:focus-visible {
   }
 
   .secondary-projects {
-    padding-top: 6rem;
+    padding-top: 4rem;
   }
 
   .secondary-projects__header {
-    padding-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
   }
 
   .secondary-projects__header h3 {
-    font-size: clamp(2.75rem, 12vw, 3.75rem);
+    font-size: clamp(2.25rem, 9.5vw, 3rem);
   }
 
   .secondary-projects__grid {
     grid-template-columns: minmax(0, 1fr);
-    gap: 4.5rem;
+    gap: 3rem;
   }
 
   .project-card {
-    padding-top: 2.5rem;
+    padding-top: 2rem;
   }
 
   .project-card__body h4 {
-    font-size: clamp(2.25rem, 10vw, 3rem);
+    font-size: clamp(2rem, 8.5vw, 2.65rem);
   }
 
   .project-card__body p {
@@ -2017,17 +2015,17 @@ button:focus-visible {
   }
 
   .process {
-    padding-top: 5.5rem;
-    padding-bottom: 5.5rem;
+    padding-top: 4.25rem;
+    padding-bottom: 4.25rem;
   }
 
   .process__header {
-    padding-bottom: 2.25rem;
+    padding-bottom: 1.75rem;
   }
 
   .process__header h2 {
     max-width: 12ch;
-    font-size: clamp(2.75rem, 12vw, 3.75rem);
+    font-size: clamp(2.35rem, 10vw, 3.2rem);
   }
 
   .process__header p {
@@ -2036,7 +2034,7 @@ button:focus-visible {
   }
 
   .process-timeline {
-    --process-timeline-start: 3rem;
+    --process-timeline-start: 2.25rem;
 
     display: block;
     padding-top: var(--process-timeline-start);
@@ -2055,7 +2053,7 @@ button:focus-visible {
     grid-template-columns: 2rem minmax(0, 1fr);
     grid-template-rows: auto auto;
     gap: 0 0.75rem;
-    padding-bottom: 2.75rem;
+    padding-bottom: 2rem;
   }
 
   .process-step:nth-child(2) {
@@ -2133,7 +2131,7 @@ button:focus-visible {
 
   .process-step h3 {
     max-width: 13ch;
-    font-size: clamp(1.75rem, 8vw, 2.25rem);
+    font-size: clamp(1.625rem, 7vw, 2rem);
     line-height: 1.04;
   }
 
@@ -2145,25 +2143,25 @@ button:focus-visible {
 
   .about,
   .contact {
-    padding-top: 7rem;
-    padding-bottom: 7rem;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
   }
 
   .about__layout,
   .contact__layout {
     grid-template-columns: minmax(0, 1fr);
-    gap: 3.5rem;
+    gap: 2.5rem;
   }
 
   .about__heading h2,
   .contact__copy h2 {
-    font-size: clamp(3rem, 14vw, 4.5rem);
+    font-size: clamp(2.5rem, 11vw, 3.5rem);
   }
 
   .about__mark {
     width: min(52vw, 12rem);
-    height: 3.5rem;
-    margin-top: 2rem;
+    height: 2.75rem;
+    margin-top: 1.5rem;
   }
 
   .about__content > p {
@@ -2172,7 +2170,7 @@ button:focus-visible {
   }
 
   .about__facts {
-    margin-top: 3rem;
+    margin-top: 2.25rem;
   }
 
   .about__facts dd {
@@ -2192,15 +2190,15 @@ button:focus-visible {
   }
 
   .contact-action {
-    min-height: 5.5rem;
-    padding: 1.1rem 1.2rem;
+    min-height: 4.75rem;
+    padding: 0.9rem 1.2rem;
   }
 
   .site-footer {
     align-items: flex-start;
     flex-direction: column;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .site-footer__destinations {
