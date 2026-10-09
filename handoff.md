@@ -4,22 +4,23 @@
 
 Portfolio de una página en HTML, CSS y JavaScript nativo, sin paquete ni scripts de build/test. Rama style/compact. No hay tema claro implementado.
 
-## Tarea actual: refinamiento visual de Servicios
+## Tarea actual: Light Droplets hasta Sobre mí
 
-**Estado:** implementado localmente, sin commit, push ni deploy.
+**Estado:** implementado localmente, sin commit, push, merge ni deploy.
 
-- styles.css: las cuatro tarjetas conservan la grilla 2 × 2 y su composición. La superficie pasó de #FFFFFF a #F2F0F5; los títulos mantienen Clash Display con tracking neutro y mayor separación entre palabras. Se redujeron padding y espacio antes de la descripción. Las sombras ahora combinan profundidad negra suave con un matiz violeta tenue y aumentan ligeramente en hover. El spotlight violeta se suavizó.
-- index.html: solo se actualizó la versión de caché de styles.css. Los nombres, descripciones e íconos de los cuatro servicios no cambiaron.
-- services-tilt.js y light-droplets.js no se editaron. Las tarjetas siguen siendo artículos sin acción ni cursor de botón.
+- index.html: el único contenedor .light-droplets ahora incluye transición, Servicios, Proyectos, Cómo trabajo y Sobre mí. Cierra antes de Contacto. Solo cambió además la versión de caché de styles.css.
+- styles.css: Proyectos y Cómo trabajo tienen fondos transparentes y quedan por delante del Canvas; Sobre mí conserva un tono más claro con una capa rgb(10 10 12 / 72%). La máscara existente mantiene la entrada gradual y el fade en los últimos 12rem del contenedor. Contacto y footer no se tocaron.
+- light-droplets.js no cambió. Conserva un Canvas sticky de 100vh, DPR máximo 1.5, tope de 60 FPS, IntersectionObserver, pausa por pestaña oculta y prefers-reduced-motion.
+- No existe .vercelignore en esta rama; no hay regla que excluya light-droplets.js, así que no se creó un archivo de excepción.
 
 ## Verificación
 
-- Comparación visual antes/después en Chrome a 1440 y 390 px; revisión posterior también a 900, 768 y 320 px. No hay overflow horizontal ni texto cortado en los anchos comprobados.
-- A 1440 px, las cuatro tarjetas mantienen el mismo tamaño y pasaron de 219,9 a 198,7 px de alto (reducción ~9,6 %). La sección pasó de 701,8 a 659,5 px. A 900 y 768 px se mantiene la grilla 2 × 2; en mobile, una columna.
-- Chrome confirmó fondo rgb(242, 240, 245). Hover: tilt, spotlight y sombras reforzadas; al salir, tilt y spotlight vuelven a cero. Con prefers-reduced-motion, el tilt se desactiva. En emulación táctil no se activa el seguimiento 3D.
-- Light Droplets sigue visible detrás de las tarjetas; el canvas conserva pointer-events: none. El diff no toca otras secciones ni las animaciones globales.
-- node --check services-tilt.js y git diff --check correctos. No se probó en dispositivo físico.
+- HTMLParser: cierres correctos, un Canvas, cuatro secciones dentro del contenedor y Contacto fuera.
+- node --check light-droplets.js y git diff --check correctos.
+- Chrome headless con scroll programado: capturas a 1440 y 390 px en Servicios, Proyectos, Cómo trabajo, Sobre mí y Contacto; capturas adicionales a 320 px. Las luces aparecen en las cuatro secciones y se desvanecen al final de Sobre mí. Contacto y footer se ven libres de gotas; textos, tarjetas y mockups siguen legibles.
+- Métricas de Chrome a 1440, 900, 768, 390 y 320 px: un solo Canvas; su altura siempre igual al viewport; sin overflow horizontal ni excepciones de JavaScript. El Hero no se editó.
+- En Chrome móvil emulado a 390 px: 60 redibujos en un segundo en Proyectos; cero con prefers-reduced-motion; 60 tras reactivarlo. A 390 × 600 se midieron 61 redibujos en Proyectos y cero al salir completamente la región del viewport (borde inferior a -179 px). No se probó en un móvil físico. En 390 × 844, el final de Sobre mí aún ocupa 65 px al llegar al máximo scroll, por lo que el IntersectionObserver sigue activo; el fade oculta las luces en Contacto.
 
 ## Pendientes
 
-Revisar la sensación del tilt en un escritorio real y el rendimiento en un móvil físico. Destinos de contacto y detalles de proyectos continúan pendientes de datos reales.
+Validar rendimiento y scroll con entrada física en un móvil real. Destinos de contacto y detalles de proyectos continúan pendientes de datos reales.

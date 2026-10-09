@@ -527,7 +527,9 @@ button:focus-visible {
 
 .projects {
   padding: 0 var(--page-padding) clamp(5rem, 7.5vw, 7.5rem);
-  background: var(--color-bg);
+  position: relative;
+  z-index: 1;
+  background: transparent;
   scroll-margin-top: calc(var(--header-height) + 1.5rem);
 }
 
@@ -1004,8 +1006,10 @@ button:focus-visible {
 }
 
 .process {
+  position: relative;
+  z-index: 1;
   padding: clamp(4.75rem, 6.5vw, 6.5rem) var(--page-padding) clamp(4.25rem, 5.5vw, 5.5rem);
-  background: var(--color-bg);
+  background: transparent;
 }
 
 .process__header {
@@ -1153,9 +1157,11 @@ button:focus-visible {
 }
 
 .about {
+  position: relative;
+  z-index: 1;
   padding: clamp(5.75rem, 8.5vw, 8.5rem) var(--page-padding);
   border-top: 1px solid var(--color-border);
-  background: #0a0a0c;
+  background: rgb(10 10 12 / 72%);
 }
 
 .about__layout {
