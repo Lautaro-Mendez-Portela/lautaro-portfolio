@@ -2,24 +2,23 @@
 
 ## Estado actual
 
-Portfolio de una página en HTML, CSS y JavaScript vanilla, sin paquete ni scripts de build/test. La rama actual es `style/compact`; `main` no incluye los cambios aprobados del Hero presentes en esta rama. No hay tema claro implementado.
+Portfolio de una página en HTML, CSS y JavaScript vanilla, sin paquete ni scripts de build/test. Rama `style/compact`. No hay tema claro implementado.
 
-## Tarea actual: estelas luminosas en transición y Servicios
+## Tarea actual: escala visual de Light Droplets
 
-**Estado:** implementada localmente, sin commit, push ni deploy.
+**Estado:** implementada localmente, sin commit, push, merge ni deploy.
 
-- `index.html`: una sola capa Canvas decorativa envuelve la transición y Servicios; Proyectos queda fuera. Se cargó `light-droplets.js` y se actualizó la versión de CSS para evitar caché.
-- `styles.css`: la capa se recorta y desvanece al entrar y salir. Transición y Servicios mantienen su geometría y fondo oscuro; el Canvas queda detrás del contenido y no recibe eventos.
-- `light-droplets.js`: implementación propia en Canvas 2D, sin React ni dependencias. Entre 12 y 38 estelas finas de la paleta cyan, según el ancho; movimiento lento con brillo y velocidad variables. Limita a 60 FPS y DPR 1.5; pausa con IntersectionObserver, pestaña oculta o movimiento reducido; reanuda sin salto temporal y limpia listeners en pagehide. El video del Hero y su lógica no se tocaron.
-- Se mantuvo `style/compact` porque crear `feat/light-droplets-services` desde `main` habría dejado fuera los cambios actuales del Hero.
+- light-droplets.js: se añadió sizeScale: 1.7 a LIGHT_DROPLETS_CONFIG. Con 1.0 el sprite conserva su tamaño previo; con 1.7 crecen por igual la longitud visible, cuerpo, cabeza y halo. Se conservaron color #A378FF, intensidad 2.0, lengthScale, thicknessScale y parámetros de forma.
+- La escala se aplica solo al sprite Canvas. streak.trail continúa determinando el ciclo original, y las posiciones, velocidades, trayectorias, cantidad y distribución no cambiaron. La cabeza permanece anclada a la coordenada original de la partícula. La cola se desvanece al salir por abajo antes de reaparecer, para evitar un corte visible por la nueva longitud.
+- No cambiaron los alfas, gradientes ni la lógica de FPS, DPR, visibilidad o movimiento reducido. index.html solo actualiza el parámetro de caché a v=5-size.
 
 ## Verificación
 
-- `node --check light-droplets.js` y `git diff --check` completados.
-- Chrome headless local mediante DevTools: capturas reales de transición, Servicios y Proyectos; estelas visibles en las dos primeras zonas y ausentes en Proyectos. Capturas de Servicios a 390 y 320 px; contenido legible.
-- Anchos 1440, 900, 768, 390 y 320 px: `scrollWidth <= innerWidth`. No se registraron excepciones de JavaScript. Con `prefers-reduced-motion: reduce`, el Canvas quedó vacío.
-- Pausa fuera de viewport verificada: la suma alfa del Canvas cambia en la transición y permanece idéntica tras desplazar toda la región fuera de pantalla. No se midieron FPS reales en dispositivo físico ni se probó un tema claro porque el proyecto no lo tiene.
+- node --check light-droplets.js y git diff --check: correctos.
+- Chrome headless local: se tomaron y revisaron capturas a 1440 y 390 px. Se observan gotas violetas alargadas en la transición, con cabeza inferior y cola difusa; el texto visible de escritorio sigue legible. El navegador abrió la página cerca de la transición, por lo que estas capturas no permiten confirmar la legibilidad de las tarjetas de Servicios.
+- La escala 1,7 de longitud y anchura se comprobó en las fórmulas del sprite. Las rutinas de movimiento, cantidad y pausas no se editaron.
+- No se midió rendimiento de frames ni se probó en un móvil físico en esta tarea.
 
 ## Pendientes
 
-Revisar en un navegador interactivo la sutileza del efecto durante un scroll completo y el rendimiento en móvil real. El Hero conserva sus assets y lógica de carga anteriores. Los visuales de Servicios y Proyectos siguen siendo temporales; destinos de contacto y detalles de proyectos siguen pendientes.
+Revisar Servicios durante un scroll interactivo completo, confirmar la legibilidad de sus tarjetas y medir rendimiento en un móvil físico. No hay tema claro para verificar. Los visuales de Servicios y Proyectos siguen siendo temporales; destinos de contacto y detalles de proyectos siguen pendientes.
