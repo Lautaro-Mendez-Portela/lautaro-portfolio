@@ -14,11 +14,12 @@
       href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=9-qa" />
+    <link rel="stylesheet" href="styles.css?v=10-light-droplets" />
     <script>
       document.documentElement.classList.add('js');
     </script>
     <script src="script.js?v=8-hero-reveal" defer></script>
+    <script src="light-droplets.js?v=5-size" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
     <script src="animations.js?v=1" defer></script>
     <title>L — Desarrollo web y sistemas a medida</title>
@@ -97,6 +98,10 @@
         </div>
       </section>
 
+      <div class="light-droplets" data-light-droplets>
+        <div class="light-droplets__layer" aria-hidden="true">
+          <canvas class="light-droplets__canvas"></canvas>
+        </div>
       <section class="transition-statement" aria-labelledby="transition-title">
         <div class="transition-statement__inner">
           <h2 class="transition-statement__title" id="transition-title" data-reveal="statement">
@@ -206,6 +211,8 @@
           </figure>
         </article>
       </section>
+
+      </div>
 
       <section class="projects" id="proyectos" tabindex="-1" aria-labelledby="projects-title">
         <header class="projects__header" data-reveal="copy">
