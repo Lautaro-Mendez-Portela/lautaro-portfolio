@@ -2,24 +2,24 @@
 
 ## Estado actual
 
-Portfolio de una página en HTML, CSS y JavaScript vanilla, sin `package.json` ni scripts de build/test. Identidad oscura y cinematográfica. El repositorio aún no contiene un tema claro implementado.
+Portfolio de una página en HTML, CSS y JavaScript vanilla, sin paquete ni scripts de build/test. La rama actual es `style/compact`; `main` no incluye los cambios aprobados del Hero presentes en esta rama. No hay tema claro implementado.
 
-## Última tarea: carga progresiva del Hero
+## Tarea actual: estelas luminosas en transición y Servicios
 
-**Estado:** implementada; pendiente de revisión visual en navegador y despliegue. Sin commit ni push.
+**Estado:** implementada localmente, sin commit, push ni deploy.
 
-- `index.html`: el Hero muestra `assets/hero/hero-poster.avif` desde el HTML con prioridad alta. El video ya no tiene fuente inicial ni referencia a `1080p.mp4`. `script.js` carga antes del CDN de GSAP para que ese recurso externo no retrase la preparación del video. Se actualizaron las versiones de CSS y JS en las URLs.
-- `styles.css`: poster y video comparten tamaño, `object-fit` y encuadre desktop/mobile. El video aparece con una transición de opacidad de 400 ms; se preservan overlays, fade, layout y animaciones existentes.
-- `script.js`: elige `hero-mobile.mp4` hasta 47.99rem y `hero-desktop.mp4` por encima; asigna solo esa URL. Espera el primer fotograma mediante `requestVideoFrameCallback` (con fallback de `playing`) antes de mostrar el video. Ante rechazo de `play()` o error conserva el poster. Con movimiento reducido o `Save-Data`, evita asignar una fuente. Al cruzar el breakpoint cambia de variante; otros cambios de tamaño no reinician el video.
-- `assets/hero/`: tres recursos provistos por el usuario, aún sin seguimiento en Git (`?? assets/`). No se modificaron ni recomprimieron.
+- `index.html`: una sola capa Canvas decorativa envuelve la transición y Servicios; Proyectos queda fuera. Se cargó `light-droplets.js` y se actualizó la versión de CSS para evitar caché.
+- `styles.css`: la capa se recorta y desvanece al entrar y salir. Transición y Servicios mantienen su geometría y fondo oscuro; el Canvas queda detrás del contenido y no recibe eventos.
+- `light-droplets.js`: implementación propia en Canvas 2D, sin React ni dependencias. Entre 12 y 38 estelas finas de la paleta cyan, según el ancho; movimiento lento con brillo y velocidad variables. Limita a 60 FPS y DPR 1.5; pausa con IntersectionObserver, pestaña oculta o movimiento reducido; reanuda sin salto temporal y limpia listeners en pagehide. El video del Hero y su lógica no se tocaron.
+- Se mantuvo `style/compact` porque crear `feat/light-droplets-services` desde `main` habría dejado fuera los cambios actuales del Hero.
 
-## Verificación y pendientes
+## Verificación
 
-- `node --check script.js`, `node --check animations.js` y `git diff --check` completados.
-- Servidor HTTP local: HTML y poster responden 200; ambas variantes MP4 responden 206 a solicitudes parciales, con MIME correcto.
-- El navegador integrado bloqueó `localhost` y `127.0.0.1` (`ERR_BLOCKED_BY_CLIENT`). No se pudo inspeccionar visualmente la transición, consola, red, Core Web Vitals ni simular condiciones móviles en navegador. Tampoco se verificó el despliegue real en Vercel.
-- Próxima acción: revisión visual y de red en un navegador local o el preview de Vercel, en desktop/mobile y con movimiento reducido; después agregar los tres assets a Git junto con los cambios al preparar el commit. El usuario gestiona commit y push.
+- `node --check light-droplets.js` y `git diff --check` completados.
+- Chrome headless local mediante DevTools: capturas reales de transición, Servicios y Proyectos; estelas visibles en las dos primeras zonas y ausentes en Proyectos. Capturas de Servicios a 390 y 320 px; contenido legible.
+- Anchos 1440, 900, 768, 390 y 320 px: `scrollWidth <= innerWidth`. No se registraron excepciones de JavaScript. Con `prefers-reduced-motion: reduce`, el Canvas quedó vacío.
+- Pausa fuera de viewport verificada: la suma alfa del Canvas cambia en la transición y permanece idéntica tras desplazar toda la región fuera de pantalla. No se midieron FPS reales en dispositivo físico ni se probó un tema claro porque el proyecto no lo tiene.
 
-## Otros pendientes del portfolio
+## Pendientes
 
-Los visuales de Servicios y Proyectos son temporales. Destinos de contacto y detalles de proyectos siguen pendientes. GSAP 3.15.0 se carga desde el CDN fijado en `index.html`; Proceso tiene estado estático si no carga.
+Revisar en un navegador interactivo la sutileza del efecto durante un scroll completo y el rendimiento en móvil real. El Hero conserva sus assets y lógica de carga anteriores. Los visuales de Servicios y Proyectos siguen siendo temporales; destinos de contacto y detalles de proyectos siguen pendientes.
