@@ -4,6 +4,11 @@
 
 Portfolio estático de una página en HTML, CSS y JavaScript. `main` incorpora `style/compact` mediante merge local. No hay `package.json` ni scripts de build o test; no se hizo push ni deploy. La interfaz actual usa tema oscuro.
 
+## Tarea actual: refinamiento de Sobre mí
+
+- El título, primer párrafo y bloques inferiores de Sobre mí conservan el texto solicitado. El segundo párrafo de `index.html` comienza ahora con «Para mí, cada proyecto comienza…» para evitar repetir «Me gusta».
+- No se modificaron estilos: el título ya usa `text-wrap: balance`, la fila inferior tiene un margen superior moderado y el contenido está sobre un fondo oscuro por encima del canvas de Light Droplets. Se comprobó el texto exacto, un solo canvas en el HTML, `node --check` en los cuatro archivos JavaScript y `git diff --check`. La comparación visual en 1440, 900, 768, 390 y 320 px sigue pendiente: el navegador integrado bloquea el archivo local y Chrome/Edge headless no generaron capturas en este entorno.
+
 ## Integración de ramas
 
 - Se incorporaron de `style/compact` los cambios recientes de Servicios, Proyectos, Sobre mí, Contacto, Light Droplets y los recursos de `assets/projects/` y `assets/icons/`.
