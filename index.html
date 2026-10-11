@@ -13,7 +13,7 @@
       href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=general-sans@400,500,600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=14-about-spacing" />
+    <link rel="stylesheet" href="styles.css?v=24-whatsapp-icono" />
     <script>
       document.documentElement.classList.add('js');
     </script>
@@ -187,7 +187,7 @@
           <div class="featured-project__copy" data-reveal="copy">
             <h3 id="reservations-title">Sistema de reservas para canchas</h3>
             <p class="featured-project__description">
-              Una plataforma pensada para centralizar reservas, disponibilidad, clientes y pagos en un único sistema de gestión.
+              Una solución digital que permite a los clientes reservar turnos fácilmente y al negocio administrar reservas, disponibilidad y pagos desde un solo lugar.
             </p>
 
             <ul class="project-capabilities" aria-label="Capacidades principales">
@@ -198,66 +198,39 @@
               <li>Distintos roles de usuario</li>
             </ul>
 
-            <span class="project-cta project-cta--pending" title="Detalle del proyecto disponible próximamente">
-              <span>Ver proyecto</span>
+            <a class="project-cta" href="#contacto" aria-label="Quiero algo similar al sistema de reservas para canchas">
+              <span>Quiero algo similar</span>
               <span aria-hidden="true">→</span>
-              <span class="project-cta__status">Próximamente</span>
-            </span>
+            </a>
           </div>
 
           <figure
-            class="featured-project__visual project-placeholder project-placeholder--reservations"
+            class="featured-project__visual"
             data-reveal="visual"
-            data-replace-target="project-reservations-screenshots"
-            aria-labelledby="reservations-placeholder-caption"
+            aria-labelledby="reservations-visual-caption"
           >
-            <div class="featured-project__stage" aria-hidden="true">
-              <div class="reservation-screen reservation-screen--main">
-                <div class="reservation-screen__rail">
-                  <span class="reservation-screen__mark"></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-                <div class="reservation-screen__workspace">
-                  <div class="reservation-screen__topline">
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <div class="reservation-screen__metrics">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                  <div class="reservation-screen__schedule">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="reservation-screen reservation-screen--secondary">
-                <div class="reservation-panel__heading"></div>
-                <div class="reservation-panel__rows">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-              </div>
-
-              <div class="reservation-screen reservation-screen--compact">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+            <div class="featured-project__stage">
+              <img
+                class="featured-project__image featured-project__image--main"
+                src="assets/projects/reservas-portada.webp"
+                width="1665"
+                height="945"
+                loading="lazy"
+                decoding="async"
+                alt="Portada del sitio de reservas de canchas, con acceso a reservas y vista previa del calendario"
+              />
+              <img
+                class="featured-project__image featured-project__image--detail"
+                src="assets/projects/reservas-turno.webp"
+                width="1903"
+                height="1080"
+                loading="lazy"
+                decoding="async"
+                alt="Proceso de reserva con fecha, horario y cancha seleccionados, y resumen de la solicitud"
+              />
             </div>
-            <figcaption id="reservations-placeholder-caption">
-              Espacio reservado para las capturas del sistema de reservas
+            <figcaption id="reservations-visual-caption">
+              Sitio de reservas y selección de turno
             </figcaption>
           </figure>
         </article>
@@ -270,83 +243,59 @@
           <div class="secondary-projects__grid">
             <article class="project-card" data-reveal="project" aria-labelledby="ecommerce-title">
               <figure
-                class="project-card__visual project-placeholder project-placeholder--ecommerce"
-                data-replace-target="project-ecommerce-screenshots"
-                aria-labelledby="ecommerce-placeholder-caption"
+                class="project-card__visual"
+                aria-labelledby="ecommerce-concept-caption"
               >
-                <div class="project-card__stage" aria-hidden="true">
-                  <div class="storefront-placeholder">
-                    <div class="storefront-placeholder__nav">
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <div class="storefront-placeholder__feature"></div>
-                    <div class="storefront-placeholder__products">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
+                <div class="project-card__stage">
+                  <img
+                    class="project-card__image--ecommerce"
+                    src="assets/projects/ecommerce-streetwear-concepto-16x11.webp"
+                    width="1495"
+                    height="1052"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Concepto visual de tienda online streetwear con portada, productos destacados y categorías"
+                  />
                 </div>
-                <figcaption id="ecommerce-placeholder-caption">Espacio reservado para las capturas del e-commerce</figcaption>
+                <figcaption id="ecommerce-concept-caption">Conceptual · Tienda online streetwear</figcaption>
               </figure>
 
               <div class="project-card__body">
-                <h4 id="ecommerce-title">E-Commerce Full Stack</h4>
-                <p>Una tienda online completa con catálogo, autenticación, proceso de compra y pagos integrados.</p>
-                <ul class="project-tech" aria-label="Tecnologías principales">
-                  <li>Vue</li>
-                  <li>Node.js</li>
-                  <li>PostgreSQL</li>
-                  <li>Stripe</li>
-                </ul>
-                <span class="project-cta project-cta--pending" title="Detalle del proyecto disponible próximamente">
-                  <span>Ver proyecto</span>
+                <h4 id="ecommerce-title">Tienda online para marcas</h4>
+                <p>Una experiencia de compra moderna para mostrar productos, destacar colecciones y ayudar a los negocios a vender por internet.</p>
+                <a class="project-cta" href="#contacto" aria-label="Quiero algo similar a una tienda online para marcas">
+                  <span>Quiero algo similar</span>
                   <span aria-hidden="true">→</span>
-                  <span class="project-cta__status">Próximamente</span>
-                </span>
+                </a>
               </div>
             </article>
 
-            <article class="project-card" data-reveal="project" aria-labelledby="pdf-chat-title">
+            <article class="project-card" data-reveal="project" aria-labelledby="nova-title">
               <figure
-                class="project-card__visual project-placeholder project-placeholder--pdf-chat"
-                data-replace-target="project-ai-pdf-chat-screenshots"
-                aria-labelledby="pdf-chat-placeholder-caption"
+                class="project-card__visual"
+                aria-labelledby="nova-concept-caption"
               >
-                <div class="project-card__stage" aria-hidden="true">
-                  <div class="pdf-placeholder">
-                    <div class="pdf-placeholder__document">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                    <div class="pdf-placeholder__conversation">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </div>
-                  </div>
+                <div class="project-card__stage">
+                  <img
+                    class="project-card__image--nova"
+                    src="assets/projects/nova-studio-concepto-16x11.webp"
+                    width="1512"
+                    height="1040"
+                    loading="lazy"
+                    decoding="async"
+                    alt="Concepto visual de NOVA Studio para una peluquería unisex, con portada y servicios de corte, color y barbería"
+                  />
                 </div>
-                <figcaption id="pdf-chat-placeholder-caption">Espacio reservado para las capturas de AI PDF Chat</figcaption>
+                <figcaption id="nova-concept-caption">Conceptual · NOVA Studio</figcaption>
               </figure>
 
               <div class="project-card__body">
-                <h4 id="pdf-chat-title">AI PDF Chat</h4>
-                <p>Aplicación para consultar documentos PDF mediante una experiencia de chat y recuperación contextual de información.</p>
-                <ul class="project-tech" aria-label="Tecnologías principales">
-                  <li>NestJS</li>
-                  <li>PostgreSQL</li>
-                  <li>pgvector</li>
-                  <li>Ollama</li>
-                </ul>
-                <span class="project-cta project-cta--pending" title="Detalle del proyecto disponible próximamente">
-                  <span>Ver proyecto</span>
+                <h4 id="nova-title">Página web para peluquerías</h4>
+                <p>Una página moderna y atractiva para mostrar servicios, transmitir confianza y facilitar que nuevos clientes soliciten su turno.</p>
+                <a class="project-cta" href="#contacto" aria-label="Quiero algo similar a una página web para peluquerías">
+                  <span>Quiero algo similar</span>
                   <span aria-hidden="true">→</span>
-                  <span class="project-cta__status">Próximamente</span>
-                </span>
+                </a>
               </div>
             </article>
           </div>
@@ -448,28 +397,33 @@
             <p>Contame qué necesitás y vemos juntos la mejor forma de llevarlo a la realidad.</p>
           </div>
 
-          <div class="contact__actions" data-reveal="copy" aria-label="Opciones de contacto pendientes de configuración">
-            <button
+          <div class="contact__actions" data-reveal="copy" aria-label="Opciones de contacto">
+            <a
               class="contact-action contact-action--primary"
-              type="button"
-              disabled
-              aria-label="Escribime por WhatsApp, destino pendiente de configurar"
+              href="https://wa.me/542213524236?text=Hola%20Lautaro%2C%20tengo%20un%20proyecto%20en%20mente%20y%20me%20gustar%C3%ADa%20contarte%20un%20poco%20m%C3%A1s."
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M20 11.7a8 8 0 0 1-11.8 7L4 20l1.3-4.1A8 8 0 1 1 20 11.7Z" />
-                <path d="M9 8.2c.4 2.7 2.1 4.4 4.8 4.8M9.1 8.2l1.1-.6 1.1 2-1 .7M13.8 13l.7-1 2 1.1-.6 1.1" />
-              </svg>
+              <img
+                class="contact-action__whatsapp-icon"
+                src="assets/icons/whatsapp.png"
+                width="24"
+                height="24"
+                alt=""
+                aria-hidden="true"
+              />
               <span class="contact-action__copy">
                 <strong>Escribime por WhatsApp</strong>
-                <small>Destino pendiente de configurar</small>
+                <small>Hablemos de tu proyecto</small>
               </span>
-            </button>
+              <svg class="contact-action__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+            </a>
 
-            <button
+            <a
               class="contact-action contact-action--secondary"
-              type="button"
-              disabled
-              aria-label="Enviarme un email, destino pendiente de configurar"
+              href="mailto:lautaromendezportela@gmail.com"
             >
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="3" y="5" width="18" height="14" rx="2" />
@@ -477,9 +431,12 @@
               </svg>
               <span class="contact-action__copy">
                 <strong>Enviarme un email</strong>
-                <small>Destino pendiente de configurar</small>
+                <small>Consultas y propuestas</small>
               </span>
-            </button>
+              <svg class="contact-action__arrow" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
@@ -487,10 +444,10 @@
 
     <footer class="site-footer">
       <a class="site-footer__brand" href="#inicio" aria-label="Volver al inicio">L</a>
-      <ul class="site-footer__destinations" aria-label="Destinos sociales pendientes de configuración">
-        <li><span>Email <small>Próximamente</small></span></li>
-        <li><span>LinkedIn <small>Próximamente</small></span></li>
-        <li><span>GitHub <small>Próximamente</small></span></li>
+      <ul class="site-footer__destinations" aria-label="Enlaces de contacto y perfiles">
+        <li><a href="mailto:lautaromendezportela@gmail.com">Email</a></li>
+        <li><a href="https://www.linkedin.com/in/lautaro-mendez-portela-6374432a8/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="https://github.com/Lautaro-Mendez-Portela" target="_blank" rel="noopener noreferrer">GitHub</a></li>
       </ul>
     </footer>
   </body>
