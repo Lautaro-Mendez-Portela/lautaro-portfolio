@@ -4,7 +4,16 @@
 
 Portfolio estático de una página (HTML, CSS y JavaScript nativo), sin scripts de build/test. Rama style/compact. La interfaz implementa solo tema oscuro. No hay commit, push ni deploy de esta tarea.
 
-## Tarea actual: ícono de WhatsApp
+## Tarea actual: CTA comerciales en Proyectos
+
+**Estado:** implementado en código; validación visual real pendiente.
+
+- `styles.css`: los tres `.project-cta` ahora son enlaces con apariencia de botón compacto, fondo celeste de acento, texto oscuro, radio de 0.5rem, alto mínimo de 44 px y hover/activo sutiles. El foco usa contorno claro; `prefers-reduced-motion` sigue anulando las transiciones.
+- `index.html`: solo se actualizó la versión de la hoja CSS para evitar caché. Los tres CTA conservan texto, flecha y `href="#contacto"`; no se cambió el HTML del proyecto destacado porque su orden ya era lista → CTA → capturas tanto en lectura como en mobile. La distribución desktop permanece.
+- Validación estática: se comprobaron los tres enlaces, texto, orden DOM, reglas de scroll/foco/movimiento y breakpoints. Detector Impeccable ejecutado sin avisos relacionados con los CTA. `git diff --check` sin errores. No hay scripts de build/test configurados.
+- Pendiente: capturas reales, overflow, interacción y consola a 1440, 900, 768, 390 y 320 px. El navegador integrado bloquea el archivo local y prohíbe vías alternativas; próxima acción: validar en un navegador con acceso al portfolio o revisar capturas facilitadas por el usuario.
+
+## Tarea previa: ícono de WhatsApp
 
 **Estado:** reemplazado en código; revisión visual en navegador pendiente.
 
