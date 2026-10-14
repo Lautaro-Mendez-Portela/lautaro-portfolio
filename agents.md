@@ -258,8 +258,8 @@ Do not imply that the system was sold to or commissioned by a real client unless
 The current Projects section contains:
 
 - Sistema de reservas para canchas
-- E-Commerce Full Stack
-- AI PDF Chat
+- Tienda online para marcas
+- Página web para peluquerías
 
 Do not remove or rename them without a user request.
 

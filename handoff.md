@@ -2,28 +2,35 @@
 
 ## Estado actual
 
-Portfolio estático de una página en HTML, CSS y JavaScript, sin `package.json` ni scripts de build o test. La interfaz mantiene su diseño, Hero, animaciones y tema oscuro actuales. No se hizo commit, push ni deploy.
+Portfolio estático de una página en HTML, CSS y JavaScript, sin `package.json` ni scripts de build o test. No se hizo commit, push ni deploy. Antes del Bloque 1 el árbol de trabajo estaba limpio; los cambios actuales están pendientes de revisión del usuario.
 
-## Tarea actual: base SEO técnica
+## Tarea actual: área precisa del hover en Proyectos
 
-- `index.html` tiene un título comercial, meta description, canonical absoluto, Open Graph y Twitter Cards para `https://lautaromendezportela.com/`.
-- El documento declara `lang="es-AR"`. Se auditó la semántica: hay un solo H1, la jerarquía H2-H4 es coherente y las seis imágenes tienen `alt` descriptivo o vacío cuando son decorativas.
-- Se agregaron `robots.txt` y `sitemap.xml` para la única URL canónica. `.vercelignore` permite publicar ambos archivos.
-- `assets/social/og-portfolio.jpg` es un fallback social JPG de 1200x630 derivado del póster del Hero. Conviene reemplazarlo más adelante por una pieza OG editorial con nombre y propuesta de valor; conservar la misma ruta evitará cambiar los metadatos.
-- El `<body>` de `index.html` permanece idéntico a `HEAD`, por lo que no se modificó contenido visible, layout, estilos ni comportamiento.
+- `styles.css` cambió `.project-card:hover .project-card__stage` por `.project-card__stage:hover`.
+- El borde celeste de Tienda online y NOVA se activa exclusivamente al pasar el cursor sobre el rectángulo visual.
+- Título, descripción, CTA, figcaption y espacios restantes de la tarjeta conservan el borde normal.
+- El zoom eliminado previamente continúa ausente; los mockups mantienen tamaño y posición.
+- Se conservaron color, grosor, intensidad, transición, radio, proporciones y reglas `:focus-visible`.
+- No se modificaron imágenes, textos, layout, JavaScript ni animaciones.
+- El árbol conserva además los cambios anteriores pendientes de SEO/copywriting y la simplificación de Sobre mí.
+
+## Archivos modificados
+
+- `styles.css`
+- `handoff.md`
 
 ## Validación
 
-- Metadatos únicos: un `title`, una description, un canonical, un `og:title`, un `og:description`, un `og:url`, un `og:image` y una Twitter Card.
-- No aparecen directivas `noindex` ni `nofollow`.
-- Título de 59 caracteres y description de 150 caracteres.
-- `sitemap.xml` se pudo parsear como XML y contiene solo la URL canónica.
-- La imagen social se verificó como JPG de 1200x630 y 174241 bytes.
-- `git diff --check` no informó errores. No hay scripts de build o test disponibles.
+- Validación del hover en navegador desktop sobre imagen, título, descripción, CTA y espacio bajo la imagen.
+- En ambas tarjetas sólo la imagen activa la mezcla celeste; las demás zonas mantienen `rgb(36, 36, 40)`.
+- En reposo y hover, ambas mantienen `transform: none`, el mismo ancho y alto, borde de `1px` y radio de `16px`.
+- La transición declarada del borde continúa en `border-color 260ms ease`.
+- La regla `.project-cta:focus-visible` permanece disponible.
+- Validación responsive a 390×844: grilla de una columna, mockups 16:11, sin overflow horizontal.
+- Sin errores ni advertencias de consola.
+- `git diff --check` y comprobación de sintaxis de los scripts correctos.
 
-## Pendiente después del deploy
+## Pendiente
 
-- Confirmar respuesta `200`, tipo MIME y contenido público de `/robots.txt`, `/sitemap.xml` y `/assets/social/og-portfolio.jpg`.
-- Verificar redirecciones de HTTP y variantes `www` hacia la URL canónica HTTPS.
-- Validar la vista previa en LinkedIn, Facebook y X, y reemplazar el fallback por una pieza OG editorial si se desea una tarjeta más informativa.
-- Verificar la propiedad en Google Search Console, enviar `/sitemap.xml` e inspeccionar la URL principal para solicitar indexación.
+- Revisión del usuario antes de continuar con el Bloque 2 de SEO/copywriting.
+- Tras un futuro deploy, volver a comprobar la respuesta pública de metadatos, `robots.txt`, `sitemap.xml` y la tarjeta social.

@@ -862,6 +862,7 @@ section[tabindex="-1"]:focus {
 
   position: relative;
   display: grid;
+  align-content: start;
   grid-template-rows: auto 0.75rem auto;
   min-width: 0;
 }
@@ -1254,12 +1255,8 @@ section[tabindex="-1"]:focus {
   }
 
   .featured-project__visual:hover .featured-project__stage,
-  .project-card:hover .project-card__stage {
+  .project-card__stage:hover {
     border-color: color-mix(in srgb, var(--color-accent) 44%, var(--color-border));
-  }
-
-  .project-card:hover .project-card__stage {
-    transform: translateY(-0.1875rem) scale(1.01);
   }
 
 }
