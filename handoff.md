@@ -2,34 +2,21 @@
 
 ## Estado actual
 
-Imagen Open Graph definitiva corregida localmente: el nombre dentro de la pieza ahora dice «Lautaro Mendez Portela». Los datos estructurados Schema.org de la tarea anterior permanecen incorporados. No se hizo commit, push ni deploy.
+Favicon D definitivo instalado desde `favicon_portfolio_D.zip` en la raíz del sitio. El diseño y los demás recursos permanecen sin cambios.
 
-## Tarea actual: imagen Open Graph
+## Archivos de esta tarea
 
-- Se reemplazó `assets/social/og-portfolio.jpg` por una pieza de 1200 × 630 basada exclusivamente en `assets/hero/hero-poster.avif`, sin modificar el original.
-- La composición se generó mediante HTML/CSS y una captura headless de Chrome. Se usaron los WOFF2 oficiales de Fontshare para Clash Display 700 (nombre/monograma) y 600 (título).
-- La hoja combinada actual de Fontshare no entrega General Sans; la descripción replica la cadena efectiva del sitio: `"General Sans", "Helvetica Neue", Arial, sans-serif`, que cae en Arial en este entorno Windows.
-- El fondo conserva `object-fit: cover` y `object-position: center`; sólo se añadieron overlays negros semitransparentes para contraste.
-- Se mantuvo la URL existente de Open Graph y Twitter. Sólo se actualizaron `og:image:alt` y `twitter:image:alt`.
-- `.vercelignore` ya permite publicar `assets/`; no requirió cambios.
-- A pedido del usuario se eliminó sólo la tilde visible de «Méndez» en la imagen, reconstruyendo el pequeño fondo bajo el acento; la composición y el resto del texto se conservaron.
+- `favicon.ico`, `favicon-32.png`, `apple-touch-icon.png`: copias sin modificar de los recursos del ZIP.
+- `index.html`: enlaces ICO, PNG de 32 × 32 y Apple Touch Icon con versión de caché `v=1`.
+- `.vercelignore`: permite publicar los tres archivos de icono en la raíz.
+- `handoff.md`: este registro.
 
-## Archivos modificados
+No había manifest ni favicon anterior en disco. `favicon-512.png` no se instaló porque ninguna configuración lo utiliza. El ZIP original permanece fuera del commit.
 
-- `assets/social/og-portfolio.jpg`
-- `index.html`
-- `handoff.md`
+## Validación y publicación
 
-## Validación
-
-- JPG válido, 1200 × 630, `yuvj420p`, 105.437 bytes (aprox. 103 KiB).
-- Inspección visual a tamaño completo y reducción Lanczos a 400 × 210: textos legibles, sin recortes ni distorsión.
-- Nombre corregido a «Lautaro Mendez Portela» y título/descripción conservados; no se incluyó “en La Plata”.
-- Metadatos verificados: URL compartida, `image/jpeg`, ancho 1200 y alto 630.
-- No se modificaron CSS, JavaScript funcional, Hero, animaciones, secciones, sitemap ni robots.
-- Detector Impeccable ejecutado una vez; sólo señaló patrones preexistentes en la página fuera del alcance de esta tarea.
-
-## Pendiente
-
-- Publicar únicamente después de la aprobación del usuario.
-- Después del despliegue, comprobar la imagen pública y refrescar las vistas previas de WhatsApp y LinkedIn, teniendo en cuenta sus cachés.
+- Los archivos instalados coinciden byte por byte con el ZIP. PNG: 32 × 32 y 180 × 180; ICO: 16, 32, 48 y 64 px.
+- Inspección visual de 16 y 32 px correcta. Las tres URLs versionadas respondieron HTTP 200 y con tipos MIME adecuados en el servidor local.
+- `git diff --check` sin errores. La prueba headless en Chrome y Edge no pudo completarse por un fallo del proceso GPU del entorno; no se verificó la consola del sitio.
+- Rama local y rama predeterminada de GitHub: `main`. No hay configuración de Vercel en el repositorio para confirmar si su rama de producción fue cambiada.
+- Pendiente: registrar el commit y, antes de publicar, confirmar la rama de producción en Vercel. Tras el despliegue, comprobar las URLs e iconos públicos y refrescar la caché del navegador si corresponde.
