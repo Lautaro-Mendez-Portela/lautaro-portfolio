@@ -18,5 +18,6 @@ No había manifest ni favicon anterior en disco. `favicon-512.png` no se instal�
 - Los archivos instalados coinciden byte por byte con el ZIP. PNG: 32 × 32 y 180 × 180; ICO: 16, 32, 48 y 64 px.
 - Inspección visual de 16 y 32 px correcta. Las tres URLs versionadas respondieron HTTP 200 y con tipos MIME adecuados en el servidor local.
 - `git diff --check` sin errores. La prueba headless en Chrome y Edge no pudo completarse por un fallo del proceso GPU del entorno; no se verificó la consola del sitio.
-- Rama local y rama predeterminada de GitHub: `main`. No hay configuración de Vercel en el repositorio para confirmar si su rama de producción fue cambiada.
-- Commit local `b7f16ef` creado en `main`. Push y despliegue pendientes: antes de publicar, confirmar la rama de producción en Vercel. Tras el despliegue, comprobar las URLs e iconos públicos y refrescar la caché del navegador si corresponde.
+- Rama de producción de Vercel: `main`, confirmada por el usuario. Commits del cambio `b7f16ef` y del registro `5b80781` enviados a `origin/main`.
+- Vercel informó `success` para `5b80781`. El HTML público contiene los tres enlaces nuevos y no el favicon vacío anterior. Las tres URLs públicas respondieron HTTP 200 con bytes idénticos a los archivos locales.
+- Pendiente sólo la comprobación visual manual en navegadores/dispositivos reales si sus cachés todavía muestran el icono anterior.
