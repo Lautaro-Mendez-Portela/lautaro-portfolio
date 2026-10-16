@@ -19,4 +19,4 @@ No había manifest ni favicon anterior en disco. `favicon-512.png` no se instal�
 - Inspección visual de 16 y 32 px correcta. Las tres URLs versionadas respondieron HTTP 200 y con tipos MIME adecuados en el servidor local.
 - `git diff --check` sin errores. La prueba headless en Chrome y Edge no pudo completarse por un fallo del proceso GPU del entorno; no se verificó la consola del sitio.
 - Rama local y rama predeterminada de GitHub: `main`. No hay configuración de Vercel en el repositorio para confirmar si su rama de producción fue cambiada.
-- Pendiente: registrar el commit y, antes de publicar, confirmar la rama de producción en Vercel. Tras el despliegue, comprobar las URLs e iconos públicos y refrescar la caché del navegador si corresponde.
+- Commit local `b7f16ef` creado en `main`. Push y despliegue pendientes: antes de publicar, confirmar la rama de producción en Vercel. Tras el despliegue, comprobar las URLs e iconos públicos y refrescar la caché del navegador si corresponde.
