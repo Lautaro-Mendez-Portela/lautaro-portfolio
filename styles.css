@@ -1383,13 +1383,12 @@ section[tabindex="-1"]:focus {
 
   .js.reveal-enabled [data-reveal].is-visible {
     opacity: 1;
-    clip-path: inset(0);
     filter: blur(0);
     transform: translateY(0) scale(1);
   }
 
-  .js.reveal-enabled [data-reveal="timeline"].is-visible {
-    clip-path: none;
+  .js.reveal-enabled [data-reveal="statement"].is-visible {
+    clip-path: inset(0);
   }
 
 }

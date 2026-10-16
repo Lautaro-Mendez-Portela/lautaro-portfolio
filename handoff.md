@@ -4,27 +4,23 @@
 
 Portfolio estático de una página en HTML, CSS y JavaScript, sin `package.json` ni scripts de build o test. No se hizo commit ni push.
 
-## Tarea actual: CTA de Proyectos igual al Hero
+## Tarea actual: recorte del hover en los CTA de Proyectos
 
-- Los tres enlaces «Quiero algo similar» conservan su texto, `aria-label` y destino `#contacto`.
-- Ahora comparten `button button--primary` y el mismo SVG de flecha con el CTA «Hablemos de tu proyecto» del Hero. El botón original no cambió.
-- `.project-cta` conserva únicamente el espaciado y la posición de los botones en Proyectos. Se retiraron sus estilos visuales y estados anteriores.
-- El CTA del proyecto destacado conserva su animación de entrada; una regla puntual permite que sus transiciones y transformación en hover coincidan con el botón compartido.
+- Causa: la regla general `.js.reveal-enabled [data-reveal].is-visible` aplicaba `clip-path: inset(0)` al copy destacado y a las tarjetas. El hover compartido escala el CTA a `1.015`, por lo que el contenedor recortaba sus bordes al sobresalir.
+- Solución: `clip-path: inset(0)` se aplica solo al título `data-reveal="statement"`, que sí usa un reveal con recorte. Los contenedores de Proyectos quedan con `clip-path: none` tras su entrada.
+- Se conservaron las clases, medidas, colores, flecha, posición, hover y foco de los CTA. No se modificó el Hero ni el HTML de Proyectos.
 
 ## Archivos modificados
 
-- `index.html`
 - `styles.css`
 - `handoff.md`
 
 ## Validación
 
-- Comparación de estilos calculados en navegador: los cuatro CTA comparten fondo `rgb(245, 245, 242)`, texto `rgb(5, 5, 5)`, padding, altura, radio, tipografía, borde, sombra y SVG. El ancho varía por el texto y el contenedor.
-- En desktop (1440 px) y mobile (390 px) no se observó overflow horizontal. Inspección visual mobile de Proyectos: CTA destacado alineado y sin cambios imprevistos de layout.
-- Foco de teclado verificado en un CTA de Proyectos: `:focus-visible` activo con contorno celeste de 2 px y offset de 4 px.
-- El hover y la reducción de movimiento usan las reglas ya existentes de `.button` y `prefers-reduced-motion`; no se añadieron animaciones nuevas.
+- Navegador desktop (1270 px) y mobile (390 px): inspección visual de los tres botones en reposo y hover; los cuatro bordes redondeados y el contorno de foco permanecen visibles.
+- Estilos calculados: `clip-path: none` en los padres de los tres CTA; el hover conserva el escalado existente. En mobile no hay overflow horizontal y, tras salir del hover, el botón vuelve a 340 × 50 px con `transform: none`.
 - `git diff --check` sin errores.
 
 ## Pendiente
 
-- Revisión del usuario. Los archivos sin seguimiento `LICENSE-Uiverse-project-cta.txt` y `project-flip-text.js` ya estaban presentes y no se tocaron.
+- Revisión del usuario. No quedan problemas conocidos en los CTA.
